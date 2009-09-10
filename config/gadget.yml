@@ -1,0 +1,6 @@
+Album:
+  caption:
+    ja_JP: "アルバム"
+  description:
+    ja_JP: "アルバムです。"
+  component: [album, albumComponent]
