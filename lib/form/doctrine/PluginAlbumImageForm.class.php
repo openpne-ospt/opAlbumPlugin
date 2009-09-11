@@ -29,6 +29,39 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
         'label'        => false,
         'edit_mode'    => !$this->isNew(),
       );
+    if (!$this->isNew())
+    {
+      sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
+      $options['template'] = get_partial('album/formEditImage', array('image' => $this->getObject()));
+      $this->setValidator($key.'_delete', new sfValidatorBoolean(array('required' => false)));
+    }
 
- }
+    $this->setWidget($key, new sfWidgetFormInputFileEditable($options, array('size' => 40)));
+    $this->setValidator($key, new opValidatorImageFile(array('required' => false)));
+  }
+
+  public function updateObject($values = null)
+  {
+    if ($values['photo'] instanceof sfValidatedFile)
+    {
+      if (!$this->isNew())
+      {
+        unset($this->getObject()->File);
+      }
+
+      $file = new File();
+      $file->setFromValidatedFile($values['photo']);
+
+      $this->getObject()->setFile($file);
+    }
+    else
+    {
+      if (!$this->isNew() && !empty($values['photo_delete']))
+      {
+        $this->getObject()->getFile()->delete();
+      }
+
+      $this->getObject()->setFile(null);
+    }
+  }
 }

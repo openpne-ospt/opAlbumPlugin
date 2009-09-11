@@ -9,78 +9,71 @@
  */
 abstract class PluginAlbumForm extends BaseAlbumForm
 {
-public function setup()
-{
-  parent::setup();
-
-  unset($this['id']);
-  unset($this['member_id']);
-  unset($this['created_at']);
-  unset($this['updated_at']);
-  unset($this['has_images']);
-
-  $this->widgetSchema['title'] = new sfWidgetFormInput();
-/*
-  $this->widgetSchema['public_flag'] = new sfWidgetFormChoice(array(
-     'choices'  => Doctrine::getTable('Album')->getPublicFlags(),
-     'expanded' => true,
-   ));
-    $this->validatorSchema['public_flag'] = new sfValidatorChoice(array(
-      'choices' => array_keys(Doctrine::getTable('Album')->getPublicFlags()),
-    ));
-}
-/*
-  if (sfConfig::get('app_diary_is_upload_images', true))
+  public function setup()
   {
-    $images = array();
-    if (!$this->isNew())
-    {
-      $images = $this->getObject()->getDiaryImages();
-    }
+    parent::setup();
 
-    $max = (int)sfConfig::get('app_diary_max_image_file_num', 3);
-    for ($i = 1; $i <= $max; $i++)
-    {
-      $key = 'photo_'.$i;
+    unset($this['id']);
+    unset($this['member_id']);
+    unset($this['created_at']);
+    unset($this['updated_at']);
+    unset($this['has_images']);
 
-      if (isset($images[$i]))
+    $this->widgetSchema['title'] = new sfWidgetFormInput();
+    $this->widgetSchema['public_flag'] = new sfWidgetFormChoice(array(
+      'choices'  => Doctrine::getTable('Diary')->getPublicFlags(),
+      'expanded' => true,
+    ));
+    $this->validatorSchema['public_flag'] = new sfValidatorChoice(array(
+      'choices' => array_keys(Doctrine::getTable('Diary')->getPublicFlags()),
+    ));
+
+/*     
+    if (sfConfig::get('app_Album_is_upload_images', true))
+    {
+      $images = array();
+      if (!$this->isNew())
       {
-        $image = $images[$i];
+        $images = $this->getObject()->getAlbumImages();
+      }
+
+      if (isset($images))
+      {
+        $image = $images;
       }
       else
       {
         $image = new AlbumImage();
-        $image->setDiary($this->getObject());
-        $image->setNumber($i);
+        $image->setAlbum($this->getObject());
       }
 
       $imageForm = new AlbumImageForm($image);
       $imageForm->getWidgetSchema()->setFormFormatterName('list');
-      $this->embedForm($key, $imageForm, '<ul id="diary_'.$key.'">%content%</ul>');
+      $this->embedForm('photo', $imageForm, '<ul id="album_photo">%content%</ul>');
     }
+ */
   }
-}
 
-public function updateObject($values = null)
-{
-  $object = parent::updateObject($values);
-
-  foreach ($this->embeddedForms as $key => $form)
+/*  
+  public function updateObject($values = null)
   {
-    if (!($form->getObject() && $form->getObject()->getFile()))
+    $object = parent::updateObject($values);
+
+    foreach ($this->embeddedForms as $key => $form)
     {
-      unset($this->embeddedForms[$key]);
+      if (!($form->getObject() && $form->getObject()->getFile()))
+      {
+        unset($this->embeddedForms[$key]);
+      }
     }
+    return $object;
   }
 
-  return $object;
-}
+  protected function doSave($con = null)
+  {
+    parent::doSave($con);
 
-protected function doSave($con = null)
-{
-  parent::doSave($con);
-
-  $this->getObject()->updateHasImages();
-*/
-}
+    $this->getObject()->updateHasImages();
+  }
+*/ 
 }
