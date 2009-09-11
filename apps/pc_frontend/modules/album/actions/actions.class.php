@@ -32,7 +32,7 @@ class albumActions extends sfActions
   {
     $this->form = new AlbumForm();
   }
-  public function executeAlbumCreate(sfWebRequest $request)
+  public function executeCreate(sfWebRequest $request)
   {
     $param = $request->getParameter('album');
     $param['member_id'] = $this->getUser()->getMember()->getId();
@@ -43,6 +43,12 @@ class albumActions extends sfActions
     {
 var_dump(__LINE__);
       $AlbumForm->save();
+    }
+    else
+    {
+      foreach($AlbumForm->getErrorSchema() as $e){
+        var_dump(get_class($e->getValidator()));
+      }
     }
     var_dump(__LINE__);
 exit;

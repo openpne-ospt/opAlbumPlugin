@@ -20,15 +20,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     unset($this['has_images']);
 
     $this->widgetSchema['title'] = new sfWidgetFormInput();
-    $this->widgetSchema['public_flag'] = new sfWidgetFormChoice(array(
-      'choices'  => Doctrine::getTable('Diary')->getPublicFlags(),
-      'expanded' => true,
-    ));
-    $this->validatorSchema['public_flag'] = new sfValidatorChoice(array(
-      'choices' => array_keys(Doctrine::getTable('Diary')->getPublicFlags()),
-    ));
 
-/*     
     if (sfConfig::get('app_Album_is_upload_images', true))
     {
       $images = array();
@@ -49,9 +41,16 @@ abstract class PluginAlbumForm extends BaseAlbumForm
 
       $imageForm = new AlbumImageForm($image);
       $imageForm->getWidgetSchema()->setFormFormatterName('list');
-      $this->embedForm('photo', $imageForm, '<ul id="album_photo">%content%</ul>');
+      $this->embedForm('cover', $imageForm, '<ul id="album_photo">%content%</ul>');
+
+      $this->widgetSchema['public_flag'] = new sfWidgetFormChoice(array(
+        'choices'  => Doctrine::getTable('Album')->getPublicFlags(),
+        'expanded' => true,
+      ));
+      $this->validatorSchema['public_flag'] = new sfValidatorChoice(array(
+        'choices' => array_keys(Doctrine::getTable('Album')->getPublicFlags()),
+      ));
     }
- */
   }
 
 /*  
