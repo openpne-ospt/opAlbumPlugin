@@ -53,7 +53,6 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     }
   }
 
-/*  
   public function updateObject($values = null)
   {
     $object = parent::updateObject($values);
@@ -74,5 +73,4 @@ abstract class PluginAlbumForm extends BaseAlbumForm
 
     $this->getObject()->updateHasImages();
   }
-*/ 
 }

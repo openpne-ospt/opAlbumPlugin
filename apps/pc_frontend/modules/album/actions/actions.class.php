@@ -16,41 +16,6 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
  */
-class albumActions extends sfActions
+class albumActions extends opAlbumPluginAlbumActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfWebRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
-
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new AlbumForm();
-  }
-  public function executeCreate(sfWebRequest $request)
-  {
-    $param = $request->getParameter('album');
-    $param['member_id'] = $this->getUser()->getMember()->getId();
-
-    $AlbumForm = new AlbumForm();
-    $AlbumForm->bind($param);
-    if ($AlbumForm->isValid())
-    {
-var_dump(__LINE__);
-      $AlbumForm->save();
-    }
-    else
-    {
-      foreach($AlbumForm->getErrorSchema() as $e){
-        var_dump(get_class($e->getValidator()));
-      }
-    }
-    var_dump(__LINE__);
-exit;
-  }
 }

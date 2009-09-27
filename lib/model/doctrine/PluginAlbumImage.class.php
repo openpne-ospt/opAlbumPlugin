@@ -12,5 +12,19 @@
  */
 abstract class PluginAlbumImage extends BaseAlbumImage
 {
+  public function save(Doctrine_Connection $conn = null)
+  {
+    $this->setFileNamePrefix();
 
+    return parent::save($conn);
+  }
+
+  protected function setFileNamePrefix()
+  {
+    $prefix = 'A_'.$this->getAlbum()->getId().'_'.$this->getNumber().'_';
+var_dump($prefix);
+
+    $file = $this->getFile();
+    $file->setName($prefix.$file->getName());
+  }
 }
