@@ -6,15 +6,15 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
- */
+ */                                                                                                                                                                                
 
 /**
- * Diary routing.
+ * Album routing.
  *
  * @package    OpenPNE
- * @author     Mogi Hiroki <mogi@tejimaya.com>
+ * @author     Hiroki Mogi <mogi@tejimaya.net>
  */
-class opDiaryPluginRouting
+class opAlbumPluginRouting
 {
   static public function listenToRoutingLoadConfigurationEvent(sfEvent $event)
   {
@@ -22,22 +22,22 @@ class opDiaryPluginRouting
 
     $routes = array(
       'album_index' => new sfRoute(
-        '/album',
+        '/diary',
         array('module' => 'album', 'action' => 'index')
-      ),
-
-      'album_show' => new sfDoctrineRoute(
+      ),  
+     'album_show' => new sfDoctrineRoute(
         '/album/:id',
         array('module' => 'album', 'action' => 'show'),
-        array('id' => '\d+'),
+        array('id' => '¥d+'),
         array('model' => 'Album', 'type' => 'object')
-      ),
-    );
+      ),  
+    );  
 
     $routes = array_reverse($routes);
     foreach ($routes as $name => $route)
-    {
+    {   
       $routing->prependRoute($name, $route);
-    }
+    }   
   }
 }
+

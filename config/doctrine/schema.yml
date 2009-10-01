@@ -31,7 +31,4 @@ AlbumImage:
     File:
       foreignAlias: AlbumImages
       onDelete: cascade
-  indexes:
-    album_id_number:
-      fields: [album_id, number]
-      type: unique
+
