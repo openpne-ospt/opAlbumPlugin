@@ -91,5 +91,4 @@ abstract class PluginAlbum extends BaseAlbum
 
     return $q->execute();
   }
-
 }

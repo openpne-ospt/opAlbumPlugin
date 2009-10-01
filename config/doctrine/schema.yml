@@ -9,7 +9,7 @@ Album:
     title: { type: string, notnull: true }
     body: { type: string, notnull: true }
     public_flag: { type: integer(1), notnull: true, default: 1 }
-    has_images: { type: boolean, notnull: true, default: false }
+    file_id: { type: integer(4), notnull: false }
   relations:
     Member:
       foreignAlias: Albums
@@ -20,9 +20,9 @@ AlbumImage:
   columns:
     id: { type: integer(4), primary: true, autoincrement: true }
     album_id: { type: integer(4), notnull: true }
+    member_id: { type: integer(4), notnull: true }
     file_id: { type: integer(4), notnull: true }
-    number: { type: integer(4), notnull: true }
-    image_description: { type: string, notnull: true }
+    description: { type: string, notnull: true }
     filesize: { type: integer, notnull: true }
   relations:
     Album:

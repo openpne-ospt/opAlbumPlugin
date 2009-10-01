@@ -22,9 +22,9 @@ abstract class PluginAlbumImage extends BaseAlbumImage
   protected function setFileNamePrefix()
   {
     $prefix = 'A_'.$this->getAlbum()->getId().'_'.$this->getNumber().'_';
-var_dump($prefix);
-
     $file = $this->getFile();
     $file->setName($prefix.$file->getName());
+    var_dump(__LINE__);
+    exit;
   }
 }

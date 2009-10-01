@@ -52,10 +52,9 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
     if ($this->isAlbumAuthor())
     {
-      Doctrine::getTable('AlbumCommentUnread')->unregister($this->album);
+      Doctrine::getTable('diary_image')->unregister($this->diary);
     }
-
-    $this->form = new AlbumCommentForm();
+    $this->form = new DiaryCommentForm();
   }
 
   public function executeNew(sfWebRequest $request)
@@ -69,9 +68,6 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
     $this->processForm($request, $this->form);
     $this->setTemplate('new');
-    $param = $request->getParameter('album');
-    $param['member_id'] = $this->getUser()->getMember()->getId();
-    exit;
   }
 
  public function executeEdit(sfWebRequest $request)
@@ -117,9 +113,9 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     );
     if ($form->isValid())
     {
-      var_dump(__LINE__);
       $album = $form->save();
-//      $this->redirect('@album_show?id='.$album->getId());
+
+//      $this->redirect('@homepage');
     }
   }
 }
