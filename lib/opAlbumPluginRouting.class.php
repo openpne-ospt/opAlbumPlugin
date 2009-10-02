@@ -22,15 +22,28 @@ class opAlbumPluginRouting
 
     $routes = array(
       'album_index' => new sfRoute(
-        '/diary',
+        '/album',
         array('module' => 'album', 'action' => 'index')
       ),  
-     'album_show' => new sfDoctrineRoute(
+      'album_new' => new sfRoute(
+        '/album/new',
+        array('module' => 'album', 'action' => 'new')
+      ),
+      'album_show' => new sfDoctrineRoute(
         '/album/:id',
         array('module' => 'album', 'action' => 'show'),
         array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
-      ),  
+      ), 
+      'album_create' => new sfRequestRoute(
+        '/album/create',
+        array('module' => 'album', 'action' => 'create'),
+        array('sf_method' => array('post'))
+      ),
+      'album_nodefaults' => new sfRoute(
+        '/album/*',
+        array('module' => 'default', 'action' => 'error')
+      ),
     );  
 
     $routes = array_reverse($routes);

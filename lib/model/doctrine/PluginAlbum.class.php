@@ -79,7 +79,7 @@ abstract class PluginAlbum extends BaseAlbum
   public function isViewable($memberId)
   {
     $flags = $this->getTable()->getViewablePublicFlags($this->getTable()->getPublicFlagByMemberId($this->getMemberId(), $memberId));
-
+    
     return in_array($this->getPublicFlag(), $flags);
   }
 

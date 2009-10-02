@@ -19,27 +19,22 @@ class opAlbumPluginActions extends sfActions
 {
   public function preExecute()
   {
-    var_dump(is_callable(array($this->getRoute(), 'getObject')));
     if (is_callable(array($this->getRoute(), 'getObject')))
     {
       $object = $this->getRoute()->getObject();
-var_dump($object);
       if ($object instanceof Album)
       {
-  var_dump(__LINE__);
         $this->album = $object;
         $this->member = $this->album->getMember();
       }
       elseif ($object instanceof AlbumComment)
       {
-        var_dump(__LINE__);
         $this->albumComment = $object;
         $this->album = $this->albumComment->getAlbum();
         $this->member = $this->album->getMember();
       }
       elseif ($object instanceof Member)
       {
-  var_dump(__LINE__);
         $this->member = $object;
       }
     }
@@ -76,6 +71,6 @@ var_dump($object);
 
   protected function isAlbumViewable()
   {
-    return $this->diary->isViewable($this->getUser()->getMemberId());
+    return $this->album->isViewable($this->getUser()->getMemberId());
   }
 }

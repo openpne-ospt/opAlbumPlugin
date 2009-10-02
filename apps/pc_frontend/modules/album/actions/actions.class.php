@@ -27,11 +27,7 @@ class albumActions extends opAlbumPluginAlbumActions
   {
     $this->forward('default', 'module');
   }
-
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new AlbumForm();
-  }
+/*
   public function executeAlbumCreate(sfWebRequest $request)
   {
     $param = $request->getParameter('album');
@@ -47,4 +43,5 @@ var_dump(__LINE__);
     var_dump(__LINE__);
 exit;
   }
+ */
 }

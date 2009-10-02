@@ -52,7 +52,7 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
     if ($this->isAlbumAuthor())
     {
-      Doctrine::getTable('diary_image')->unregister($this->diary);
+      Doctrine::getTable('diary_image')->unregister($this->album);
     }
     $this->form = new DiaryCommentForm();
   }
