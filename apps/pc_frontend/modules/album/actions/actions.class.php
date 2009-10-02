@@ -18,4 +18,33 @@
  */
 class albumActions extends opAlbumPluginAlbumActions
 {
+ /**
+  * Executes index action
+  *
+  * @param sfWebRequest $request A request object
+  */
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->forward('default', 'module');
+  }
+
+  public function executeNew(sfWebRequest $request)
+  {
+    $this->form = new AlbumForm();
+  }
+  public function executeAlbumCreate(sfWebRequest $request)
+  {
+    $param = $request->getParameter('album');
+    $param['member_id'] = $this->getUser()->getMember()->getId();
+
+    $AlbumForm = new AlbumForm();
+    $AlbumForm->bind($param);
+    if ($AlbumForm->isValid())
+    {
+var_dump(__LINE__);
+      $AlbumForm->save();
+    }
+    var_dump(__LINE__);
+exit;
+  }
 }

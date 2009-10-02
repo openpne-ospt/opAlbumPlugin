@@ -15,12 +15,11 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
 
     unset($this['id']);
     unset($this['album_id']);
+    unset($this['member_id']);
     unset($this['file_id']);
     unset($this['number']);
     unset($this['created_at']);
     unset($this['updated_at']);
-    unset($this['image_description']);
-    unset($this['filesize']);
 
     $key = 'photo';
 

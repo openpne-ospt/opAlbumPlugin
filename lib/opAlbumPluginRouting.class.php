@@ -6,7 +6,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
- */                                                                                                                                                                                
+ */
 
 /**
  * Album routing.
@@ -28,7 +28,7 @@ class opAlbumPluginRouting
      'album_show' => new sfDoctrineRoute(
         '/album/:id',
         array('module' => 'album', 'action' => 'show'),
-        array('id' => '¥d+'),
+        array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
       ),  
     );  
@@ -40,4 +40,3 @@ class opAlbumPluginRouting
     }   
   }
 }
-
