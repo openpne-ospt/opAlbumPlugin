@@ -28,7 +28,6 @@ abstract class PluginAlbumForm extends BaseAlbumForm
       'choices' => array_keys(Doctrine::getTable('Diary')->getPublicFlags()),
     ));
 
-/*     
     if (sfConfig::get('app_Album_is_upload_images', true))
     {
       $images = array();
@@ -37,7 +36,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
         $images = $this->getObject()->getAlbumImages();
       }
 
-      if (isset($images))
+      if (!empty($images))
       {
         $image = $images;
       }
@@ -45,13 +44,13 @@ abstract class PluginAlbumForm extends BaseAlbumForm
       {
         $image = new AlbumImage();
         $image->setAlbum($this->getObject());
+//        $image->setMemberId($this->getObject()->getMemberId());
       }
 
       $imageForm = new AlbumImageForm($image);
       $imageForm->getWidgetSchema()->setFormFormatterName('list');
       $this->embedForm('photo', $imageForm, '<ul id="album_photo">%content%</ul>');
     }
- */
   }
 
   public function updateObject($values = null)
@@ -64,6 +63,10 @@ abstract class PluginAlbumForm extends BaseAlbumForm
       {
         unset($this->embeddedForms[$key]);
       }
+      elseif ($form->getObject())
+      {
+        $form->getObject()->setMemberId($this->getObject()->getMemberId());
+      }
     }
     return $object;
   }
@@ -72,6 +75,6 @@ abstract class PluginAlbumForm extends BaseAlbumForm
   {
     parent::doSave($con);
 
-    $this->getObject()->updateHasImages();
+    $this->getObject()->updateCoverImage();
   }
 }

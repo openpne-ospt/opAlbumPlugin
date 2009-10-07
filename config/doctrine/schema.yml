@@ -5,7 +5,7 @@ Album:
   actAs: [Timestampable]
   columns:
     id: { type: integer(4), primary: true, autoincrement: true }
-    member_id: { type: integer(4), notnull: true }
+    member_id: { type: integer(4), notnull: false }
     title: { type: string, notnull: true }
     body: { type: string, notnull: true }
     public_flag: { type: integer(1), notnull: true, default: 1 }
@@ -29,6 +29,9 @@ AlbumImage:
       foreignAlias: AlbumImages
       onDelete: cascade
     File:
+      foreignAlias: AlbumImages
+      onDelete: cascade
+    Member:
       foreignAlias: AlbumImages
       onDelete: cascade
 

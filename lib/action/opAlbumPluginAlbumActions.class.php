@@ -52,7 +52,7 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
     if ($this->isAlbumAuthor())
     {
-      Doctrine::getTable('diary_image')->unregister($this->album);
+//      Doctrine::getTable('album')->unregister($this->album);
     }
     $this->form = new DiaryCommentForm();
   }
@@ -113,6 +113,8 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     );
     if ($form->isValid())
     {
+//      var_dump($form->getObject()->getMember()->getId());
+//exit;
       $album = $form->save();
 
 //      $this->redirect('@homepage');

@@ -48,25 +48,26 @@ abstract class PluginAlbum extends BaseAlbum
     $result = array();
     foreach ($images as $image)
     {
-      $result[$image->getNumber()] = $image;
+      $result[$image->getFile_id()] = $image;
     }
 
     return $result;
   }
 
-  public function hasImages()
+  public function coverImages()
   {
-    return (bool)$this->getHasImages();
+    return (bool)$this->getCoverImages();
   }
 
-  public function updateHasImages()
+  public function updateCoverImage()
   {
     $this->clearRelated();
-    $hasImages = (bool)$this->getAlbumImages();
+    $CoverImage = (bool)$this->getAlbumImages();
 
-    if ($hasImages != $this->getHasImages())
+    if ($CoverImage != $this->getFile_id())
     {
-      $this->setHasImages($hasImages);
+
+      $this->setFile_id($CoverImage);
       $this->save();
     }
   }
@@ -87,7 +88,7 @@ abstract class PluginAlbum extends BaseAlbum
   {
     $q = Doctrine::getTable('AlbumImage')->createQuery()
       ->leftJoin('AlbumImage.File')
-      ->where('album_iy = ?', $this->getId());
+      ->where('album_id = ?', $this->getId());
 
     return $q->execute();
   }

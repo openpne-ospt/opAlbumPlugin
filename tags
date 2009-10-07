@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+AlbumComponents	apps/pc_frontend/modules/album/actions/components.class.php	/^class AlbumComponents extends sfComponents$/;"	c
+CoverImage	lib/model/doctrine/PluginAlbum.class.php	/^    $CoverImage = (bool)$this->getAlbumImages();$/;"	v
+PluginAlbumImageTable	lib/model/doctrine/PluginAlbumImageTable.class.php	/^class PluginAlbumImageTable extends Doctrine_Table$/;"	c
+PluginAlbumTable	lib/model/doctrine/PluginAlbumTable.class.php	/^class PluginAlbumTable extends Doctrine_Table$/;"	c
+album	lib/action/opAlbumPluginAlbumActions.class.php	/^      $album = $form->save();$/;"	v
+albumActions	apps/pc_frontend/modules/album/actions/actions.class.php	/^class albumActions extends opAlbumPluginAlbumActions$/;"	c
+file	lib/form/doctrine/PluginAlbumImageForm.class.php	/^      $file = new File();$/;"	v
+file	lib/model/doctrine/PluginAlbumImage.class.php	/^    $file = $this->getFile();$/;"	v
+flags	lib/model/doctrine/PluginAlbum.class.php	/^    $flags = $this->getTable()->getViewablePublicFlags($this->getTable()->getPublicFlagByMemberId($this->getMemberId(), $memberId));$/;"	v
+flags	lib/model/doctrine/PluginAlbumTable.class.php	/^    $flags = array();$/;"	v
+image	lib/form/doctrine/PluginAlbumForm.class.php	/^        $image = $images;$/;"	v
+image	lib/form/doctrine/PluginAlbumForm.class.php	/^        $image = new AlbumImage();$/;"	v
+imageForm	lib/form/doctrine/PluginAlbumForm.class.php	/^      $imageForm = new AlbumImageForm($image);$/;"	v
+images	lib/form/doctrine/PluginAlbumForm.class.php	/^        $images = $this->getObject()->getAlbumImages();$/;"	v
+images	lib/form/doctrine/PluginAlbumForm.class.php	/^      $images = array();$/;"	v
+images	lib/model/doctrine/PluginAlbum.class.php	/^    $images = Doctrine::getTable('AlbumImage')->findByAlbumId($this->getId());$/;"	v
+key	lib/form/doctrine/PluginAlbumImageForm.class.php	/^    $key = 'photo';$/;"	v
+object	lib/action/opAlbumPluginActions.class.php	/^      $object = $this->getRoute()->getObject();$/;"	v
+object	lib/form/doctrine/PluginAlbumForm.class.php	/^    $object = parent::updateObject($values);$/;"	v
+opAlbumPluginActions	lib/action/opAlbumPluginActions.class.php	/^class opAlbumPluginActions extends sfActions$/;"	c
+opAlbumPluginAlbumActions	lib/action/opAlbumPluginAlbumActions.class.php	/^class opAlbumPluginAlbumActions extends opAlbumPluginActions$/;"	c
+opAlbumPluginRouting	lib/opAlbumPluginRouting.class.php	/^class opAlbumPluginRouting$/;"	c
+options	apps/pc_frontend/modules/album/templates/_form.php	/^$options = array($/;"	v
+options	lib/form/doctrine/PluginAlbumImageForm.class.php	/^    $options = array($/;"	v
+prefix	lib/model/doctrine/PluginAlbumImage.class.php	/^    $prefix = 'A_'.$this->getAlbum()->getId().'_'.$this->getAlbum_id().'_';$/;"	v
+publicFlags	lib/model/doctrine/PluginAlbum.class.php	/^    $publicFlags = $this->getTable()->getPublicFlags();$/;"	v
+q	lib/model/doctrine/PluginAlbum.class.php	/^    $q = Doctrine::getTable('AlbumImage')->createQuery()$/;"	v
+relation	lib/model/doctrine/PluginAlbumTable.class.php	/^    $relation = Doctrine::getTable('MemberRelationship')->retrieveByFromAndTo($myMemberId, $memberId);$/;"	v
+result	lib/model/doctrine/PluginAlbum.class.php	/^    $result = array();$/;"	v
+routes	lib/opAlbumPluginRouting.class.php	/^    $routes = array($/;"	v
+routes	lib/opAlbumPluginRouting.class.php	/^    $routes = array_reverse($routes);$/;"	v
+routing	lib/opAlbumPluginRouting.class.php	/^    $routing = $event->getSubject();$/;"	v

@@ -27,21 +27,4 @@ class albumActions extends opAlbumPluginAlbumActions
   {
     $this->forward('default', 'module');
   }
-/*
-  public function executeAlbumCreate(sfWebRequest $request)
-  {
-    $param = $request->getParameter('album');
-    $param['member_id'] = $this->getUser()->getMember()->getId();
-
-    $AlbumForm = new AlbumForm();
-    $AlbumForm->bind($param);
-    if ($AlbumForm->isValid())
-    {
-var_dump(__LINE__);
-      $AlbumForm->save();
-    }
-    var_dump(__LINE__);
-exit;
-  }
- */
 }
