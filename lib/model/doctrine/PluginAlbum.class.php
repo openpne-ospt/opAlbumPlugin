@@ -54,20 +54,20 @@ abstract class PluginAlbum extends BaseAlbum
     return $result;
   }
 
-  public function coverImages()
+  public function getFile()
   {
-    return (bool)$this->getCoverImages();
+    return (bool)$this->getFile_id();
   }
 
-  public function updateCoverImage()
+  public function updateFileId()
   {
     $this->clearRelated();
-    $CoverImage = (bool)$this->getAlbumImages();
+    $FileId = (bool)$this->getfile_id();
 
-    if ($CoverImage != $this->getFile_id())
+    if ($FileId != $this->getFile_id())
     {
 
-      $this->setFile_id($CoverImage);
+      $this->setFile_id($FileId);
       $this->save();
     }
   }

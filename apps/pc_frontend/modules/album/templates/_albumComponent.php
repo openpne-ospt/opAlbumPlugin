@@ -1,1 +1,1 @@
-<?php echo link_to('アルバムを追加', 'album/new') ?>
+<?php echo link_to('アルバル一覧へ', 'album/listMember?id=1') ?>

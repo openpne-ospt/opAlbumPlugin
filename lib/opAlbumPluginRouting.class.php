@@ -24,7 +24,17 @@ class opAlbumPluginRouting
       'album_index' => new sfRoute(
         '/album',
         array('module' => 'album', 'action' => 'index')
-      ),  
+      ),
+      'album_list' => new sfRoute(
+        '/album/list',
+        array('module' => 'album', 'action' => 'list')
+      ),
+      'album_list_member' => new sfDoctrineRoute(
+        '/album/listMember/:id',
+        array('module' => 'album', 'action' => 'listMember'),
+        array('id' => '\d+'),
+        array('model' => 'Member', 'type' => 'object')
+      ),
       'album_new' => new sfRoute(
         '/album/new',
         array('module' => 'album', 'action' => 'new')
@@ -35,12 +45,62 @@ class opAlbumPluginRouting
         array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
       ), 
+      'album_create_confirm' => new sfDoctrineRoute(
+        '/album/createConfirm/:id',
+        array('module' => 'album', 'action' => 'createConfirm'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object')
+      ),
       'album_create' => new sfRequestRoute(
         '/album/create',
         array('module' => 'album', 'action' => 'create'),
         array('sf_method' => array('post'))
       ),
-      'album_nodefaults' => new sfRoute(
+       'album_edit' => new sfDoctrineRoute(
+        '/album/edit/:id',
+        array('module' => 'album', 'action' => 'edit'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object')
+      ),
+       'album_update' => new sfDoctrineRoute(
+        '/album/update/:id',
+        array('module' => 'album', 'action' => 'update'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'Album', 'type' => 'object')
+      ),
+      'album_delete_confirm' => new sfDoctrineRoute(
+        '/album/deleteConfirm/:id',
+        array('module' => 'album', 'action' => 'deleteConfirm'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object')
+      ),
+      'album_delete' => new sfDoctrineRoute(
+        '/album/delete/:id',
+        array('module' => 'album', 'action' => 'delete'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'Album', 'type' => 'object')
+      ),
+      'album_add_confirm' => new sfDoctrineRoute(
+        '/album/addConfirm/:id',
+        array('module' => 'album', 'action' => 'addConfirm'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object')
+      ),
+      'album_add' => new sfDoctrineRoute(
+        '/album/add/:id',
+        array('module' => 'album', 'action' => 'add'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object')
+      ), 
+       'album_insert' => new sfDoctrineRoute(
+        '/album/insert/:id',
+        array('module' => 'album', 'action' => 'insert'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object'),
+        array('sf_method' => array('post'))
+      ),
+
+     'album_nodefaults' => new sfRoute(
         '/album/*',
         array('module' => 'default', 'action' => 'error')
       ),

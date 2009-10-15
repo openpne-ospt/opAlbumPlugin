@@ -17,30 +17,33 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
     unset($this['album_id']);
     unset($this['member_id']);
     unset($this['file_id']);
-    unset($this['description']);
     unset($this['filesize']);
     unset($this['created_at']);
     unset($this['updated_at']);
+    unset($this['description']);
 
     $key = 'photo';
-
     $options = array(
         'file_src'     => '',
         'is_image'     => true,
         'with_delete'  => true,
-        'label'        => false,
+        'label'        => $key,
         'edit_mode'    => !$this->isNew(),
       );
-    if (!$this->isNew())
+
+    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 5);
+    for ($i = 1; $i <= $max; $i++)
     {
-      sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
-      $options['template'] = get_partial('album/formEditImage', array('image' => $this->getObject()));
-      $this->setValidator($key.'_delete', new sfValidatorBoolean(array('required' => false)));
-    }
+      $key = 'photo_'.$i;
+
+      $options['label'] = $key;
+      $this->setWidget($key, new sfWidgetFormInputFileEditable($options, array('size' => 40)));
+      $this->setValidator($key, new opValidatorImageFile(array('required' => false)));
  
-    $this->setWidget($key, new sfWidgetFormInputFileEditable($options, array('size' => 40)));
-    $this->setValidator($key, new opValidatorImageFile(array('required' => false)));
-  }
+      $this->setWidget($key.'description', new sfWidgetFormInput());
+      $this->setValidator($key.'description', new sfValidatorString(array('required' => false)));
+    } 
+  } 
 
   public function updateObject($values = null)
   {

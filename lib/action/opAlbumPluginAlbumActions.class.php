@@ -29,16 +29,9 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
   public function executeListMember(sfWebRequest $request)
   {
-    $this->year  = (int)$request->getParameter('year');
-    $this->month = (int)$request->getParameter('month');
-    $this->day   = (int)$request->getParameter('day');
+    $this->forward404Unless('Invalid date format');
 
-    if ($this->year && $this->month)
-    {
-      $this->forward404Unless(checkdate($this->month, ($this->day) ? $this->day : 1, $this->year), 'Invalid date format');
-    }
-
-    $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 20, $this->getUser()->getMemberId(), $this->year, $this->month, $this->day);
+    $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 20, $this->getUser()->getMemberId());
   }
 
   public function executeListFriend(sfWebRequest $request)
@@ -50,11 +43,7 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
   {
     $this->forward404Unless($this->isAlbumViewable());
 
-    if ($this->isAlbumAuthor())
-    {
-//      Doctrine::getTable('album')->unregister($this->album);
-    }
-    $this->form = new DiaryCommentForm();
+    $this->AlbumImage = new AlbumImageForm();
   }
 
   public function executeNew(sfWebRequest $request)
@@ -105,6 +94,19 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     $this->redirect('@album_list_member?id='.$this->getUser()->getMemberId());
   }
 
+  public function executeAdd(sfWebRequest $request)
+  {
+    $this->form = new AlbumImageForm();
+  }
+
+  public function executeInsert(sfWebRequest $request)
+  {
+    $this->form = new AlbumImageForm();
+    $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
+    $this->processForm($request, $this->form);
+    $this->setTemplate('add');
+  }
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind(
@@ -113,11 +115,9 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     );
     if ($form->isValid())
     {
-//      var_dump($form->getObject()->getMember()->getId());
-//exit;
       $album = $form->save();
 
-//      $this->redirect('@homepage');
+      $this->redirect('album/listMember?id='.$album->getMemberId());
     }
   }
 }

@@ -17,64 +17,76 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     unset($this['member_id']);
     unset($this['created_at']);
     unset($this['updated_at']);
-    unset($this['file_id']);
 
     $this->widgetSchema['title'] = new sfWidgetFormInput();
+
     $this->widgetSchema['public_flag'] = new sfWidgetFormChoice(array(
-      'choices'  => Doctrine::getTable('Diary')->getPublicFlags(),
+      'choices'  => Doctrine::getTable('album')->getPublicFlags(),
       'expanded' => true,
     ));
     $this->validatorSchema['public_flag'] = new sfValidatorChoice(array(
-      'choices' => array_keys(Doctrine::getTable('Diary')->getPublicFlags()),
+      'choices' => array_keys(Doctrine::getTable('album')->getPublicFlags()),
     ));
 
-    if (sfConfig::get('app_Album_is_upload_images', true))
+    $key = 'photo';
+    $options = array(
+        'file_src'     => '',
+        'is_image'     => true,
+        'with_delete'  => true,
+        'label'        => 'CoverImage',
+        'edit_mode'    => !$this->isNew(),
+      );
+
+    if (!$this->isNew())
     {
-      $images = array();
-      if (!$this->isNew())
-      {
-        $images = $this->getObject()->getAlbumImages();
-      }
-
-      if (!empty($images))
-      {
-        $image = $images;
-      }
-      else
-      {
-        $image = new AlbumImage();
-        $image->setAlbum($this->getObject());
-//        $image->setMemberId($this->getObject()->getMemberId());
-      }
-
-      $imageForm = new AlbumImageForm($image);
-      $imageForm->getWidgetSchema()->setFormFormatterName('list');
-      $this->embedForm('photo', $imageForm, '<ul id="album_photo">%content%</ul>');
+      sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
+      $options['template'] = get_partial('diary/formEditImage', array('image' => $this->getObject()));
+      $this->setValidator($key.'_delete', new sfValidatorBoolean(array('required' => false)));
     }
-  }
+
+    $this->setWidget('file_id', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
+    $this->setValidator('file_id', new opValidatorImageFile(array('required' => false)));
+ }
 
   public function updateObject($values = null)
   {
-    $object = parent::updateObject($values);
+    parent::updateObject($values);
 
-    foreach ($this->embeddedForms as $key => $form)
+    if (is_null($values))
     {
-      if (!($form->getObject() && $form->getObject()->getFile()))
-      {
-        unset($this->embeddedForms[$key]);
-      }
-      elseif ($form->getObject())
-      {
-        $form->getObject()->setMemberId($this->getObject()->getMemberId());
-      }
+      $values = $this->values;
     }
-    return $object;
+
+    $values = $this->processValues($values);
+
+    if ($values['file_id'] instanceof sfValidatedFile)
+    {
+      if (!$this->isNew())
+      {
+        unset($this->getObject()->File);
+      }
+
+      $file = new File();
+      $file->setFromValidatedFile($values['file_id']);
+
+      $this->getObject()->setFile($file);
+    }
+    else
+    {
+      if (!$this->isNew() && !empty($values['file_id_delete']))
+      {
+        $this->getObject()->getFile()->delete();
+      }
+
+      $this->getObject()->setFile(null);
+    }
+   return $this->getObject();
   }
 
   protected function doSave($con = null)
   {
     parent::doSave($con);
 
-    $this->getObject()->updateCoverImage();
+    $this->getObject()->updateFileId();
   }
 }

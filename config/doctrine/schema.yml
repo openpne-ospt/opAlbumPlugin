@@ -14,7 +14,10 @@ Album:
     Member:
       foreignAlias: Albums
       onDelete: cascade
-
+    File:
+      foreignAlias: Albums
+      onDelete: cascade
+ 
 AlbumImage:
   actAs: [Timestampable]
   columns:
@@ -22,7 +25,7 @@ AlbumImage:
     album_id: { type: integer(4), notnull: true }
     member_id: { type: integer(4), notnull: true }
     file_id: { type: integer(4), notnull: true }
-    description: { type: string, notnull: true }
+    description: { type: string, notnull: false }
     filesize: { type: integer, notnull: true }
   relations:
     Album:

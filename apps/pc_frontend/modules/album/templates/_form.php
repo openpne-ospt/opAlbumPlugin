@@ -16,7 +16,7 @@ if ($form->isNew())
 else
 {
   $options['title'] = __('Edit the album');
-//  $options['url'] = url_for('album_update', $album);
+  $options['url'] = url_for('album_update', $album);
 }
 
 op_include_form('albumForm', $form, $options);
