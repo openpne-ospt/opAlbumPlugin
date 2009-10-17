@@ -40,13 +40,14 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     if (!$this->isNew())
     {
       sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
-      $options['template'] = get_partial('diary/formEditImage', array('image' => $this->getObject()));
+      $options['template'] = get_partial('album/formEditImage', array('image' => $this->getObject()));
       $this->setValidator($key.'_delete', new sfValidatorBoolean(array('required' => false)));
     }
 
     $this->setWidget('file_id', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
     $this->setValidator('file_id', new opValidatorImageFile(array('required' => false)));
- }
+
+}
 
   public function updateObject($values = null)
   {

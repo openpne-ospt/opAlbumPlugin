@@ -1,7 +1,7 @@
 <?php use_helper('opAlbum'); ?>
 
 <?php decorate_with('layoutB') ?>
-<?php// slot('op_sidemenu', get_component('diary', 'sidemenu', array('member' => $member)) ?>
+<?php slot('op_sidemenu', get_component('album', 'sidemenu', array('member' => $member))) ?>
 
 <?php if ($sf_user->getMemberId() === $member->getId()): ?>
 <?php op_include_box('newalbumLink', link_to(__('Post a album'), 'album_new'), array('title' => __('Post a album'))) ?>

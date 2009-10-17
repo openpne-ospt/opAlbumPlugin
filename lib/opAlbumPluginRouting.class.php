@@ -45,10 +45,9 @@ class opAlbumPluginRouting
         array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
       ), 
-      'album_create_confirm' => new sfDoctrineRoute(
+      'album_create_confirm' => new sfRequestRoute(
         '/album/createConfirm/:id',
         array('module' => 'album', 'action' => 'createConfirm'),
-        array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
       ),
       'album_create' => new sfRequestRoute(
@@ -92,12 +91,11 @@ class opAlbumPluginRouting
         array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
       ), 
-       'album_insert' => new sfDoctrineRoute(
+      'album_insert' => new sfDoctrineRoute(
         '/album/insert/:id',
         array('module' => 'album', 'action' => 'insert'),
-        array('id' => '\d+'),
-        array('model' => 'Album', 'type' => 'object'),
-        array('sf_method' => array('post'))
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'Album', 'type' => 'object')
       ),
 
      'album_nodefaults' => new sfRoute(

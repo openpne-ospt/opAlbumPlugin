@@ -31,7 +31,7 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
   {
     $this->forward404Unless('Invalid date format');
 
-    $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 20, $this->getUser()->getMemberId());
+    $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 10, $this->getUser()->getMemberId());
   }
 
   public function executeListFriend(sfWebRequest $request)
@@ -96,13 +96,16 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
   public function executeAdd(sfWebRequest $request)
   {
-    $this->form = new AlbumImageForm();
+    $this->form = new AlbumPhotoForm();
   }
 
   public function executeInsert(sfWebRequest $request)
   {
-    $this->form = new AlbumImageForm();
-    $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
+    $this->form = new AlbumPhotoForm();
+//    $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
+//    $this->form->setMemberId($this->getUser()->getMemberId());
+//    $this->form->getObject()->setAlbum($this->album);
+
     $this->processForm($request, $this->form);
     $this->setTemplate('add');
   }
@@ -115,6 +118,7 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     );
     if ($form->isValid())
     {
+
       $album = $form->save();
 
       $this->redirect('album/listMember?id='.$album->getMemberId());

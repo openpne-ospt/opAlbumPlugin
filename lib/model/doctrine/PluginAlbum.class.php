@@ -66,7 +66,6 @@ abstract class PluginAlbum extends BaseAlbum
 
     if ($FileId != $this->getFile_id())
     {
-
       $this->setFile_id($FileId);
       $this->save();
     }

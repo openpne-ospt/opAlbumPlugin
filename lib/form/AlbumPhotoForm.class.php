@@ -7,20 +7,10 @@
  * @subpackage AlbumImage
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 6174 2007-11-27 06:22:40Z fabien $
  */
-abstract class PluginAlbumImageForm extends BaseAlbumImageForm
+class AlbumPhotoForm extends sfForm
 {
   public function setup()
   {
-    parent::setup();
-
-    unset($this['id']);
-    unset($this['album_id']);
-    unset($this['member_id']);
-    unset($this['file_id']);
-    unset($this['filesize']);
-    unset($this['created_at']);
-    unset($this['updated_at']);
-    unset($this['description']);
 
     $key = 'photo';
     $options = array(
@@ -28,31 +18,37 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
         'is_image'     => true,
         'with_delete'  => true,
         'label'        => $key,
-        'edit_mode'    => !$this->isNew(),
       );
 
-    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
-    for ($i = 1; $i <= $max; $i++)
-    {
-      $key = 'photo_'.$i;
+//    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
+//    for ($i = 1; $i <= $max; $i++)
+//    {
+//      $key = 'photo_'.$i;
+      $key = 'photo';
 
       $options['label'] = $key;
-      $this->setWidget($key, new sfWidgetFormInputFileEditable($options, array('size' => 40)));
-      $this->setValidator($key, new opValidatorImageFile(array('required' => false)));
+      $this->setWidgets(array(
+        $key                => new sfWidgetFormInputFileEditable($options, array('size' => 40)),
+        $key.'description'  => new sfWidgetFormInput(),
+      ));
 
-      $this->setWidget($key.'description', new sfWidgetFormInput());
-      $this->setValidator($key.'description', new sfValidatorString(array('required' => false)));
-    } 
+      $this->setValidators(array(
+        $key                => new opValidatorImageFile(array('required' => false)),
+        $key.'description'  => new sfValidatorString(array('required' => false)),
+      ));
+
+//    } 
  } 
 
   public function updateObject($values = null)
   {
     parent::updateObject($values);
 
-    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
-    for ($i = 1; $i <= $max; $i++)
-    {
-      $key = 'photo_'.$i;
+//    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
+//    for ($i = 1; $i <= $max; $i++)
+//    {
+//      $key = 'photo_'.$i;
+      $key = 'photo';
 
       if (is_null($values))
       {
@@ -82,7 +78,7 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
 
       $this->getObject()->setFile(null);
       }
-    }
+//    }
   }
 
   protected function doSave($con = null)

@@ -18,12 +18,11 @@
  */
 class AlbumComponents extends sfComponents
 {
- /**
-  * Executes index action
-  *
-  * @param sfWebRequest $request A request object
-  */
-  public function executeAlbumComponent(sfWebRequest $request)
+ public function executeSidemenu(sfWebRequest $request)
   {
+     $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 10, $this->getUser()->getMemberId());
+
+     // Recent Album List
+    $this->recentAlbumList = Doctrine::getTable('Album')->getMemberAlbumList($this->member->getId(), 5, $this->getUser()->getMemberId());
   }
 }

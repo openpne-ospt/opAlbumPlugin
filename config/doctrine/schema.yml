@@ -24,7 +24,7 @@ AlbumImage:
     id: { type: integer(4), primary: true, autoincrement: true }
     album_id: { type: integer(4), notnull: true }
     member_id: { type: integer(4), notnull: true }
-    file_id: { type: integer(4), notnull: true }
+    file_id: { type: integer(4), notnull: false }
     description: { type: string, notnull: false }
     filesize: { type: integer, notnull: true }
   relations:
