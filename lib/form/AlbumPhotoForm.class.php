@@ -9,83 +9,48 @@
  */
 class AlbumPhotoForm extends sfForm
 {
+  protected $memberId = null;
+
   public function setup()
   {
+    $this->memberId = $this->getOption('member_id');
+    if (!$this->memberId)
+    {
+      $this->memberId = sfContext::getInstance()->getUser()->getMemberId();
+    }
 
-    $key = 'photo';
     $options = array(
         'file_src'     => '',
         'is_image'     => true,
         'with_delete'  => true,
-        'label'        => $key,
+        'label'        => 'photo',
       );
 
-//    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
-//    for ($i = 1; $i <= $max; $i++)
-//    {
-//      $key = 'photo_'.$i;
-      $key = 'photo';
-
-      $options['label'] = $key;
-      $this->setWidgets(array(
-        $key                => new sfWidgetFormInputFileEditable($options, array('size' => 40)),
-        $key.'description'  => new sfWidgetFormInput(),
+    $this->setWidgets(array(
+        'photo'                => new sfWidgetFormInputFileEditable($options, array('size' => 40)),
+        'photo_description'  => new sfWidgetFormInput(),
       ));
 
-      $this->setValidators(array(
-        $key                => new opValidatorImageFile(array('required' => false)),
-        $key.'description'  => new sfValidatorString(array('required' => false)),
+    $this->setValidators(array(
+        'photo'                => new opValidatorImageFile(array('required' => false)),
+        'photo_description'  => new sfValidatorString(array('required' => false)),
       ));
+    $this->widgetSchema->setNameFormat('photo[%s]');
 
-//    } 
- } 
-
-  public function updateObject($values = null)
-  {
-    parent::updateObject($values);
-
-//    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
-//    for ($i = 1; $i <= $max; $i++)
-//    {
-//      $key = 'photo_'.$i;
-      $key = 'photo';
-
-      if (is_null($values))
-      {
-        $values = $this->values;
-      }
-
-      $values = $this->processValues($values);
-
-      if ($values[$key] instanceof sfValidatedFile)
-      {
-        if (!$this->isNew())
-        {
-          unset($this->getObject()->File);
-        }
-
-      $file = new File();
-      $file->setFromValidatedFile($values[$key]);
-
-      $this->getObject()->setFile($file);
-      }
-      else
-      {
-        if (!$this->isNew() && !empty($values[$key.'delete']))
-        {
-          $this->getObject()->getFile()->delete();
-        }
-
-      $this->getObject()->setFile(null);
-      }
-//    }
   }
-
-  protected function doSave($con = null)
+  public function save()
   {
-    parent::doSave($con);
+    if(!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
 
-    $this->getObject()->updateFileId();
-//    $this->getObject()->updateFileId();
-  }
+    $albumImage = new AlbumImage();
+    $albumImage->setMemberId($this->form->getValue('memberId'));
+    $albumImage->setPhoto($this->form->getValue('photo'));
+    $albumImage->setName($this->form->getValue('photo_description'));
+
+    $albumImage->save();
+
+  } 
 }

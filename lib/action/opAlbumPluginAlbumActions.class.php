@@ -101,13 +101,20 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
   public function executeInsert(sfWebRequest $request)
   {
+//    $photo_options = array(
+//      'member_id'    => $this->getUser()->getMemberId(),
+//    );
     $this->form = new AlbumPhotoForm();
+    $this->form->bind($request->getParameter('photo'), $request->getFiles('photo'));
+    if ($this->form->isValid())
+    {
+      $this->form->save();
+    }
 //    $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
 //    $this->form->setMemberId($this->getUser()->getMemberId());
 //    $this->form->getObject()->setAlbum($this->album);
-
-    $this->processForm($request, $this->form);
-    $this->setTemplate('add');
+ 
+      $this->setTemplate('add');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -118,7 +125,6 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
     );
     if ($form->isValid())
     {
-
       $album = $form->save();
 
       $this->redirect('album/listMember?id='.$album->getMemberId());
