@@ -101,18 +101,12 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
   public function executeInsert(sfWebRequest $request)
   {
-//    $photo_options = array(
-//      'member_id'    => $this->getUser()->getMemberId(),
-//    );
     $this->form = new AlbumPhotoForm();
     $this->form->bind($request->getParameter('photo'), $request->getFiles('photo'));
     if ($this->form->isValid())
     {
       $this->form->save();
     }
-//    $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
-//    $this->form->setMemberId($this->getUser()->getMemberId());
-//    $this->form->getObject()->setAlbum($this->album);
  
       $this->setTemplate('add');
   }

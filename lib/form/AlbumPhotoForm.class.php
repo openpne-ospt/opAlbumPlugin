@@ -45,20 +45,15 @@ class AlbumPhotoForm extends sfForm
       throw $this->getErrorSchema();
     }
     $file = new File();
-//    $file->setFromValidatedFile($this->getValue('file'));
-//    $file->setName('A_'.$this->member->getId().'_'.$file->getAlbum_id().'_');
+    $file->setFromValidatedFile($this->getValue('photo'));
+    $file->setName('A_'.$file->getId().'_'.$this->Album_id.'_');
 
     $albumImage = new AlbumImage();
-    $albumImage->setMemberId($this->getValue('memberId'));
+    $albumImage->setMemberId($this->memberId);
     $albumImage->setfile_id($this->getValue('photo'));
     $albumImage->setdescription($this->getValue('photo_description'));
     $albumImage->setFile($file);
-    if (!$count)
-    {
-//      $albumImage->setIsPrimary(true);
-    }
- 
-    $albumImage->save();
 
+    $albumImage->save();
   } 
 }
