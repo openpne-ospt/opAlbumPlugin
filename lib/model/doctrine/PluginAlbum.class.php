@@ -54,11 +54,6 @@ abstract class PluginAlbum extends BaseAlbum
     return $result;
   }
 
-  public function getFile()
-  {
-    return (bool)$this->getFile_id();
-  }
-
   public function updateFileId()
   {
     $this->clearRelated();

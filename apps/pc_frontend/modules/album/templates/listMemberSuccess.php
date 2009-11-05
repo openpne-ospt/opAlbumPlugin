@@ -12,15 +12,29 @@
 <div class="dparts recentList"><div class="parts">
 <div class="partsHeading"><h3><?php echo $title ?></h3></div>
 <div class="pagerRelative"><p class="number"><?php echo pager_navigation($pager, 'album/listMember?page=%d&id='.$member->getId()); ?></p></div>
-<?php// $images = $album->getAlbumImagesJoinFile() ?>
+
 <?php foreach ($pager->getResults() as $album): ?>
-<dl>
-<dd><?php echo $album->getTitle() ?></dd>
-<dd><?php echo $album->getBody() ?></dd>
-<dd><?php echo $album->getPublic_flag() ?></dd>
-<dd><?php echo $album->getCreatedAt() ?></dd>
-<dd><?php echo link_to(op_album_get_title_and_count($album), 'album_show', $album) ?></dd>
-</dl>
+<table>
+<tr><td rowspan="4">
+<?php echo link_to(image_tag_sf_image($album->getFile(), array('size' => '180x180')), 'album_show', $album) ?><br />
+<?php echo link_to(__('Details'), 'album_show', $album) ?>
+</td>
+<th><?php echo __('Title') ?></th>
+<td colspan="2"><?php echo $album->getTitle() ?></td>
+</tr>
+<tr>
+<th><?php echo __('Description') ?></th>
+<td colspan="2"><?php echo $album->getBody() ?></td>
+</tr>
+<tr>
+<th><?php echo __('Publication') ?></th>
+<td colspan="2"><?php echo $album->getPublic_flag() ?></td>
+</tr>
+<tr>
+<th><?php echo __('Created') ?></th>
+<td colspan="2"><?php echo $album->getCreatedAt() ?></td>
+</tr>
+</table>
 <?php endforeach; ?>
 <div class="pagerRelative"><p class="number"><?php echo pager_navigation($pager, 'album/listMember?page=%d&id='.$member->getId()); ?></p></div>
 </div></div>
