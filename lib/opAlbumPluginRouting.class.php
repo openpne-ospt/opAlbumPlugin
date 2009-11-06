@@ -112,6 +112,12 @@ class opAlbumPluginRouting
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'AlbumImage', 'type' => 'object')
       ),
+      'album_image_delete' => new sfDoctrineRoute(
+        '/album/photo/delete/:id',
+        array('module' => 'albumImage', 'action' => 'delete'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'AlbumImage', 'type' => 'object')
+      ),
 
      'album_nodefaults' => new sfRoute(
         '/album/*',

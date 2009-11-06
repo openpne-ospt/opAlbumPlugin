@@ -43,6 +43,7 @@ class albumImageActions extends opAlbumPluginActions
   public function executeEdit(sfWebRequest $request)
   {
     $this->form = new AlbumImageForm($this->albumImage);
+    $this->deleteForm = new sfForm();
   }
 
   public function executeUpdate(sfWebRequest $request)
@@ -57,5 +58,14 @@ class albumImageActions extends opAlbumPluginActions
     }
 
     $this->setTemplate('edit');
+  }
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->albumImage->delete();
+
+    $this->redirect('@album_show?id='.$this->album->id);
   }
 }
