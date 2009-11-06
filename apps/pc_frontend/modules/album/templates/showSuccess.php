@@ -23,7 +23,9 @@
 <td colspan="2"><?php echo op_format_date($album->getCreatedAt(), 'XDateTimeJaBr') ?></td>
 </tr>
 <tr>
-<td colspan="3"><?php echo link_to('写真を追加', 'album_image_add', $album) ?></td>
+<td colspan="3">
+<?php echo link_to('アルバムを編集', 'album_edit', $album) ?> | <?php echo link_to('写真を追加', 'album_image_add', $album) ?>
+</td>
 </tr>
 </table>
 </div>

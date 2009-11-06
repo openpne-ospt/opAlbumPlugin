@@ -41,6 +41,17 @@ abstract class PluginAlbum extends BaseAlbum
     return $this->next;
   }
 
+  public function getFile()
+  {
+    $file = parent::getFile();
+    if ($file->id)
+    {
+      return $file;
+    }
+
+    return null;
+  }
+
   public function getAlbumImages()
   {
     $images = Doctrine::getTable('AlbumImage')->findByAlbumId($this->getId());

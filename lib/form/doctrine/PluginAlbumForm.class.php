@@ -28,26 +28,25 @@ abstract class PluginAlbumForm extends BaseAlbumForm
       'choices' => array_keys(Doctrine::getTable('album')->getPublicFlags()),
     ));
 
-    $key = 'photo';
     $options = array(
         'file_src'     => '',
         'is_image'     => true,
-        'with_delete'  => true,
+        'with_delete'  => false,
         'label'        => 'CoverImage',
         'edit_mode'    => !$this->isNew(),
       );
 
-    if (!$this->isNew())
+    if (!$this->isNew() && $this->getObject()->getFileId())
     {
       sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
       $options['template'] = get_partial('album/formEditImage', array('image' => $this->getObject()));
-      $this->setValidator($key.'_delete', new sfValidatorBoolean(array('required' => false)));
+      $options['with_delete'] = true;
+      $this->setValidator('file_id_delete', new sfValidatorBoolean(array('required' => false)));
     }
 
     $this->setWidget('file_id', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
     $this->setValidator('file_id', new opValidatorImageFile(array('required' => false)));
-
-}
+  }
 
   public function updateObject($values = null)
   {
@@ -76,12 +75,15 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     {
       if (!$this->isNew() && !empty($values['file_id_delete']))
       {
-        $this->getObject()->getFile()->delete();
-      }
+        $old = $this->getObject()->getFile();
+        $this->getObject()->setFile(null);
+        $this->getObject()->save();
 
-      $this->getObject()->setFile(null);
+        $old->delete();
+      }
     }
-   return $this->getObject();
+
+    return $this->getObject();
   }
 
   protected function doSave($con = null)
