@@ -87,12 +87,18 @@ class opAlbumPluginRouting
         array('module' => 'albumImage', 'action' => 'add'),
         array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
-      ), 
+      ),
       'album_image_insert' => new sfDoctrineRoute(
         '/album/:id/photo/insert',
         array('module' => 'albumImage', 'action' => 'insert'),
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'Album', 'type' => 'object')
+      ),
+      'album_image_show' => new sfDoctrineRoute(
+        '/album/photo/:id',
+        array('module' => 'albumImage', 'action' => 'show'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumImage', 'type' => 'object')
       ),
 
      'album_nodefaults' => new sfRoute(

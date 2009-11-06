@@ -35,4 +35,8 @@ class albumImageActions extends opAlbumPluginActions
 
     $this->setTemplate('add');
   }
+
+  public function executeShow(sfWebRequest $request)
+  {
+  }
 }
