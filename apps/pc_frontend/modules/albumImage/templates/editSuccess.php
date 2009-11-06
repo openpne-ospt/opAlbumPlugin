@@ -1,0 +1,9 @@
+<?php
+
+$options['title'] = __('Edit your uploaded photo');
+$options['url'] = url_for('album_image_update', $albumImage);
+$options['button'] = __('Edit');
+$options['isMultipart'] = true;
+
+op_include_form('albumForm', $form, $options);
+?>

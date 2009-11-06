@@ -100,6 +100,18 @@ class opAlbumPluginRouting
         array('id' => '\d+'),
         array('model' => 'AlbumImage', 'type' => 'object')
       ),
+      'album_image_edit' => new sfDoctrineRoute(
+        '/album/photo/edit/:id',
+        array('module' => 'albumImage', 'action' => 'edit'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumImage', 'type' => 'object')
+      ),
+      'album_image_update' => new sfDoctrineRoute(
+        '/album/photo/update/:id',
+        array('module' => 'albumImage', 'action' => 'update'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'AlbumImage', 'type' => 'object')
+      ),
 
      'album_nodefaults' => new sfRoute(
         '/album/*',

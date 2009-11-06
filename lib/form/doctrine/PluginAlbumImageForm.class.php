@@ -20,76 +20,47 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
     unset($this['filesize']);
     unset($this['created_at']);
     unset($this['updated_at']);
-    unset($this['description']);
 
-    $key = 'photo';
+    sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
+
     $options = array(
-        'file_src'     => '',
-        'is_image'     => true,
-        'with_delete'  => true,
-        'label'        => $key,
-        'edit_mode'    => !$this->isNew(),
-      );
+      'file_src'    => '',
+      'is_image'    => true,
+      'with_delete' => false,
+      'template'    => get_partial('default/formEditImage', array('image' => $this->getObject())),
+    );
+    $this->setWidget('photo', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
 
-    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
-    for ($i = 1; $i <= $max; $i++)
-    {
-      $key = 'photo_'.$i;
+    $this->setWidget('description', new sfWidgetFormInput(array(), array('size' => 40)));
+    $this->getWidgetSchema()->moveField('description', sfWidgetFormSchema::LAST);
 
-      $options['label'] = $key;
-      $this->setWidget($key, new sfWidgetFormInputFileEditable($options, array('size' => 40)));
-      $this->setValidator($key, new opValidatorImageFile(array('required' => false)));
-
-      $this->setWidget($key.'description', new sfWidgetFormInput());
-      $this->setValidator($key.'description', new sfValidatorString(array('required' => false)));
-    } 
- } 
+    $this->setValidator('photo', new opValidatorImageFile(array('required' => false)));
+  }
 
   public function updateObject($values = null)
   {
-    parent::updateObject($values);
-
-    $max = (int)sfConfig::get('app_album_photo_max_image_file_num', 1);
-    for ($i = 1; $i <= $max; $i++)
+    if (is_null($values))
     {
-      $key = 'photo_'.$i;
-
-      if (is_null($values))
-      {
-        $values = $this->values;
-      }
-
-      $values = $this->processValues($values);
-
-      if ($values[$key] instanceof sfValidatedFile)
-      {
-        if (!$this->isNew())
-        {
-          unset($this->getObject()->File);
-        }
-
-      $file = new File();
-      $file->setFromValidatedFile($values[$key]);
-
-      $this->getObject()->setFile($file);
-      }
-      else
-      {
-        if (!$this->isNew() && !empty($values[$key.'delete']))
-        {
-          $this->getObject()->getFile()->delete();
-        }
-
-      $this->getObject()->setFile(null);
-      }
+      $values = $this->values;
     }
-  }
 
-  protected function doSave($con = null)
-  {
-    parent::doSave($con);
+    $photo = $values['photo'];
+    unset($values['photo']);
 
-    $this->getObject()->updateFileId();
-//    $this->getObject()->updateFileId();
+    $object = parent::updateObject($values);
+
+    if ($photo)
+    {
+      $file = new File();
+      $file->setFromValidatedFile($photo);
+
+      $old = $this->getObject()->getFile();
+      $this->getObject()->setFile($file);
+      $this->getObject()->save();
+
+      $old->delete();
+    }
+
+    return $object;
   }
 }

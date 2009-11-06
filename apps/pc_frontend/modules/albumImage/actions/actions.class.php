@@ -39,4 +39,23 @@ class albumImageActions extends opAlbumPluginActions
   public function executeShow(sfWebRequest $request)
   {
   }
+
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->form = new AlbumImageForm($this->albumImage);
+  }
+
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->form = new AlbumImageForm($this->albumImage);
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+    if ($this->form->isValid())
+    {
+      $this->form->save();
+      $this->getUser()->setFlash('notice', 'You\'ve just updated the photo successfully.');
+      $this->redirect('@album_image_show?id='.$this->albumImage->id);
+    }
+
+    $this->setTemplate('edit');
+  }
 }

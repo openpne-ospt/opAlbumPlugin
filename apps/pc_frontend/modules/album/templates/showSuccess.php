@@ -43,7 +43,7 @@
 <?php if (!empty($images[$j])): ?>
 <p class="photo">
 <?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
-<?php echo link_to('写真を編集', 'album/photo/edit') ?>
+<?php echo link_to('写真を編集', 'album_image_edit', $images[$j]) ?>
 </p>
 <p class="text"><?php echo $images[$j]->getDescription() ?></p>
 <?php endif; ?>
