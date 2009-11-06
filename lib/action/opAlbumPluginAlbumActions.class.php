@@ -29,8 +29,6 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
 
   public function executeListMember(sfWebRequest $request)
   {
-    $this->forward404Unless('Invalid date format');
-
     $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 10, $this->getUser()->getMemberId());
   }
 
@@ -43,7 +41,7 @@ class opAlbumPluginAlbumActions extends opAlbumPluginActions
   {
     $this->forward404Unless($this->isAlbumViewable());
 
-    $this->AlbumImage = new AlbumImageForm();
+    $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1));
   }
 
   public function executeNew(sfWebRequest $request)

@@ -26,21 +26,36 @@
 <td colspan="3"><?php echo link_to('写真を追加', 'album_image_add', $album) ?></td>
 </tr>
 </table>
+</div>
 
-
+<?php $images = $pager->getResults() ?>
+<div class="dparts albumImageList"><div class="parts">
 <div class="partsHeading"><h3><?php echo __('photo list') ?></h3>
 </div>
-<?php $images = $album->getAlbumImagesJoinFile() ?>
-<?php if (count($images)): ?>
-<ul class="photo">
-<?php foreach ($images as $image): ?>
-<li>
-<a href="<?php echo sf_image_path($image->getFile()) ?>" target="_blank"><?php echo image_tag_sf_image($image->getFile(), array('size' => '120x120')) ?></a>
-<?php echo link_to('写真を編集', 'album/photo/edit') ?>
-<?php echo link_to(op_album_get_title_and_count($album), 'album_show', $album) ?>
-</li>
-<?php endforeach; ?>
-</ul>
-<?php endif; ?>
 
-</div></div>
+<?php echo op_include_pager_navigation($pager, '@album_show?id='.$album->id.'&page=%d') ?>
+
+<table>
+<?php for ($i = 0; $i < count($images); $i = $i+2): ?>
+<tr>
+<?php for ($j = $i; $j < $i+2; $j++): ?>
+<td>
+<?php if (!empty($images[$j])): ?>
+<p class="photo">
+<?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
+<?php echo link_to('写真を編集', 'album/photo/edit') ?>
+</p>
+<p class="text"><?php echo $images[$j]->getDescription() ?></p>
+<?php endif; ?>
+</td>
+<?php endfor; ?>
+</tr>
+<?php endfor; ?>
+</table>
+
+<?php echo op_include_pager_navigation($pager, '@album_show?id='.$album->id.'&page=%d') ?>
+
+</div>
+</div>
+</div>
+
