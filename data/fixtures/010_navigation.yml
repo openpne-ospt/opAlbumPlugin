@@ -1,0 +1,29 @@
+Navigation:
+  secure_global_navigation_album:
+    type: "secure_global"
+    uri: "@album_list"
+    sort_order: 25
+    Translation:
+      en:
+        caption: "Album"
+      ja_JP:
+        caption: "アルバム"
+  default_navigation_album:
+    type: "default"
+    uri: "@album_list_mine"
+    sort_order: 15
+    Translation:
+      en:
+        caption: "Album"
+      ja_JP:
+        caption: "アルバム"
+  friend_navigation_album:
+    type: "friend"
+    uri: "@album_list_member"
+    sort_order: 15
+    Translation:
+      en:
+        caption: "Album"
+      ja_JP:
+        caption: "アルバム"
+
