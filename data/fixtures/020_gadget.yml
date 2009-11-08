@@ -1,0 +1,20 @@
+Gadget:
+  album_friend_list:
+    type: "contents"
+    name: "albumFriendList"
+    sort_order: 141
+
+  album_list:
+    type: "contents"
+    name: "albumList"
+    sort_order: 142
+
+  album_my_list:
+    type: "contents"
+    name: "albumMyList"
+    sort_order: 143
+
+  album_profile_list:
+    type: "profileContents"
+    name: "albumMemberList"
+    sort_order: 141

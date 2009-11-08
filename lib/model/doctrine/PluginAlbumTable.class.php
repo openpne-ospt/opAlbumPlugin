@@ -59,6 +59,15 @@ class PluginAlbumTable extends Doctrine_Table
     return $this->getPager($q, $page, $size);
   }
 
+  public function getFriendAlbumList($memberId, $limit = 5)
+  {
+    $q = $this->getOrderdQuery();
+    $this->addFriendQuery($q, $memberId);
+    $q->limit($limit);
+
+    return $q->execute();
+  }
+
   public function getFriendAlbumPager($memberId, $page = 1, $size = 20)
   {
     $q = $this->getOrderdQuery();

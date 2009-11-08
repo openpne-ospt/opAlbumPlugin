@@ -11,8 +11,9 @@
 /**
  * Album routing.
  *
- * @package    OpenPNE
+ * @package    opAlbumPlugin
  * @author     Hiroki Mogi <mogi@tejimaya.net>
+ * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class opAlbumPluginRouting
 {
@@ -35,6 +36,10 @@ class opAlbumPluginRouting
       'album_list_mine' => new sfRoute(
         '/album/listMember',
         array('module' => 'album', 'action' => 'listMember')
+      ),
+      'album_list_friend' => new sfRoute(
+        '/album/listFriend',
+        array('module' => 'album', 'action' => 'listFriend')
       ),
       'album_new' => new sfRoute(
         '/album/new',
