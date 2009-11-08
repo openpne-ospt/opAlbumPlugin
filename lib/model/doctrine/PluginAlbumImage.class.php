@@ -10,6 +10,8 @@
  */
 abstract class PluginAlbumImage extends BaseAlbumImage
 {
+  protected $previous, $next;
+
   public function save(Doctrine_Connection $conn = null)
   {
     parent::save($conn);
@@ -44,4 +46,25 @@ abstract class PluginAlbumImage extends BaseAlbumImage
       $this->save();
     }
   }
+
+  public function getPrevious($myMemberId)
+  {
+    if (is_null($this->previous))
+    {
+      $this->previous = $this->getTable()->getPreviousAlbumImage($this, $myMemberId);
+    }
+
+    return $this->previous;
+  }
+
+  public function getNext($myMemberId = null)
+  {
+    if (is_null($this->next))
+    {
+      $this->next = $this->getTable()->getNextAlbumImage($this, $myMemberId);
+    }
+
+    return $this->next;
+  }
+
 }

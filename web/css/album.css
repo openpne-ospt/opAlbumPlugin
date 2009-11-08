@@ -27,3 +27,18 @@
   padding: 10px;
 }
 
+.prevNextLinkLine p.prev {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+
+.prevNextLinkLine p.next {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.block.prevNextLinkLine {
+  padding: 0 10px;
+}

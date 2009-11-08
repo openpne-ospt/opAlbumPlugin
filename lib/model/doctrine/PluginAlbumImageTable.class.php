@@ -16,4 +16,28 @@ class PluginAlbumImageTable extends Doctrine_Table
 
     return $pager;
   }
+
+  public function getPreviousAlbumImage(AlbumImage $image, $myMemberId)
+  {
+    $q = $this->createQuery()
+      ->andWhere('member_id = ?', $image->getMemberId())
+      ->andWhere('album_id = ?', $image->getAlbumId())
+      ->andWhere('id < ?', $image->getId())
+      ->orderBy('id DESC');
+    Doctrine::getTable('Album')->addPublicFlagQuery($q, Doctrine::getTable('Album')->getPublicFlagByMemberId($image->getMemberId(), $myMemberId));
+
+    return $q->fetchOne();
+  }
+
+  public function getNextAlbumImage(AlbumImage $image, $myMemberId)
+  {
+    $q = $this->createQuery()
+      ->andWhere('member_id = ?', $image->getMemberId())
+      ->andWhere('album_id = ?', $image->getAlbumId())
+      ->andWhere('id > ?', $image->getId())
+      ->orderBy('id ASC');
+    Doctrine::getTable('Album')->addPublicFlagQuery($q, Doctrine::getTable('Album')->getPublicFlagByMemberId($image->getMemberId(), $myMemberId));
+
+    return $q->fetchOne();
+  }
 }
