@@ -31,12 +31,14 @@
 </tr>
 </table>
 </div>
+</div>
 
-<?php $images = $pager->getResults() ?>
 <div class="dparts albumImageList"><div class="parts">
 <div class="partsHeading"><h3><?php echo __('photo list') ?></h3>
 </div>
 
+<?php if ($pager->getNbResults()): ?>
+<?php $images = $pager->getResults() ?>
 <?php echo op_include_pager_navigation($pager, '@album_show?id='.$album->id.'&page=%d') ?>
 
 <table>
@@ -60,8 +62,9 @@
 </table>
 
 <?php echo op_include_pager_navigation($pager, '@album_show?id='.$album->id.'&page=%d') ?>
+<?php else: ?>
+<?php op_include_box('albumList', __('There are no images.')) ?>
+<?php endif; ?>
 
 </div>
 </div>
-</div>
-
