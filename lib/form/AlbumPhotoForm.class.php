@@ -55,7 +55,6 @@ class AlbumPhotoForm extends sfForm
       $file->setFromValidatedFile($v['file']);
 
       $albumImage = new AlbumImage();
-      $albumImage->setMemberId($this->albumInstance->member_id);
       $albumImage->setAlbum($this->albumInstance);
       $albumImage->setFile($file);
       $albumImage->setDescription($k);
