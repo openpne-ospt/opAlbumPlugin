@@ -25,12 +25,14 @@ class opWidgetFormInputAlbumImage extends sfWidgetForm
 
   public function render($name, $value = null, $attributes = array(), $errors = array())
   {
+    $i18n = sfContext::getInstance()->getI18N();
+
     $widget = new sfWidgetFormInputFile(array(), $attributes);
-    $file = '<dt>'.$this->getOption('file_label').'</dt>'
+    $file = '<dt>'.$i18n->__($this->getOption('file_label')).'</dt>'
           .'<dd>'.$widget->render($name.'[file]', null, array('id' => $this->generateId($name))).'</dd>';
 
     $widget = new sfWidgetFormInput(array(), $attributes);
-    $description = '<dt>'.$this->getOption('description_label').'</dt>'
+    $description = '<dt>'.$i18n->__($this->getOption('description_label')).'</dt>'
                  .'<dd>'.$widget->render($name.'[description]').'</dd>';
 
     $emptyValues = $this->getOption('empty_values');

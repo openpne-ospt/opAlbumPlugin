@@ -21,5 +21,5 @@
 <?php echo op_include_pager_navigation($pager, 'album/list?page=%d'); ?>
 </div></div>
 <?php else: ?>
-<?php op_include_box('albumList', (!isset($keyword)) ? __('There are no albums.') : __('Your search "%1%" did not match any albums.', array('%1%' => $keyword)), array('title' => $title)) ?>
+<?php op_include_box('albumList', __('There are no albums.'), array('title' => $title)) ?>
 <?php endif; ?>

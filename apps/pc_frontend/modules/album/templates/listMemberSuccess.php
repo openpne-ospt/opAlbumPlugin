@@ -27,11 +27,11 @@
 <td colspan="2"><?php echo $album->getBody() ?></td>
 </tr>
 <tr>
-<th><?php echo __('Publication') ?></th>
+<th><?php echo __('Public Flag') ?></th>
 <td colspan="2"><?php echo $album->getPublic_flag() ?></td>
 </tr>
 <tr>
-<th><?php echo __('Created') ?></th>
+<th><?php echo __('Created at') ?></th>
 <td colspan="2"><?php echo $album->getCreatedAt() ?></td>
 </tr>
 </table>

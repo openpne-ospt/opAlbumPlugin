@@ -20,6 +20,6 @@
 </table>
 <?php end_slot(); ?>
 
-<?php echo op_include_box('albumImageDetailBox', get_slot('_album_detail_table'), array('title' => __('写真の表示'))) ?>
+<?php echo op_include_box('albumImageDetailBox', get_slot('_album_detail_table'), array('title' => __('View this photo'))) ?>
 
-<p><?php echo link_to(__('Back to the album'), 'album_show', $album) ?></p>
+<?php op_include_line('backLink', link_to(__('Back to the album'), 'album_show', $album)) ?>

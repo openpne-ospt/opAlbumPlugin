@@ -19,17 +19,17 @@
 <td colspan="2"><?php echo $album->getBody() ?></td>
 </tr>
 <tr>
-<th><?php echo __('Publication') ?></th>
+<th><?php echo __('Public flag') ?></th>
 <td colspan="2"><?php echo $album->getPublic_flag() ?></td>
 </tr>
 <tr>
-<th><?php echo __('Created') ?></th>
+<th><?php echo __('Created at') ?></th>
 <td colspan="2"><?php echo op_format_date($album->getCreatedAt(), 'XDateTimeJaBr') ?></td>
 </tr>
 <?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <tr>
 <td colspan="3">
-<?php echo link_to('アルバムを編集', 'album_edit', $album) ?> | <?php echo link_to('写真を追加', 'album_image_add', $album) ?>
+<?php echo link_to(__('Edit the album'), 'album_edit', $album) ?> | <?php echo link_to(__('Add photos to this album'), 'album_image_add', $album) ?>
 </td>
 </tr>
 <?php endif; ?>
@@ -54,7 +54,7 @@
 <p class="image">
 <?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
 <?php if ($album->isAuthor($sf_user->getMemberId())): ?>
-<?php echo link_to('写真を編集', 'album_image_edit', $images[$j]) ?>
+<?php echo link_to(__('Edit the photo'), 'album_image_edit', $images[$j]) ?>
 <?php endif; ?>
 </p>
 <p class="text"><?php echo $images[$j]->getDescription() ?></p>

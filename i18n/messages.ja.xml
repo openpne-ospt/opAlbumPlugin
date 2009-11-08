@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="">
+        <source>Recently Posted Albums of All</source>
+        <target>全体の最新アルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Post a album</source>
+        <target>アルバムを投稿</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Edit the album</source>
+        <target>アルバムを編集</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Recently Posted Albums of %my_friend%</source>
+        <target>%my_friend%最新アルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Recently Posted Albums</source>
+        <target>最新アルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>My Albums</source>
+        <target>自分のアルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Add photos to this album</source>
+        <target>アルバムに画像を追加</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete the album</source>
+        <target>アルバムを削除</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Do you really delete this album?</source>
+        <target>本当にこのアルバムを削除しますか？</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete this album</source>
+        <target>このアルバムを削除</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Public flag</source>
+        <target>公開範囲</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Public</source>
+        <target>全体に公開</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Title</source>
+        <target>タイトル</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Body</source>
+        <target>本文</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Created at</source>
+        <target>作成日時</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>View this album</source>
+        <target>詳細を見る</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>More</source>
+        <target>もっと見る</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Save</source>
+        <target>確定</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Photo 1</source>
+        <target>写真1</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Photo 2</source>
+        <target>写真2</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Photo 3</source>
+        <target>写真3</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Photo 4</source>
+        <target>写真4</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Photo 5</source>
+        <target>写真5</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>There are no albums</source>
+        <target>アルバムがありません</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Edit the photo</source>
+        <target>写真を編集</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>photo list</source>
+        <target>写真の一覧</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>There are no images.</source>
+        <target>写真がありません。</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Album Name</source>
+        <target>アルバム名</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Add</source>
+        <target>追加</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Add photos to this album</source>
+        <target>写真をアルバムに追加</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete this photo</source>
+        <target>この写真を削除</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Edit your uploaded photo</source>
+        <target>投稿した写真を編集</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Previous photo</source>
+        <target>前の写真</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Next photo</source>
+        <target>次の写真</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>View this photo</source>
+        <target>写真を表示</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Back to the album</source>
+        <target>アルバムに戻る</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Albums of %1%</source>
+        <target>%1%さんのアルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>albums of %1%</source>
+        <target>%1%さんのアルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>CoverImage</source>
+        <target>表紙画像</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>My Friends</source>
+        <target>マイフレンドまで公開</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>File</source>
+        <target>ファイル</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Description</source>
+        <target>説明文</target>
+      </trans-unit>
+      <trans-unit id="">
+        <soruce>Public Flag</soruce>
+        <target>公開範囲</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
