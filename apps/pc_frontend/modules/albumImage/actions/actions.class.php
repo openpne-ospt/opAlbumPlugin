@@ -14,17 +14,25 @@
  * @package    OpenPNE
  * @subpackage albumImage
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
- * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
  */
-class albumImageActions extends sfActions
+class albumImageActions extends opAlbumPluginActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfWebRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
+  public function executeAdd(sfWebRequest $request)
   {
-    $this->forward('default', 'module');
+    $this->form = new AlbumPhotoForm(array(), array('album' => $this->album));
+  }
+
+  public function executeInsert(sfWebRequest $request)
+  {
+    $this->form = new AlbumPhotoForm(array(), array('album' => $this->album));
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+    if ($this->form->isValid())
+    {
+      $this->form->save();
+      $this->getUser()->setFlash('notice', 'You\'ve just added photo(s) to your album successfully.');
+      $this->redirect('@album_show?id='.$this->album->id);
+    }
+
+    $this->setTemplate('add');
   }
 }

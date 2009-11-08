@@ -21,6 +21,7 @@ class opAlbumPluginRouting
     $routing = $event->getSubject();
 
     $routes = array(
+      // album
       'album_index' => new sfRoute(
         '/album',
         array('module' => 'album', 'action' => 'index')
@@ -79,21 +80,17 @@ class opAlbumPluginRouting
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'Album', 'type' => 'object')
       ),
-      'album_add_confirm' => new sfDoctrineRoute(
-        '/album/addConfirm/:id',
-        array('module' => 'album', 'action' => 'addConfirm'),
-        array('id' => '\d+'),
-        array('model' => 'Album', 'type' => 'object')
-      ),
-      'album_add' => new sfDoctrineRoute(
-        '/album/add/:id',
-        array('module' => 'album', 'action' => 'add'),
+
+      // album image
+      'album_image_add' => new sfDoctrineRoute(
+        '/album/:id/photo/add',
+        array('module' => 'albumImage', 'action' => 'add'),
         array('id' => '\d+'),
         array('model' => 'Album', 'type' => 'object')
       ), 
-      'album_insert' => new sfDoctrineRoute(
-        '/album/insert/:id',
-        array('module' => 'album', 'action' => 'insert'),
+      'album_image_insert' => new sfDoctrineRoute(
+        '/album/:id/photo/insert',
+        array('module' => 'albumImage', 'action' => 'insert'),
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'Album', 'type' => 'object')
       ),

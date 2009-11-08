@@ -5,55 +5,101 @@
  *
  * @package    form
  * @subpackage AlbumImage
- * @version    SVN: $Id: sfDoctrineFormTemplate.php 6174 2007-11-27 06:22:40Z fabien $
+ * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class AlbumPhotoForm extends sfForm
 {
-  protected $memberId = null;
+  protected $albumInstance = null;
 
   public function setup()
   {
-    $this->memberId = $this->getOption('member_id');
-    if (!$this->memberId)
+    $photoCount = $this->getOption('photo_count', 5);
+    $this->albumInstance = $this->getOption('album');
+    if (!($this->albumInstance instanceof Album))
     {
-      $this->memberId = sfContext::getInstance()->getUser()->getMemberId();
+      throw new InvalidArgumentException('The "album" option is required and it must be an instance of the Album class.');
     }
 
-    $options = array(
-        'file_src'     => '',
-        'is_image'     => true,
-        'with_delete'  => true,
-        'label'        => 'photo',
-      );
+    $widget = new opWidgetFormInputAlbumImage(array(), array('size' => 40));
+    $validator = new sfValidatorCallback(array('callback' => array($this, 'validatePhoto')));
 
-    $this->setWidgets(array(
-        'photo'                => new sfWidgetFormInputFileEditable($options, array('size' => 40)),
-        'photo_description'  => new sfWidgetFormInput(),
-      ));
+    for ($i = 1; $i <= $photoCount; $i++)
+    {
+      $this->setWidget('photo_'.$i, clone $widget);
+      $this->setValidator('photo_'.$i, clone $validator);
+    }
 
-    $this->setValidators(array(
-        'photo'                => new opValidatorImageFile(array('required' => false)),
-        'photo_description'  => new sfValidatorString(array('required' => false)),
-      ));
-    $this->widgetSchema->setNameFormat('photo[%s]');
+    $this->getValidatorSchema()->setPostValidator(new sfValidatorCallback(
+      array('callback' => array($this, 'requiredCheck')),
+      array('required' => 'You need to post at least one photo.')
+    ));
 
+    $this->widgetSchema->setNameFormat('album_photo[%s]');
   }
+
   public function save()
   {
-    if(!$this->isValid())
+    foreach ($this->getValues() as $k => $v)
     {
-      throw $this->getErrorSchema();
+      if (0 !== strpos($k, 'photo_'))
+      {
+        continue;
+      }
+
+      if (empty($v['file']))
+      {
+        continue;
+      }
+
+      $file = new File();
+      $file->setFromValidatedFile($v['file']);
+
+      $albumImage = new AlbumImage();
+      $albumImage->setMemberId($this->albumInstance->member_id);
+      $albumImage->setAlbum($this->albumInstance);
+      $albumImage->setFile($file);
+      $albumImage->setDescription($k);
+      $albumImage->save();
     }
-    $file = new File();
-    $file->setFromValidatedFile($this->getValue('photo'));
-    $file->setName('A_'.$file->getId().'_'.$this->Album_id.'_');
+  }
 
-    $albumImage = new AlbumImage();
-    $albumImage->setMemberId($this->memberId);
-    $albumImage->setfile_id($this->getValue('photo'));
-    $albumImage->setdescription($this->getValue('photo_description'));
-    $albumImage->setFile($file);
+  public function requiredCheck($validator, $value, $arguments)
+  {
+    foreach ($value as $k => $v)
+    {
+      if (0 !== strpos($k, 'photo_'))
+      {
+        continue;
+      }
 
-    $albumImage->save();
-  } 
+      if (!empty($v['file']))
+      {
+        return $value;
+      }
+    }
+
+    throw new sfValidatorError($validator, 'required');
+  }
+
+  public function validatePhoto($validator, $value, $arguments)
+  {
+    $_validator = new sfValidatorFile();
+
+    try
+    {
+      $value['file'] = $_validator->clean($value['file']);
+    }
+    catch (sfValidatorError $e)
+    {
+      if ('required' !== $e->getCode())
+      {
+        throw $e;
+      }
+
+      $value['description'] = '';
+      $value['file'] = null;
+    }
+
+    return $value;
+  }
 }
