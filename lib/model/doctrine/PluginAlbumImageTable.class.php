@@ -6,7 +6,8 @@ class PluginAlbumImageTable extends Doctrine_Table
   public function getAlbumImagePager(Album $album, $page = 1, $size = 10)
   {
     $q = $this->createQuery()
-      ->where('album_id = ?', $album->id);
+      ->where('album_id = ?', $album->id)
+      ->orderBy('created_at DESC');
 
     $pager = new sfDoctrinePager('AlbumImage', $size);
     $pager->setQuery($q);
