@@ -54,10 +54,19 @@ class AlbumPhotoForm extends sfForm
       $file = new File();
       $file->setFromValidatedFile($v['file']);
 
+      if (empty($v['description']))
+      {
+        $description = $file->getName();
+      }
+      else
+      {
+        $description = $v['description'];
+      }
+
       $albumImage = new AlbumImage();
       $albumImage->setAlbum($this->albumInstance);
       $albumImage->setFile($file);
-      $albumImage->setDescription($k);
+      $albumImage->setDescription($description);
       $albumImage->save();
     }
   }
