@@ -12,8 +12,9 @@
  * album actions.
  *
  * @package    OpenPNE
- * @subpackage Album 
+ * @subpackage album
  * @author     mogi hiroki <mogi@tejimaya.net>
+ * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class opAlbumPluginAlbumActions extends opAlbumPluginActions
 {

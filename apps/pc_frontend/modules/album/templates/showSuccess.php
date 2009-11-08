@@ -9,7 +9,7 @@
 
 <table>
 <tr><td rowspan="4">
-<?php echo image_tag_sf_image($album->getFile(), array('size' => '180x180')) ?>
+<?php echo image_tag_sf_image($album->getFile(), array('size' => '120x120')) ?>
 </td>
 <th><?php echo __('Description') ?></th>
 <td colspan="2"><?php echo $album->getBody() ?></td>

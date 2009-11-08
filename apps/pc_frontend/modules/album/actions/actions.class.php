@@ -13,8 +13,7 @@
  *
  * @package    OpenPNE
  * @subpackage album
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
+ * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class albumActions extends opAlbumPluginAlbumActions
 {
