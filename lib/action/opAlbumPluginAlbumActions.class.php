@@ -17,11 +17,6 @@
  */
 class opAlbumPluginAlbumActions extends opAlbumPluginActions
 {
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('album', 'list');
-  }
-
   public function executeList(sfWebRequest $request)
   {
     $this->pager = Doctrine::getTable('Album')->getAlbumPager($request->getParameter('page'), 20);

@@ -22,12 +22,8 @@ class opAlbumPluginRouting
 
     $routes = array(
       // album
-      'album_index' => new sfRoute(
-        '/album',
-        array('module' => 'album', 'action' => 'index')
-      ),
       'album_list' => new sfRoute(
-        '/album/list',
+        '/album',
         array('module' => 'album', 'action' => 'list')
       ),
       'album_list_member' => new sfDoctrineRoute(
@@ -35,6 +31,10 @@ class opAlbumPluginRouting
         array('module' => 'album', 'action' => 'listMember'),
         array('id' => '\d+'),
         array('model' => 'Member', 'type' => 'object')
+      ),
+      'album_list_mine' => new sfRoute(
+        '/album/listMember',
+        array('module' => 'album', 'action' => 'listMember')
       ),
       'album_new' => new sfRoute(
         '/album/new',
