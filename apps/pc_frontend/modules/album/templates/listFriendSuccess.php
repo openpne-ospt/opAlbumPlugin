@@ -2,13 +2,13 @@
 
 <?php $title = __('Recently Posted Albums of %my_friend%', array('%my_friend%' => $op_term['my_friend']->pluralize()->titleize())) ?>
 <?php if ($pager->getNbResults()): ?>
-<div class="dparts recentList"><div class="parts">
+<div class="dparts recentAlbumList"><div class="parts">
 <div class="partsHeading"><h3><?php echo $title ?></h3></div>
 <div class="pagerRelative"><p class="number"><?php echo op_include_pager_navigation($pager, 'album/listMember?page=%d&id='.$member->getId()); ?></p></div>
 
 <?php foreach ($pager->getResults() as $album): ?>
 <table>
-<tr><td rowspan="4">
+<tr><td rowspan="4" class="photo">
 <?php echo link_to(image_tag_sf_image($album->getFile(), array('size' => '120x120')), 'album_show', $album) ?><br />
 <?php echo link_to(__('Details'), 'album_show', $album) ?>
 </td>

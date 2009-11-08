@@ -1,0 +1,29 @@
+.recentAlbumList td.photo {
+  padding: 5px;
+  width: 136px;
+  text-align: center;
+}
+
+.recentAlbumList table {
+  margin: 5px 0;
+}
+
+.albumDetailBox td.photo {
+  padding: 5px;
+  width: 136px;
+  text-align: center;
+}
+
+.albumImageList p {
+  text-align: center;
+}
+
+.albumImageList p.image {
+  padding: 5px 0;
+}
+
+#albumImageDetailBox td.photo {
+  text-align: center;
+  padding: 10px;
+}
+

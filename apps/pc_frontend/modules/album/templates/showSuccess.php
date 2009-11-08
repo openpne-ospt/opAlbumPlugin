@@ -4,13 +4,17 @@
 <?php slot('op_sidemenu', get_component('album', 'sidemenu', array('member' => $member))) ?>
 
 <div class="dparts albumDetailBox"><div class="parts">
-<div class="partsHeading"><h3><?php echo $album->getTitle(); ?></h3>
+<div class="partsHeading"><h3><?php echo __('Albums of %1%', array('%1%' => $member->name)) ?></h3>
 </div>
 
 <table>
-<tr><td rowspan="4">
+<tr><td rowspan="<?php echo $album->isAuthor($sf_user->getMemberId()) ? 5 : 4 ?>" class="photo">
 <?php echo image_tag_sf_image($album->getFile(), array('size' => '120x120')) ?>
 </td>
+<th><?php echo __('Title') ?></th>
+<td colspan="2"><?php echo $album->getTitle(); ?></td>
+</tr>
+<tr>
 <th><?php echo __('Description') ?></th>
 <td colspan="2"><?php echo $album->getBody() ?></td>
 </tr>
@@ -22,13 +26,13 @@
 <th><?php echo __('Created') ?></th>
 <td colspan="2"><?php echo op_format_date($album->getCreatedAt(), 'XDateTimeJaBr') ?></td>
 </tr>
+<?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <tr>
 <td colspan="3">
-<?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <?php echo link_to('アルバムを編集', 'album_edit', $album) ?> | <?php echo link_to('写真を追加', 'album_image_add', $album) ?>
-<?php endif; ?>
 </td>
 </tr>
+<?php endif; ?>
 </table>
 </div>
 </div>
@@ -47,7 +51,7 @@
 <?php for ($j = $i; $j < $i+2; $j++): ?>
 <td>
 <?php if (!empty($images[$j])): ?>
-<p class="photo">
+<p class="image">
 <?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
 <?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <?php echo link_to('写真を編集', 'album_image_edit', $images[$j]) ?>
