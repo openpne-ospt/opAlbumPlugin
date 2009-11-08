@@ -24,7 +24,9 @@
 </tr>
 <tr>
 <td colspan="3">
+<?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <?php echo link_to('アルバムを編集', 'album_edit', $album) ?> | <?php echo link_to('写真を追加', 'album_image_add', $album) ?>
+<?php endif; ?>
 </td>
 </tr>
 </table>
@@ -45,7 +47,9 @@
 <?php if (!empty($images[$j])): ?>
 <p class="photo">
 <?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
+<?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <?php echo link_to('写真を編集', 'album_image_edit', $images[$j]) ?>
+<?php endif; ?>
 </p>
 <p class="text"><?php echo $images[$j]->getDescription() ?></p>
 <?php endif; ?>

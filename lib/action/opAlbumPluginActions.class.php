@@ -33,6 +33,10 @@ class opAlbumPluginActions extends sfActions
         $this->album = $object->getAlbum();
         $this->member = $this->album->getMember();
       }
+      elseif ($object instanceof Member)
+      {
+        $this->member = $object;
+      }
     }
 
     if (empty($this->member))

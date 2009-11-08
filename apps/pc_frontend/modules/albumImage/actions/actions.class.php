@@ -19,11 +19,15 @@ class albumImageActions extends opAlbumPluginActions
 {
   public function executeAdd(sfWebRequest $request)
   {
+    $this->forward404Unless($this->isAlbumAuthor());
+
     $this->form = new AlbumPhotoForm(array(), array('album' => $this->album));
   }
 
   public function executeInsert(sfWebRequest $request)
   {
+    $this->forward404Unless($this->isAlbumAuthor());
+
     $this->form = new AlbumPhotoForm(array(), array('album' => $this->album));
     $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
     if ($this->form->isValid())
@@ -38,16 +42,21 @@ class albumImageActions extends opAlbumPluginActions
 
   public function executeShow(sfWebRequest $request)
   {
+    $this->forward404Unless($this->isAlbumViewable());
   }
 
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forward404Unless($this->isAlbumAuthor());
+
     $this->form = new AlbumImageForm($this->albumImage);
     $this->deleteForm = new sfForm();
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forward404Unless($this->isAlbumAuthor());
+
     $this->form = new AlbumImageForm($this->albumImage);
     $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
     if ($this->form->isValid())
@@ -62,6 +71,8 @@ class albumImageActions extends opAlbumPluginActions
 
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forward404Unless($this->isAlbumAuthor());
+
     $request->checkCSRFProtection();
 
     $this->albumImage->delete();
