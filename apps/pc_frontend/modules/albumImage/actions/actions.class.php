@@ -33,7 +33,7 @@ class albumImageActions extends opAlbumPluginActions
     if ($this->form->isValid())
     {
       $this->form->save();
-      $this->getUser()->setFlash('notice', 'You\'ve just added photo(s) to your album successfully.');
+      $this->getUser()->setFlash('notice', 'You have just added photo(s) to your album successfully.');
       $this->redirect('@album_show?id='.$this->album->id);
     }
 
@@ -62,7 +62,7 @@ class albumImageActions extends opAlbumPluginActions
     if ($this->form->isValid())
     {
       $this->form->save();
-      $this->getUser()->setFlash('notice', 'You\'ve just updated the photo successfully.');
+      $this->getUser()->setFlash('notice', 'You have just updated the photo successfully.');
       $this->redirect('@album_image_show?id='.$this->albumImage->id);
     }
 
