@@ -43,7 +43,7 @@ abstract class PluginAlbum extends BaseAlbum
 
   public function getFile()
   {
-    $file = parent::getFile();
+    $file = $this->get('File');
     if ($file->id)
     {
       return $file;
