@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>opAlbumPlugin</name>
+ <channel>plugins.openpne.jp</channel>
+ <summary>Add to Album features</summary>
+ <description>Source code of the opAlbumPlugin is managed on GitHub. You&apos;re welcome to fork and to pull request.</description>
+ <lead>
+  <name />
+  <user>chomo</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <contributor>
+  <name>Kousuke Ebihara</name>
+  <user>ebihara</user>
+  <email />
+  <active>yes</active>
+ </contributor>
+ <date>2009-11-23</date>
+ <time>01:28:29</time>
+ <version>
+  <release>0.9.1</release>
+  <api>0.9.1</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license>apache</license>
+ <notes>revise a security.yml</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="d17adeaf7e9f9b71531fe9f2a0d1b0f8" name="apps/pc_frontend/modules/album/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="a0731fba8569cf238e4bc0809798c851" name="apps/pc_frontend/modules/album/actions/components.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="9825fc4647c91fc079ced0f3c17aca05" name="apps/pc_frontend/modules/album/config/security.yml" role="data" />
+   <file baseinstalldir="/" md5sum="fbe7d937bafdccc7504bfbd62e53d551" name="apps/pc_frontend/modules/album/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="7f3149eb109e1a30892c0b00b5a268aa" name="apps/pc_frontend/modules/album/templates/addSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="ff5dab1f495c1f2da7d85be1754eaefc" name="apps/pc_frontend/modules/album/templates/deleteConfirmSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="d1f981fee4b9882b366b5786cece9082" name="apps/pc_frontend/modules/album/templates/editSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="apps/pc_frontend/modules/album/templates/indexSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="1415ed650647badda7277f63fb2946f5" name="apps/pc_frontend/modules/album/templates/listFriendSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="1fd578dcbafc3632959f1e8d4076502e" name="apps/pc_frontend/modules/album/templates/listMemberSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="5140032fe3d08f7b5f16397011b9fe6f" name="apps/pc_frontend/modules/album/templates/listSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="0bc410639141b1bf4b62a5673cc4e31e" name="apps/pc_frontend/modules/album/templates/newSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="231e5442d8ec9e866739202352325016" name="apps/pc_frontend/modules/album/templates/showSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="f3033404404f99c8470cba0d1feee5d1" name="apps/pc_frontend/modules/album/templates/_albumList.php" role="data" />
+   <file baseinstalldir="/" md5sum="28a1f479480cbfa5047225c8d2de53fa" name="apps/pc_frontend/modules/album/templates/_form.php" role="data" />
+   <file baseinstalldir="/" md5sum="64346e0fd2fa85c752869e0574af8f43" name="apps/pc_frontend/modules/album/templates/_formEditImage.php" role="data" />
+   <file baseinstalldir="/" md5sum="35a8fef88ba87f39ccc64f02d9df5b35" name="apps/pc_frontend/modules/album/templates/_friendAlbumList.php" role="data" />
+   <file baseinstalldir="/" md5sum="b327502a0cf19ab7f15c01975fee9f25" name="apps/pc_frontend/modules/album/templates/_memberAlbumList.php" role="data" />
+   <file baseinstalldir="/" md5sum="788ca6b9cfc82cc51dfe53fbdf28960c" name="apps/pc_frontend/modules/album/templates/_myAlbumList.php" role="data" />
+   <file baseinstalldir="/" md5sum="aee99511ad8deca415452d59ab172c98" name="apps/pc_frontend/modules/album/templates/_sidemenu.php" role="data" />
+   <file baseinstalldir="/" md5sum="a7631c9da451c3a1d0eaef02828e7ace" name="apps/pc_frontend/modules/albumImage/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="fbe7d937bafdccc7504bfbd62e53d551" name="apps/pc_frontend/modules/albumImage/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="a77c0383c87840ba1dc0b7cb4bfe4f12" name="apps/pc_frontend/modules/albumImage/templates/addSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="05cff05db7368bb382e00dbc577973c1" name="apps/pc_frontend/modules/albumImage/templates/editSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="apps/pc_frontend/modules/albumImage/templates/indexSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="71527ddcd051a0da6a3041ba51740ef4" name="apps/pc_frontend/modules/albumImage/templates/showSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="c45b5f4a9084ee28f118ab50a717547c" name="config/config.php" role="data" />
+   <file baseinstalldir="/" md5sum="505c3585e93f7a8784dc2e3e418faed7" name="config/gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="1149b20593ac9cead450d2e28933b18d" name="config/profile_gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="0614e641f2cf474f69c20748602493ca" name="config/doctrine/schema.yml" role="data" />
+   <file baseinstalldir="/" md5sum="9c5127452c3416fc78cf0dcf91f6801d" name="data/fixtures/010_navigation.yml" role="data" />
+   <file baseinstalldir="/" md5sum="366eebf559094c17ccdce8204556b86d" name="data/fixtures/020_gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="b7b4f02099430cce4f3ada4bb1c374e8" name="i18n/messages.ja.xml" role="data" />
+   <file baseinstalldir="/" md5sum="5500c25184dae59c5a0d9f92f7a91908" name="lib/opAlbumPluginRouting.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f7cb6f900f141e3987368635909a6976" name="lib/action/opAlbumPluginActions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f732ed0dc81482f76af5861c9fb085da" name="lib/filter/doctrine/PluginAlbumFormFilter.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="05845e0cb7abf7ffc0ab3f336f108c7b" name="lib/filter/doctrine/PluginAlbumImageFormFilter.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="2056f36e034685d1a43403135b14ba97" name="lib/form/AlbumPhotoForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="7fbada640f94f16263a32479b77b1116" name="lib/form/doctrine/PluginAlbumForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="846f4aae0fe1c2ed64d1347ef748158e" name="lib/form/doctrine/PluginAlbumImageForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="002783ecd33a1e8a9e4f1885226567fa" name="lib/helper/opAlbumHelper.php" role="data" />
+   <file baseinstalldir="/" md5sum="70f641646e5e3e96c9cc3ffd5195e331" name="lib/model/doctrine/PluginAlbum.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="47d06c59f4362abb6088b7e78cf3731f" name="lib/model/doctrine/PluginAlbumImage.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="628feaed339771dc3ea4b0a90df15b2c" name="lib/model/doctrine/PluginAlbumImageTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="3bf457faaaadb6acee9a31a994e4d131" name="lib/model/doctrine/PluginAlbumTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="c5b3c1c59456b865233c7d9a171d9dc3" name="lib/widget/opWidgetFormInputAlbumImage.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="391456cd06f7b9f49fc1b6abfc1b4826" name="web/css/album.css" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.9.1</release>
+    <api>0.9.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-11-23</date>
+   <license>apache</license>
+   <notes>revise a security.yml</notes>
+  </release>
+ </changelog>
+</package>
