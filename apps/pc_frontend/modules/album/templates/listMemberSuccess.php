@@ -16,7 +16,7 @@
 <?php foreach ($pager->getResults() as $album): ?>
 <table>
 <tr><td rowspan="4" class="photo">
-<?php echo link_to(image_tag_sf_image($album->getFile(), array('size' => '120x120')), 'album_show', $album) ?><br />
+<?php echo link_to(image_tag_sf_image($album->getCoverImage(), array('size' => '120x120')), 'album_show', $album) ?><br />
 <?php echo link_to(__('Details'), 'album_show', $album) ?>
 </td>
 <th><?php echo __('Title') ?></th>
