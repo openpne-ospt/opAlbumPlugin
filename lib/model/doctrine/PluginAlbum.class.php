@@ -41,14 +41,14 @@ abstract class PluginAlbum extends BaseAlbum
     return $this->next;
   }
 
-  public function getFile()
+  public function getCoverImage()
   {
-    $file = $this->get('File');
+    $file = $this->getFile();
+
     if ($file->id)
     {
       return $file;
     }
-
     return null;
   }
 

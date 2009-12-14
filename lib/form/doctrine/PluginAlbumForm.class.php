@@ -75,7 +75,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     {
       if (!$this->isNew() && !empty($values['file_id_delete']))
       {
-        $old = $this->getObject()->getFile();
+        $old = $this->getObject()->getCoverImage();
         $this->getObject()->setFile(null);
         $this->getObject()->save();
 
