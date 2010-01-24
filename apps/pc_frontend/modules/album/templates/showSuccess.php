@@ -20,7 +20,7 @@
 </tr>
 <tr>
 <th><?php echo __('Public flag') ?></th>
-<td colspan="2"><?php echo $album->getPublic_flag() ?></td>
+<td colspan="2"><?php echo $album->getPublicFlagLabel() ?></td>
 </tr>
 <tr>
 <th><?php echo __('Created at') ?></th>
