@@ -171,10 +171,6 @@
         <target>説明文</target>
       </trans-unit>
       <trans-unit id="">
-        <soruce>Public Flag</soruce>
-        <target>公開範囲</target>
-      </trans-unit>
-      <trans-unit id="">
         <source>You have just added photo(s) to your album successfully.</source>
         <target>写真をアルバムに追加しました。</target>
       </trans-unit>
