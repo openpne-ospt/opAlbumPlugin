@@ -52,7 +52,7 @@
 <td>
 <?php if (!empty($images[$j])): ?>
 <p class="image">
-<?php echo link_to(image_tag_sf_image($images[$j]->getCoverImage(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
+<?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '180x180')), 'album_image_show', $images[$j]) ?><br />
 <?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <?php echo link_to(__('Edit the photo'), 'album_image_edit', $images[$j]) ?>
 <?php endif; ?>

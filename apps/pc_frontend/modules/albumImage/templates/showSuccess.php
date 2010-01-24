@@ -12,7 +12,7 @@
 
 <table>
 <tr>
-<td colspan="2" class="photo"><?php echo image_tag_sf_image($albumImage->getCoverImage(), array('size' => '600x600')) ?></td>
+<td colspan="2" class="photo"><?php echo image_tag_sf_image($albumImage->getFile(), array('size' => '600x600')) ?></td>
 </tr>
 <tr>
 <th><?php echo __('Description') ?></th><td><?php echo $albumImage->getDescription() ?></td>

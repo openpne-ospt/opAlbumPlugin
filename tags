@@ -1,0 +1,67 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+AlbumComponents	apps/pc_frontend/modules/album/actions/components.class.php	/^class AlbumComponents extends sfComponents$/;"	c
+AlbumPhotoForm	lib/form/AlbumPhotoForm.class.php	/^class AlbumPhotoForm extends sfForm$/;"	c
+FileId	lib/model/doctrine/PluginAlbum.class.php	/^    $FileId = (bool)$this->getfile_id();$/;"	v
+FileId	lib/model/doctrine/PluginAlbumImage.class.php	/^    $FileId = (bool)$this->getfile_id();$/;"	v
+PluginAlbumImageTable	lib/model/doctrine/PluginAlbumImageTable.class.php	/^class PluginAlbumImageTable extends Doctrine_Table$/;"	c
+PluginAlbumTable	lib/model/doctrine/PluginAlbumTable.class.php	/^class PluginAlbumTable extends Doctrine_Table$/;"	c
+_validator	lib/form/AlbumPhotoForm.class.php	/^    $_validator = new sfValidatorFile();$/;"	v
+album	apps/pc_frontend/modules/album/actions/actions.class.php	/^      $album = $form->save();$/;"	v
+albumActions	apps/pc_frontend/modules/album/actions/actions.class.php	/^class albumActions extends opAlbumPluginActions$/;"	c
+albumImage	lib/form/AlbumPhotoForm.class.php	/^      $albumImage = new AlbumImage();$/;"	v
+albumImageActions	apps/pc_frontend/modules/albumImage/actions/actions.class.php	/^class albumImageActions extends opAlbumPluginActions$/;"	c
+description	lib/form/AlbumPhotoForm.class.php	/^        $description = $file->getName();$/;"	v
+description	lib/form/AlbumPhotoForm.class.php	/^        $description = $v['description'];$/;"	v
+description	lib/widget/opWidgetFormInputAlbumImage.class.php	/^    $description = '<dt>'.$i18n->__($this->getOption('description_label')).'<\/dt>'$/;"	v
+emptyValues	lib/widget/opWidgetFormInputAlbumImage.class.php	/^    $emptyValues = $this->getOption('empty_values');$/;"	v
+file	lib/form/AlbumPhotoForm.class.php	/^      $file = new File();$/;"	v
+file	lib/form/doctrine/PluginAlbumForm.class.php	/^      $file = new File();$/;"	v
+file	lib/form/doctrine/PluginAlbumImageForm.class.php	/^      $file = new File();$/;"	v
+file	lib/model/doctrine/PluginAlbum.class.php	/^    $file = $this->getFile();$/;"	v
+file	lib/model/doctrine/PluginAlbumImage.class.php	/^    $file = $this->getFile();$/;"	v
+file	lib/widget/opWidgetFormInputAlbumImage.class.php	/^    $file = '<dt>'.$i18n->__($this->getOption('file_label')).'<\/dt>'$/;"	v
+flags	lib/model/doctrine/PluginAlbum.class.php	/^    $flags = $this->getTable()->getViewablePublicFlags($this->getTable()->getPublicFlagByMemberId($this->getMemberId(), $memberId));$/;"	v
+flags	lib/model/doctrine/PluginAlbumTable.class.php	/^    $flags = array();$/;"	v
+flags	lib/model/doctrine/PluginAlbumTable.class.php	/^    $flags = self::getViewablePublicFlags($flag);$/;"	v
+friendIds	lib/model/doctrine/PluginAlbumTable.class.php	/^    $friendIds = Doctrine::getTable('MemberRelationship')->getFriendMemberIds($memberId, 5);$/;"	v
+i18n	lib/widget/opWidgetFormInputAlbumImage.class.php	/^    $i18n = sfContext::getInstance()->getI18N();$/;"	v
+images	lib/model/doctrine/PluginAlbum.class.php	/^    $images = Doctrine::getTable('AlbumImage')->findByAlbumId($this->getId());$/;"	v
+max	apps/pc_frontend/modules/album/actions/components.class.php	/^    $max = ($this->gadget) ? $this->gadget->getConfig('max') : 5;$/;"	v
+object	lib/action/opAlbumPluginActions.class.php	/^      $object = $this->getRoute()->getObject();$/;"	v
+object	lib/form/doctrine/PluginAlbumImageForm.class.php	/^    $object = parent::updateObject($values);$/;"	v
+old	lib/form/doctrine/PluginAlbumForm.class.php	/^        $old = $this->getObject()->getCoverImage();$/;"	v
+old	lib/form/doctrine/PluginAlbumImageForm.class.php	/^      $old = $this->getObject()->getFile();$/;"	v
+opAlbumPluginActions	lib/action/opAlbumPluginActions.class.php	/^class opAlbumPluginActions extends sfActions$/;"	c
+opAlbumPluginRouting	lib/opAlbumPluginRouting.class.php	/^class opAlbumPluginRouting$/;"	c
+opWidgetFormInputAlbumImage	lib/widget/opWidgetFormInputAlbumImage.class.php	/^class opWidgetFormInputAlbumImage extends sfWidgetForm$/;"	c
+op_album_get_title_and_count	lib/helper/opAlbumHelper.php	/^function op_album_get_title_and_count($album, $space = true, $width = 36)$/;"	f
+options	apps/pc_frontend/modules/album/templates/_form.php	/^$options = array($/;"	v
+options	lib/form/doctrine/PluginAlbumForm.class.php	/^    $options = array($/;"	v
+options	lib/form/doctrine/PluginAlbumImageForm.class.php	/^    $options = array($/;"	v
+pager	lib/model/doctrine/PluginAlbumImageTable.class.php	/^    $pager = new sfDoctrinePager('AlbumImage', $size);$/;"	v
+pager	lib/model/doctrine/PluginAlbumTable.class.php	/^    $pager = new sfDoctrinePager('Album', $size);$/;"	v
+photo	lib/form/doctrine/PluginAlbumImageForm.class.php	/^    $photo = $values['photo'];$/;"	v
+photoCount	lib/form/AlbumPhotoForm.class.php	/^    $photoCount = $this->getOption('photo_count', 5);$/;"	v
+prefix	lib/model/doctrine/PluginAlbumImage.class.php	/^    $prefix = 'a_'.$this->getAlbum()->id.'_';$/;"	v
+publicFlags	lib/model/doctrine/PluginAlbum.class.php	/^    $publicFlags = $this->getTable()->getPublicFlags();$/;"	v
+q	lib/model/doctrine/PluginAlbum.class.php	/^    $q = Doctrine::getTable('AlbumImage')->createQuery()$/;"	v
+q	lib/model/doctrine/PluginAlbumImageTable.class.php	/^    $q = $this->createQuery()$/;"	v
+q	lib/model/doctrine/PluginAlbumTable.class.php	/^    $q = $this->createQuery()$/;"	v
+q	lib/model/doctrine/PluginAlbumTable.class.php	/^    $q = $this->getOrderdQuery();$/;"	v
+relation	lib/model/doctrine/PluginAlbumTable.class.php	/^    $relation = Doctrine::getTable('MemberRelationship')->retrieveByFromAndTo($myMemberId, $memberId);$/;"	v
+result	lib/model/doctrine/PluginAlbum.class.php	/^    $result = array();$/;"	v
+routes	lib/opAlbumPluginRouting.class.php	/^    $routes = array($/;"	v
+routes	lib/opAlbumPluginRouting.class.php	/^    $routes = array_reverse($routes);$/;"	v
+routing	lib/opAlbumPluginRouting.class.php	/^    $routing = $event->getSubject();$/;"	v
+validator	lib/form/AlbumPhotoForm.class.php	/^    $validator = new sfValidatorCallback(array('callback' => array($this, 'validatePhoto')));$/;"	v
+values	lib/form/doctrine/PluginAlbumForm.class.php	/^      $values = $this->values;$/;"	v
+values	lib/form/doctrine/PluginAlbumForm.class.php	/^    $values = $this->processValues($values);$/;"	v
+values	lib/form/doctrine/PluginAlbumImageForm.class.php	/^      $values = $this->values;$/;"	v
+widget	lib/form/AlbumPhotoForm.class.php	/^    $widget = new opWidgetFormInputAlbumImage(array(), array('size' => 40));$/;"	v
+widget	lib/widget/opWidgetFormInputAlbumImage.class.php	/^    $widget = new sfWidgetFormInput(array(), $attributes);$/;"	v
+widget	lib/widget/opWidgetFormInputAlbumImage.class.php	/^    $widget = new sfWidgetFormInputFile(array(), $attributes);$/;"	v
