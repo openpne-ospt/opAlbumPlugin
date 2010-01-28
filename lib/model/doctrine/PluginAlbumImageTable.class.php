@@ -24,7 +24,6 @@ class PluginAlbumImageTable extends Doctrine_Table
       ->andWhere('album_id = ?', $image->getAlbumId())
       ->andWhere('id < ?', $image->getId())
       ->orderBy('id DESC');
-    Doctrine::getTable('Album')->addPublicFlagQuery($q, Doctrine::getTable('Album')->getPublicFlagByMemberId($image->getMemberId(), $myMemberId));
 
     return $q->fetchOne();
   }
@@ -36,7 +35,6 @@ class PluginAlbumImageTable extends Doctrine_Table
       ->andWhere('album_id = ?', $image->getAlbumId())
       ->andWhere('id > ?', $image->getId())
       ->orderBy('id ASC');
-    Doctrine::getTable('Album')->addPublicFlagQuery($q, Doctrine::getTable('Album')->getPublicFlagByMemberId($image->getMemberId(), $myMemberId));
 
     return $q->fetchOne();
   }

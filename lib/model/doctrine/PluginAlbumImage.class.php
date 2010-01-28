@@ -53,7 +53,6 @@ abstract class PluginAlbumImage extends BaseAlbumImage
     {
       $this->previous = $this->getTable()->getPreviousAlbumImage($this, $myMemberId);
     }
-
     return $this->previous;
   }
 
