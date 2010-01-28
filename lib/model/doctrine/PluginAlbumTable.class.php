@@ -147,8 +147,6 @@ class PluginAlbumTable extends Doctrine_Table
     }
     else
     {
-      var_dump(__LINE__);
-    exit;
       return self::PUBLIC_FLAG_SNS;
     }
   }
