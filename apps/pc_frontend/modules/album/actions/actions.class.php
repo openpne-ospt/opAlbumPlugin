@@ -37,7 +37,7 @@ class albumActions extends opAlbumPluginActions
   {
     $this->forward404Unless($this->isAlbumViewable());
 
-    $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1));
+    $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1), 20);
   }
 
   public function executeNew(sfWebRequest $request)

@@ -182,6 +182,42 @@
         <source>The album was deleted successfully.</source>
         <target>アルバムは正常に削除されました。</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Do you really delete this image?</source>
+        <target>本当にこの写真を削除しますか？</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete the image</source>
+        <target>写真を削除する</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>description</source>
+        <target>説明</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Album List</source>
+        <target>アルバムリスト</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Album Image List</source>
+        <target>アルバム画像リスト</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Album ID</source>
+        <target>アルバムID</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>There are no images</source>
+        <target>写真がありません</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Your search "%1%" did not match any albums.</source>
+        <target>"%1%"に一致するアルバムは見つかりませんでした</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Your search "%1%" did not match any images.</source>
+        <target>"%1%"に一致する写真は見つかりませんでした</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

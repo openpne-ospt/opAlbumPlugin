@@ -1,0 +1,7 @@
+albumList:
+  caption: "Album List"
+  url: "monitoring_album"
+
+albumImageList:
+  caption: "Album Image List"
+  url: "monitoring_album_image"
