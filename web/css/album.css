@@ -42,3 +42,7 @@
 .block.prevNextLinkLine {
   padding: 0 10px;
 }
+
+.body table {
+  clear: right;
+}  
