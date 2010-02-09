@@ -21,21 +21,36 @@ http://github.com/mogi/opAlbumPlugin</description>
   <email />
   <active>yes</active>
  </contributor>
- <date>2010-01-29</date>
- <time>09:47:21</time>
+ <date>2010-02-09</date>
+ <time>12:44:26</time>
  <version>
-  <release>0.9.3</release>
-  <api>0.9.3</api>
+  <release>0.9.4</release>
+  <api>0.9.4</api>
  </version>
  <stability>
   <release>beta</release>
   <api>beta</api>
  </stability>
  <license>apache</license>
- <notes>bugfix for Picture albums</notes>
+ <notes>add album management function and album image management function</notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="d17adeaf7e9f9b71531fe9f2a0d1b0f8" name="apps/pc_frontend/modules/album/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="7963bd8f8ab46d3035400b65cbc0a1a6" name="apps/pc_backend/config/monitoring.yml" role="data" />
+   <file baseinstalldir="/" md5sum="12ac18a5fbf973bf538aef91744599f4" name="apps/pc_backend/config/routing.yml" role="data" />
+   <file baseinstalldir="/" md5sum="7c550859bb987e7600be61267d9acc9a" name="apps/pc_backend/modules/album/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="12bcbac5279553209dc5b349b143d4e8" name="apps/pc_backend/modules/album/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="d7ae20988527a59a2d1ba4f8cf4ea94a" name="apps/pc_backend/modules/album/templates/deleteConfirmSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="5f7b53a464723a4c248ddc02e812e05b" name="apps/pc_backend/modules/album/templates/listSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="370f92377673df353ed647715e0080b1" name="apps/pc_backend/modules/album/templates/searchIdSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="db384d4d3710b142dfc3968afd4cb40d" name="apps/pc_backend/modules/album/templates/_album.php" role="data" />
+   <file baseinstalldir="/" md5sum="c8ea22371988c31d7d378e1a115f2889" name="apps/pc_backend/modules/album/templates/_searchForm.php" role="data" />
+   <file baseinstalldir="/" md5sum="2d3e9e4fdb65ec2f1709becb1332587f" name="apps/pc_backend/modules/albumImage/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="12bcbac5279553209dc5b349b143d4e8" name="apps/pc_backend/modules/albumImage/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="d07649069dffd48a41cd03d74b371e26" name="apps/pc_backend/modules/albumImage/templates/deleteConfirmSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="73ca413a78ef1f9b003ce1a74dd6de08" name="apps/pc_backend/modules/albumImage/templates/listSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="ccd3f655b4e5a2dc06aa6b4c4d470a37" name="apps/pc_backend/modules/albumImage/templates/_albumImage.php" role="data" />
+   <file baseinstalldir="/" md5sum="e4194835c0dd1b62ee33e7ef0df7842c" name="apps/pc_backend/modules/albumImage/templates/_searchForm.php" role="data" />
+   <file baseinstalldir="/" md5sum="6df698786bd4faac0e565c78e5bb51b6" name="apps/pc_frontend/modules/album/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="a0731fba8569cf238e4bc0809798c851" name="apps/pc_frontend/modules/album/actions/components.class.php" role="data" />
    <file baseinstalldir="/" md5sum="9825fc4647c91fc079ced0f3c17aca05" name="apps/pc_frontend/modules/album/config/security.yml" role="data" />
    <file baseinstalldir="/" md5sum="fbe7d937bafdccc7504bfbd62e53d551" name="apps/pc_frontend/modules/album/config/view.yml" role="data" />
@@ -68,8 +83,7 @@ http://github.com/mogi/opAlbumPlugin</description>
    <file baseinstalldir="/" md5sum="0614e641f2cf474f69c20748602493ca" name="config/doctrine/schema.yml" role="data" />
    <file baseinstalldir="/" md5sum="9c5127452c3416fc78cf0dcf91f6801d" name="data/fixtures/010_navigation.yml" role="data" />
    <file baseinstalldir="/" md5sum="366eebf559094c17ccdce8204556b86d" name="data/fixtures/020_gadget.yml" role="data" />
-   <file baseinstalldir="/" md5sum="14d8ccb49b8eb3600291e335fff19c32" name="i18n/messages.ja.xml" role="data" />
-   <file baseinstalldir="/" md5sum="5500c25184dae59c5a0d9f92f7a91908" name="lib/opAlbumPluginRouting.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="b5ddf2750eb49a3460ddb6bec5bbbd38" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="f7cb6f900f141e3987368635909a6976" name="lib/action/opAlbumPluginActions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="f732ed0dc81482f76af5861c9fb085da" name="lib/filter/doctrine/PluginAlbumFormFilter.class.php" role="data" />
    <file baseinstalldir="/" md5sum="05845e0cb7abf7ffc0ab3f336f108c7b" name="lib/filter/doctrine/PluginAlbumImageFormFilter.class.php" role="data" />
@@ -79,10 +93,14 @@ http://github.com/mogi/opAlbumPlugin</description>
    <file baseinstalldir="/" md5sum="002783ecd33a1e8a9e4f1885226567fa" name="lib/helper/opAlbumHelper.php" role="data" />
    <file baseinstalldir="/" md5sum="9a9e1dcfb0e6b1bf8567dadd281f1e33" name="lib/model/doctrine/PluginAlbum.class.php" role="data" />
    <file baseinstalldir="/" md5sum="6ff6d01d28ee59179a3610def8e98c7e" name="lib/model/doctrine/PluginAlbumImage.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="9b4fcd09821d8137031ff00578a765e6" name="lib/model/doctrine/PluginAlbumImageTable.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="3bf457faaaadb6acee9a31a994e4d131" name="lib/model/doctrine/PluginAlbumTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="fdb3d1c5d28244d6b8528a3f399b00a0" name="lib/model/doctrine/PluginAlbumImageTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="c785b40b9b4b435b560d22afb98b65d5" name="lib/model/doctrine/PluginAlbumTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="ad6ea5b7d3af8a27f193acdf5a3f80fd" name="lib/routing/opAlbumPluginBackendRouteCollection.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="e4f71df18410065efcaf929ad2fe12e2" name="lib/routing/opAlbumPluginBaseRouteCollection.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="5500c25184dae59c5a0d9f92f7a91908" name="lib/routing/opAlbumPluginRouting.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="2fba1079e3e72828585d4e7d186d993c" name="lib/util/opDiaryPluginToolkit.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c5b3c1c59456b865233c7d9a171d9dc3" name="lib/widget/opWidgetFormInputAlbumImage.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="391456cd06f7b9f49fc1b6abfc1b4826" name="web/css/album.css" role="data" />
+   <file baseinstalldir="/" md5sum="d66f6231a941fb88fde1fe64d75b007d" name="web/css/album.css" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -114,6 +132,19 @@ http://github.com/mogi/opAlbumPlugin</description>
    <date>2010-01-29</date>
    <license>apache</license>
    <notes>bugfix for Picture albums</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.4</release>
+    <api>0.9.4</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2010-02-09</date>
+   <license>apache</license>
+   <notes>add album management function and album image management function</notes>
   </release>
  </changelog>
 </package>
