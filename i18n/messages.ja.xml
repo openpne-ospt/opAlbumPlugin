@@ -218,6 +218,10 @@
         <source>Your search "%1%" did not match any images.</source>
         <target>"%1%"に一致する写真は見つかりませんでした</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>The image was deleted successfully.</source>
+        <target>写真は正常に削除されました。</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
