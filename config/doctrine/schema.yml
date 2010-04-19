@@ -38,3 +38,38 @@ AlbumImage:
       foreignAlias: AlbumImages
       onDelete: cascade
 
+AlbumComment:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    album_id: { type: integer(4), notnull: true }
+    member_id: { type: integer(4), notnull: true }
+    body: { type: string, notnull: true }
+  relations:
+    Album:
+      foreignAlias: AlbumComments
+      onDelete: cascade
+    Member:
+      foreignAlias: AlbumComments
+      onDelete: cascade
+  indexes:
+    album_id:
+      fields: [album_id]
+      
+AlbumImageComment:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    album_image_id: { type: integer(4), notnull: true }
+    member_id: { type: integer(4), notnull: true }
+    body: { type: string, notnull: true }
+  relations:
+    AlbumImage:
+      foreignAlias: AlbumImageComments
+      onDelete: cascade
+    Member:
+      foreignAlias: AlbumImageComments
+      onDelete: cascade
+  indexes:
+    album_image_id:
+      fields: [album_image_id]      

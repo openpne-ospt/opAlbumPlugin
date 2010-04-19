@@ -66,6 +66,25 @@
 </table>
 
 <?php echo op_include_pager_navigation($pager, '@album_show?id='.$album->id.'&page=%d') ?>
+
+<?php include_component('albumComment','list',array('album' => $album)) ?>
+
+<?php if ($sf_user->getMemberId()): ?>
+<?php 
+$form->getWidget('body')->setAttribute('rows', 5);
+$form->getWidget('body')->setAttribute('cols', 40);
+
+$title = __('Post an album comment');
+$options = array(
+  'form' => $form,
+  'url' => '@album_comment_create?id='.$album->id,
+  'button' => __('Save'),
+  'isMultipart' => true,
+);
+include_box('formAlbumComment', $title, '', $options);
+?>
+<?php endif; ?>
+
 <?php else: ?>
 <?php op_include_box('albumList', __('There are no images.')) ?>
 <?php endif; ?>

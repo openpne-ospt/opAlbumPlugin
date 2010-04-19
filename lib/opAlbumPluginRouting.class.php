@@ -123,6 +123,13 @@ class opAlbumPluginRouting
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'AlbumImage', 'type' => 'object')
       ),
+      
+      'album_comment_create' => new sfDoctrineRoute(
+        '/album/:id/comment/create',
+        array('module' => 'albumComment', 'action' => 'create'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'Album', 'type' => 'object')
+      ),
 
      'album_nodefaults' => new sfRoute(
         '/album/*',
