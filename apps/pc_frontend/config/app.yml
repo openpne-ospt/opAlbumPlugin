@@ -1,0 +1,2 @@
+all:
+  max_comments_on_album: 10
