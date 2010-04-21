@@ -12,5 +12,8 @@
  */
 abstract class PluginAlbumImageComment extends BaseAlbumImageComment
 {
-
+  public function isDeletable($memberId)
+  {
+    return $this->member_id === $memberId || $this->AlbumImage->isAuthor($memberId);
+  }
 }

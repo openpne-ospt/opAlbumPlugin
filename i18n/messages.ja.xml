@@ -227,7 +227,7 @@
         <target>コメント</target>
       </trans-unit>
       <trans-unit id="">
-        <source>Post an album comment</source>
+        <source>Post a comment</source>
         <target>コメントを書く</target>
       </trans-unit>
     </body>

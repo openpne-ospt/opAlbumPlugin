@@ -18,6 +18,11 @@
 <th><?php echo __('Description') ?></th><td><?php echo $albumImage->getDescription() ?></td>
 </tr>
 </table>
+
+<?php include_component('albumImageComment','list',array('albumImage' => $albumImage)) ?>
+
+<?php include_partial('albumComment/create', array('form' => $form, 'url' => '@album_image_comment_create?id='.$albumImage->id, 'boxName' => 'formAlbumImageComment')) ?>
+
 <?php end_slot(); ?>
 
 <?php echo op_include_box('albumImageDetailBox', get_slot('_album_detail_table'), array('title' => __('View this photo'))) ?>

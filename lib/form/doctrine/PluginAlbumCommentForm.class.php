@@ -9,7 +9,7 @@
  */
 
 /**
- * PluginDiaryComment form.
+ * PluginAlbumComment form.
  *
  * @package    opAlbumPlugin
  * @subpackage form

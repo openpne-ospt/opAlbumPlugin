@@ -3,11 +3,16 @@
 /**
  * PluginAlbumImageComment form.
  *
- * @package    ##PROJECT_NAME##
- * @subpackage form
- * @author     ##AUTHOR_NAME##
- * @version    SVN: $Id: sfDoctrineFormPluginTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @package    opAlbumPlugin
+ * @subpackage AlbumImageComment
+ * @author     Nguyen Ngoc Tu (tunn@tejimaya.com)
  */
 abstract class PluginAlbumImageCommentForm extends BaseAlbumImageCommentForm
 {
+  public function setup()
+  {
+    parent::setup();
+     
+    $this->useFields(array('body'));
+  }
 }

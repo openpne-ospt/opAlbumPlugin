@@ -145,7 +145,28 @@ class opAlbumPluginRouting
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'AlbumComment', 'type' => 'object')
       ),
+     
+     'album_image_comment_create' => new sfDoctrineRoute(
+        '/album/photo/:id/comment/create',
+        array('module' => 'albumImageComment', 'action' => 'create'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'AlbumImage', 'type' => 'object')
+      ),
+      
+      'album_image_comment_delete' => new sfDoctrineRoute(
+        '/album/photo/comment/delete/:id',
+        array('module' => 'albumImageComment', 'action' => 'delete'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'AlbumImageComment', 'type' => 'object')
+      ),
 
+     'album_image_comment_delete_confirm' => new sfDoctrineRoute(
+        '/album/photo/comment/deleteConfirm/:id',
+        array('module' => 'albumImageComment', 'action' => 'deleteConfirm'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumImageComment', 'type' => 'object')
+      ),
+     
      'album_nodefaults' => new sfRoute(
         '/album/*',
         array('module' => 'default', 'action' => 'error')

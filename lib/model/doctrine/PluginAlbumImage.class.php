@@ -47,6 +47,11 @@ abstract class PluginAlbumImage extends BaseAlbumImage
     }
   }
 
+  public function isAuthor($memberId)
+  {
+    return ($this->getMemberId() === $memberId);
+  }
+  
   public function getPrevious($myMemberId)
   {
     if (is_null($this->previous))
