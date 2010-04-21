@@ -17,9 +17,9 @@
 <div class="title">
 <p class="heading">
 <?php if ($_member = $comment->Member): ?> <?php echo link_to($_member->name, 'member/profile?id='.$_member->id) ?><?php endif; ?>
-<?php //if ($album->member_id === $sf_user->getMemberId() || $comment->member_id === $sf_user->getMemberId()): ?>
-<?php //echo link_to(__('Delete'), 'album_comment_delete_confirm', $comment) ?>
-<?php //endif; ?>
+<?php if ($album->member_id === $sf_user->getMemberId() || $comment->member_id === $sf_user->getMemberId()): ?>
+<?php echo link_to(__('Delete'), 'album_comment_delete_confirm', $comment) ?>
+<?php endif; ?>
 </p>
 </div>
 <div class="body">

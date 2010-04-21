@@ -39,8 +39,32 @@ class albumCommentActions extends opAlbumPluginActions
     $this->setTemplate('../../album/templates/show');
   }
   
+  public function executeDeleteConfirm(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->isAlbumCommentDeletable());
+
+    $this->form = new BaseForm();
+  }
+  
+  public function executeDelete(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->isAlbumCommentDeletable());
+    $request->checkCSRFProtection();
+
+    $this->albumComment->delete();
+
+    $this->getUser()->setFlash('notice', 'The comment was deleted successfully.');
+
+    $this->redirectToAlbumShow();
+  }
+  
   protected function redirectToAlbumShow()
   {
     $this->redirect('@album_show?id='.$this->album->id);
+  }
+  
+  protected function isAlbumCommentDeletable()
+  {
+    return $this->albumComment->isDeletable($this->getUser()->getMemberId());
   }
 }

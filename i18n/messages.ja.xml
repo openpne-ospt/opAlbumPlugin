@@ -222,6 +222,14 @@
         <source>The image was deleted successfully.</source>
         <target>写真は正常に削除されました。</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Comments</source>
+        <target>コメント</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Post an album comment</source>
+        <target>コメントを書く</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -14,6 +14,7 @@
  * @package    opAlbumPlugin
  * @author     Hiroki Mogi <mogi@tejimaya.net>
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
+ * @author     Nguyen Ngoc Tu <tunn@tejimaya.com>
  */
 class opAlbumPluginRouting
 {
@@ -129,6 +130,20 @@ class opAlbumPluginRouting
         array('module' => 'albumComment', 'action' => 'create'),
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'Album', 'type' => 'object')
+      ),
+      
+      'album_comment_delete_confirm' => new sfDoctrineRoute(
+        '/album/comment/deleteConfirm/:id',
+        array('module' => 'albumComment', 'action' => 'deleteConfirm'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumComment', 'type' => 'object')
+      ),
+      
+      'album_comment_delete' => new sfDoctrineRoute(
+        '/album/comment/delete/:id',
+        array('module' => 'albumComment', 'action' => 'delete'),
+        array('id' => '\d+', 'sf_method' => array('post')),
+        array('model' => 'AlbumComment', 'type' => 'object')
       ),
 
      'album_nodefaults' => new sfRoute(
