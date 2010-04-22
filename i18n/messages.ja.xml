@@ -15,6 +15,14 @@
         <target>アルバムを編集</target>
       </trans-unit>
       <trans-unit id="">
+        <source>Previous album</source>
+        <target>前のアルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Next album</source>
+        <target>次のアルバム</target>
+      </trans-unit>
+      <trans-unit id="">
         <source>Recently Posted Albums of %my_friend%</source>
         <target>%my_friend%最新アルバム</target>
       </trans-unit>

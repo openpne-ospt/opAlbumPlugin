@@ -7,6 +7,17 @@
 <div class="partsHeading"><h3><?php echo __('Albums of %1%', array('%1%' => $member->name)) ?></h3>
 </div>
 
+<?php if ($album->getPrevious($sf_user->getMemberId()) || $album->getNext($sf_user->getMemberId())): ?>
+<div class="block prevNextLinkLine">
+<?php if ($previousAlbum = $album->getPrevious($sf_user->getMemberId())): ?>
+<p class="prev"><?php echo link_to(__('Previous album'), 'album_show', $previousAlbum) ?></p>
+<?php endif; ?>
+<?php if ($nextAlbum = $album->getNext($sf_user->getMemberId())): ?>
+<p class="next"><?php echo link_to(__('Next album'), 'album_show', $nextAlbum) ?></p>
+<?php endif; ?>
+</div>
+<?php endif; ?>
+
 <table>
 <tr><td rowspan="<?php echo $album->isAuthor($sf_user->getMemberId()) ? 5 : 4 ?>" class="photo">
 <?php echo image_tag_sf_image($album->getCoverImage(), array('size' => '120x120')) ?>
@@ -67,13 +78,12 @@
 
 <?php echo op_include_pager_navigation($pager, '@album_show?id='.$album->id.'&page=%d') ?>
 
-<?php include_component('albumComment','list',array('album' => $album)) ?>
-
-<?php include_partial('albumComment/create',array('form' => $form, 'url' => '@album_comment_create?id='.$album->id, 'boxName' => 'formAlbumComment')) ?>
-
 <?php else: ?>
 <?php op_include_box('albumList', __('There are no images.')) ?>
 <?php endif; ?>
 
 </div>
 </div>
+<?php include_component('albumComment','list',array('album' => $album)) ?>
+
+<?php include_partial('albumComment/create',array('form' => $form, 'url' => '@album_comment_create?id='.$album->id, 'boxName' => 'formAlbumComment')) ?>
