@@ -68,7 +68,6 @@
 <?php echo link_to(__('Edit the photo'), 'album_image_edit', $images[$j]) ?>
 <?php endif; ?>
 </p>
-<p class="text"><?php echo $images[$j]->getDescription() ?></p>
 <?php endif; ?>
 </td>
 <?php endfor; ?>
@@ -84,6 +83,20 @@
 
 </div>
 </div>
+
+<div class="dparts albumLikeList"><div class="parts">
+<div class="block likeUnlikeLine">
+<?php if ($albumLike = $album->isLiked($sf_user->getMemberId())): ?>
+<?php echo link_to(__('Unlike'), 'album_like_delete', $albumLike) ?>
+<?php else: ?>
+<?php echo link_to(__('Like'), 'album_like_create', $album) ?>
+<?php endif; ?>
+</div>
+<div class="block likeListDetail">
+<?php include_component('albumLike','list',array('album' => $album)) ?>
+</div>
+</div></div>
+
 <?php include_component('albumComment','list',array('album' => $album)) ?>
 
 <?php include_partial('albumComment/create',array('form' => $form, 'url' => '@album_comment_create?id='.$album->id, 'boxName' => 'formAlbumComment')) ?>

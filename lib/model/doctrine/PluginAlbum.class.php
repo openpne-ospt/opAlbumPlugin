@@ -65,6 +65,19 @@ abstract class PluginAlbum extends BaseAlbum
     return $result;
   }
 
+  public function getMembersLikeAlbum()
+  {
+    $likes = Doctrine::getTable('AlbumLike')->findByAlbumId($this->id);
+    
+    $members = array();
+    foreach ($likes as $like)
+    {
+      $members[] = $like->Member;
+    }
+
+    return $members;
+  }
+  
   public function updateFileId()
   {
     $this->clearRelated();
@@ -89,6 +102,11 @@ abstract class PluginAlbum extends BaseAlbum
     return in_array($this->getPublicFlag(), $flags);
   }
 
+  public function isLiked($memberId)
+  {
+    return Doctrine::getTable('AlbumLike')->getAlbumLike($this->id, $memberId);
+  }
+  
   public function getAlbumImagesJoinFile()
   {
     $q = Doctrine::getTable('AlbumImage')->createQuery()

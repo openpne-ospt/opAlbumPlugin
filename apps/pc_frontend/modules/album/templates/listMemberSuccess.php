@@ -27,8 +27,8 @@
 <td colspan="2"><?php echo $album->getBody() ?></td>
 </tr>
 <tr>
-<th><?php echo __('Public Flag') ?></th>
-<td colspan="2"><?php echo $album->getPublic_flag() ?></td>
+<th><?php echo __('Public flag') ?></th>
+<td colspan="2"><?php echo $album->getPublicFlagLabel() ?></td>
 </tr>
 <tr>
 <th><?php echo __('Created at') ?></th>

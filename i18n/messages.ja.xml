@@ -238,6 +238,26 @@
         <source>Post a comment</source>
         <target>コメントを書く</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Like</source>
+        <target>いいね！</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Unlike</source>
+        <target>いいね！を取り消す</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>%user1% likes it</source>
+        <target>%user1%さんが「いいね！」といっています</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>%user1% and %user2% like it</source>
+        <target>%user1%さんと%user2%さんが「いいね！」といっています</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>%user1%, %user2% and %user3% like it</source>
+        <target>%user1%さんと%user2%さん、%user3%さんが「いいね！」といっています</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

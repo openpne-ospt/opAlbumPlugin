@@ -167,6 +167,34 @@ class opAlbumPluginRouting
         array('model' => 'AlbumImageComment', 'type' => 'object')
       ),
      
+     'album_like_create' => new sfDoctrineRoute(
+        '/album/:id/like/create',
+        array('module' => 'albumLike', 'action' => 'create'),
+        array('id' => '\d+'),
+        array('model' => 'Album', 'type' => 'object')
+      ),
+      
+     'album_like_delete' => new sfDoctrineRoute(
+        '/album/like/delete/:id',
+        array('module' => 'albumLike', 'action' => 'delete'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumLike', 'type' => 'object')
+      ),
+      
+     'album_image_like_create' => new sfDoctrineRoute(
+        '/album/photo/:id/like/create',
+        array('module' => 'albumImageLike', 'action' => 'create'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumImage', 'type' => 'object')
+      ),
+      
+     'album_image_like_delete' => new sfDoctrineRoute(
+        '/album/photo/like/delete/:id',
+        array('module' => 'albumImageLike', 'action' => 'delete'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumImageLike', 'type' => 'object')
+      ),
+      
      'album_nodefaults' => new sfRoute(
         '/album/*',
         array('module' => 'default', 'action' => 'error')

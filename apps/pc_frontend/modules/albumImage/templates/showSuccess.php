@@ -22,6 +22,19 @@
 
 <?php echo op_include_box('albumImageDetailBox', get_slot('_album_detail_table'), array('title' => __('View this photo'))) ?>
 
+<div class="dparts albumImageLikeList"><div class="parts">
+<div class="block likeUnlikeLine">
+<?php if ($albumImageLike = $albumImage->isLiked($sf_user->getMemberId())): ?>
+<?php echo link_to(__('Unlike'), 'album_image_like_delete', $albumImageLike) ?>
+<?php else: ?>
+<?php echo link_to(__('Like'), 'album_image_like_create', $albumImage) ?>
+<?php endif; ?>
+</div>
+<div class="block likeListDetail">
+<?php include_component('albumImageLike','list',array('albumImage' => $albumImage)) ?>
+</div>
+</div></div>
+
 <?php include_component('albumImageComment','list',array('albumImage' => $albumImage)) ?>
 
 <?php include_partial('albumComment/create', array('form' => $form, 'url' => '@album_image_comment_create?id='.$albumImage->id, 'boxName' => 'formAlbumImageComment')) ?>
