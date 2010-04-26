@@ -14,6 +14,7 @@
  * @package    OpenPNE
  * @subpackage albumImage
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
+ * @author     Nguyen Ngoc Tu <tunn@tejimaya.com>
  */
 class albumImageActions extends opAlbumPluginActions
 {
@@ -52,6 +53,8 @@ class albumImageActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumImageForm($this->albumImage);
+    $this->form->setAlbumChoices();
+    
     $this->deleteForm = new sfForm();
   }
 
@@ -60,7 +63,9 @@ class albumImageActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumImageForm($this->albumImage);
-    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+    $this->form->setAlbumChoices();
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()), $request->getParameter($this->form->getName()));
+    
     if ($this->form->isValid())
     {
       $this->form->save();

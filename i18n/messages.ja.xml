@@ -179,6 +179,10 @@
         <target>説明文</target>
       </trans-unit>
       <trans-unit id="">
+        <source>Album</source>
+        <target>アルバム</target>
+      </trans-unit>
+      <trans-unit id="">
         <source>You have just added photo(s) to your album successfully.</source>
         <target>写真をアルバムに追加しました。</target>
       </trans-unit>

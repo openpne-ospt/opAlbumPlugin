@@ -63,4 +63,11 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
 
     return $object;
   }
+  
+  public function setAlbumChoices()
+  {
+    $choices = Doctrine::getTable('Album')->getMemberAlbumTitleArray($this->getObject()->getMemberId());
+    $this->setWidget('album_id', new sfWidgetFormChoice(array('choices'  => $choices, 'expanded' => false, 'multiple' => false))); 
+    $this->setValidator('album_id', new sfValidatorChoice(array('choices' => array_keys($choices))));
+  }
 }

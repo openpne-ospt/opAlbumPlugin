@@ -212,4 +212,20 @@ class PluginAlbumTable extends Doctrine_Table
       $q->andWhere('title LIKE ? OR body LIKE ?', array('%'.$keyword.'%', '%'.$keyword.'%'));
     }
   }
+  
+  public function getMemberAlbumTitleArray($memberId)
+  {
+    $q = $this->createQuery()
+    ->andWhere('member_id = ?', $memberId)
+    ->orderBy('title ASC')
+    ->execute();
+    
+    $albumTitles = array();
+    foreach ($q as $album)
+    {
+      $albumTitles[$album->id] = $album->title;
+    }
+    
+    return $albumTitles;
+  }
 }
