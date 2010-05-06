@@ -1,0 +1,417 @@
+/*
+The overall canvas: added in fnclient-0.5.0 to provide a canvas works space to be able to place
+controls outside of image, and also one of: container-inactive container-active
+*/
+
+.fn-canvas {
+ position: relative;
+ border: 0px solid #ddd;
+ /*background-color: #eef5f9;
+ border-left: 1px solid #d5e6ee;
+ border-top: 1px solid #d5e6ee;
+ border-right: 1px solid #d5e6ee; */
+}
+
+/*
+The overall container: always has class="fn-container", and also one of:
+container-inactive container-active
+*/
+
+.fn-container {
+ position: absolute;
+}
+
+.fn-container img {
+ border-width: 0;
+}
+
+.fn-view-image-link {
+	display: block;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#fn-modaldialog {
+	position: absolute;
+	background-color: #fddddd;
+	height: 20px;
+	width: 150px;
+	right: 0px;
+	top: 0px;
+	color: black;
+	padding-left: 4px;
+}
+
+
+/* Note areas - a separate class is applied to those being edited. */
+
+.fn-area {
+ position: absolute;
+ background: url(artwork/transparent.gif);
+ border: 1px solid #222;
+ cursor: crosshair;
+}
+
+#fn-area-new{
+ border: 1px dotted #ff0;
+}
+
+.fn-container-active .fn-area {
+ visibility: inherit;
+}
+
+.fn-container-inactive .fn-area {
+ visibility: hidden;
+}
+
+.fn-area-editing {
+ position: absolute;
+ visibility: visible;
+ background: url(artwork/transparent.gif);
+ border: 1px dashed #FFFFFF;
+ cursor: crosshair;
+}
+
+
+.fn-area-innerborder-left {
+ position: absolute;
+ top: 0xp;
+ left: 0px;
+ border-left:1px solid #fff;
+ width: 0px;
+ height: 100%;
+}
+
+.fn-area-innerborder-top {
+ position: absolute;
+ top: 0xp;
+ left: 0px;
+ border-top: 1px solid #fff;
+ width: 100%;
+ height: 1px;
+}
+
+.fn-area-innerborder-right {
+ position: absolute;
+ top: 0xp;
+ right: 0px;
+ border-right:1px solid #fff;
+ width: 0px;
+ height: 100%;
+}
+
+.fn-area-innerborder-bottom {
+ position: absolute;
+ top: 0xp;
+ bottom: 0px;
+ border-bottom: 1px solid #fff;
+ width: 100%;
+}
+
+
+/* Notes themselves. */
+
+.fn-note {
+ position: absolute;
+ left: 0%;
+ top: 100%;
+ width: 150px;
+ visibility: hidden;
+ padding: 4px;
+ background-color: #FFEECC;
+ border: 1px solid #000;
+ -moz-border-radius: 7px; /* Non-standard */
+}
+.fn-note span {
+ display: block;
+ margin-top: 2px;
+ text-align: left;
+ line-height: 1em;
+}
+.fn-note-title {
+ margin-bottom: 1px;
+ font-size: 110%;
+ font-weight: bold;
+ color: #666633;
+}
+.fn-note-content {
+ color: #000000;
+}
+.fn-note-author {
+ font-size: 80%;
+ font-style: italic;
+ text-align: right;
+ color: #333300;
+}
+
+
+
+
+/* Note drag/resize UI */
+
+.dragresize {
+ position: absolute;
+ width: 5px;
+ height: 5px;
+ font-size: 1px;
+ background: white;
+ border: 1px solid black;
+}
+
+.dragresize-tl {
+ top: -8px;
+ left: -8px;
+ cursor: nw-resize;
+}
+.dragresize-tm {
+ top: -8px;
+ left: 50%;
+ margin-left: -4px;
+ cursor: n-resize;
+}
+.dragresize-tr {
+ top: -8px;
+ right: -8px;
+ cursor: ne-resize;
+}
+
+.dragresize-ml {
+ top: 50%;
+ margin-top: -4px;
+ left: -8px;
+ cursor: w-resize;
+}
+.dragresize-mr {
+ top: 50%;
+ margin-top: -4px;
+ right: -8px;
+ cursor: e-resize;
+}
+
+.dragresize-bl {
+ bottom: -8px;
+ left: -8px;
+ cursor: sw-resize;
+}
+.dragresize-bm {
+ bottom: -8px;
+ left: 50%;
+ margin-left: -4px;
+ cursor: s-resize;
+}
+.dragresize-br {
+ bottom: -8px;
+ right: -8px;
+ cursor: se-resize;
+}
+
+
+
+
+/* Control buttons. */
+
+.fn-controlbar {
+ position: absolute;
+ right: 0px;
+ top: -18px;
+ height: 15px;
+ z-index: 50;
+}
+.fn-controlbar-inactive {
+ background: transparent;
+ width:100%;
+}
+.fn-controlbar-active {
+ width: 100%;
+}
+
+.fn-controlbar span {
+ position: absolute;
+ visibility: hidden;
+ bottom: 2px;
+ height: 11px;
+ font-size: 1px;
+ line-height: 1px;
+ cursor: pointer;
+}
+.fn-controlbar-active span {
+ visibility: inherit;
+}
+
+span.fn-controlbar-toggle-inactive {
+ left: 185px;
+ top: -5px;
+ width: 62px;
+ height: 20px;
+ background-image: url(artwork/toggle-inactive.gif);
+}
+span.fn-controlbar-toggle-active {
+ left: 185px;
+ top: -4px;
+ width: 62px;
+ height: 20px;
+ background-image: url(artwork/toggle-active.gif);
+}
+
+span.fn-controlbar-add-inactive {
+ left: 0px;
+ top: -5px;
+ width: 52px;
+ height: 20px;
+ background-image: url(artwork/add-inactive.gif);
+}
+
+span.fn-controlbar-add-active {
+ left: 0px;
+ top: -5px;
+ width: 20px;
+ height: 20px;
+ background-image: url(artwork/add-active.gif);
+}
+
+span.fn-controlbar-edit-inactive {
+ left: 60px;
+ top: -5px;
+ width: 52px;
+ height: 20px;
+ background-image: url(artwork/edit-inactive.gif);
+}
+
+span.fn-controlbar-edit-active {
+ left: 60px;
+ top: -5px;
+ width: 52px;
+ height: 20px;
+ background-image: url(artwork/edit-active.gif);
+}
+
+span.fn-controlbar-del-inactive {
+ left: 120px;
+ top: -5px;
+ width: 62px;
+ height: 20px;
+ background-image: url(artwork/del-inactive.gif);
+}
+
+span.fn-controlbar-del-active {
+ left: 121px;
+ top: -5px;
+ width: 62px;
+ height: 20px;
+ background-image: url(artwork/del-active.gif);
+}
+
+span.fn-controlbar-credits {
+ left: 233px;
+ top: -1px;
+ width: 77px;
+ height: 20px;
+ background-image: url(artwork/fncredits.gif);
+}
+
+span.fn-controlbar-logo {
+ visibility: visible;
+ right: 2px;
+ width: 20px;
+ background-image: url(artwork/fnlogo.gif);
+}
+
+
+/* Editing UI */
+
+
+.fn-editbar {
+ position: absolute;
+ left: 0px;
+ top: 100%;
+ z-index: 100;
+ width: 100%;
+ background-color: #ddd;
+ padding-left: 5px;
+ padding-bottom: 5px;
+ font-size: 12px;
+ border: 1px solid black;
+}
+
+.fn-editbar-inactive {
+ visibility: hidden;
+}
+
+.fn-editbar-active {
+ visibility: inherit;
+ padding-bottom: 30px;
+}
+
+.fn-editbar-fields {
+ left: 0px;
+ top: 100%;
+ z-index: 100;
+ width: 100%;
+ padding: 5px 0;
+ font-size: 12px;
+ border: 0px solid green;
+}
+
+.fn-editbar label {
+ margin-left: 5px;
+ font-weight: bold;
+}
+
+.fn-editbar-fields p {
+ font-weight: bold;
+ text-align: left;
+ display: block;
+}
+
+.fn-editbar input {
+ font-weight: normal;
+ width: 90%;
+ font-family: arial, helvetica, sans-serif;
+ font-size: 9pt;
+ font-weight: bold;
+ cursor: text;
+ border: 0px solid #ddd;
+ 
+}
+
+.fn-editbar-content {
+ width: 90%;
+ height: 3em;
+ font-family: arial, helvetica, sans-serif;
+ font-size: 9pt;
+ cursor: text;
+ border: 0px solid #ddd;
+}
+
+.fn-editbar span {
+ position: absolute;
+ visibility: visible;
+ top: 2px;
+ height: 11px;
+ font-size: 1px;
+ line-height: 1px;
+ cursor: pointer;
+}
+
+.fn-editbar-active span {
+ visibility: inherit;
+}
+
+span.fn-editbar-ok {
+ right: 70px;
+ width: 28px;
+ height: 18px;
+ background-image: url(artwork/ok.gif);
+ border: 1px solid #bbb;
+ visibility: inherit;
+ padding:0px;
+}
+
+span.fn-editbar-cancel {
+ right: 6px;
+ width: 55px;
+ height: 18px;
+ background-image: url(artwork/cancel.gif);
+ border: 1px solid #bbb; 
+ visibility: inherit;
+}

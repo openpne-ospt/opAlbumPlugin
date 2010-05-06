@@ -10,26 +10,33 @@
 </div>
 <?php endif; ?>
 
+<ol class="comments">
 <?php foreach ($pager->getResults() as $comment): ?>
-<dl>
-<dt><?php echo nl2br(op_format_date($comment->created_at, 'XDateTimeJaBr')) ?></dt>
-<dd>
-<div class="title">
-<p class="heading">
-<?php if ($_member = $comment->Member): ?> <?php echo link_to($_member->name, 'member/profile?id='.$_member->id) ?><?php endif; ?>
-<?php if ($authorId === $sf_user->getMemberId() || $comment->member_id === $sf_user->getMemberId()): ?>
-<?php echo link_to(__('Delete'), $deleteConfirmUrl, $comment) ?>
-<?php endif; ?>
-</p>
+<li class="comment">
+<div class="memberImage">
+<?php echo link_to(image_tag_sf_image($comment->Member->getImageFileName(), array('size' => '76x76')), 'member/profile?id='.$comment->getMemberId()) ?>
 </div>
+
 <div class="body">
-<p class="text">
-<?php echo op_url_cmd(nl2br($comment->body)) ?>
-</p>
+<?php echo op_link_to_member($comment->getMemberId()) ?>&nbsp;
+<?php echo op_auto_link_text($comment->body) ?>
+
+<div class="info">
+<span class="time"><?php echo op_format_activity_time(strtotime($comment->getCreatedAt())) ?>
+</span>
 </div>
-</dd>
-</dl>
+
+<?php if ($authorId === $sf_user->getMemberId() || $comment->member_id === $sf_user->getMemberId()): ?>
+<div class="operation">
+<?php echo link_to(__('Delete'), $deleteConfirmUrl, $comment) ?>
+</div>
+<?php endif; ?>
+</div>
+
+</li>
 <?php endforeach; ?>
+</ol>
+
 </div></div>
 <?php /* }}} */ ?>
 <?php endif; ?>
