@@ -262,6 +262,18 @@
         <source>%user1%, %user2% and %user3% like it</source>
         <target>%user1%さんと%user2%さん、%user3%さんが「いいね！」といっています</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Friend Albums</source>
+        <target>フレンドのアルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Most Recent</source>
+        <target>最新アルバム</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>%member%'s Albums</source>
+        <target>%member%さんのアルバム</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

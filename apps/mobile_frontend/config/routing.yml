@@ -1,0 +1,3 @@
+album:
+  class: opAlbumPluginMobileRouteCollection
+  options: { name: album }

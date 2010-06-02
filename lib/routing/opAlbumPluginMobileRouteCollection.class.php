@@ -9,18 +9,20 @@
  */
 
 /**
- * diaryComment components.
+ * Album routing.
  *
- * @package    OpenPNE
- * @subpackage album
+ * @package    opAlbumPlugin
  * @author     Nguyen Ngoc Tu <tunn@tejimaya.com>
  */
-class albumCommentComponents extends opAlbumPluginAlbumCommentComponents
+class opAlbumPluginMobileRouteCollection extends opAlbumPluginFrontendRouteCollection
 {
-  public function executeList(sfWebRequest $request)
+  protected function generateRoutes()
   {
-    $this->size = sfConfig::get('app_max_comments_on_album', 20);
+    $this->routes = parent::generateRoutes();
+    $this->routes += array(
+      // album    
+    );
 
-    parent::executeList($request);
+    return $this->routes;
   }
 }
