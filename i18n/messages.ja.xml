@@ -274,6 +274,14 @@
         <source>%member%'s Albums</source>
         <target>%member%さんのアルバム</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>%member%'s Album - %album%</source>
+        <target>%member%さんのアルバム - %album%</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>My Album - %album%</source>
+        <target>自分のアルバム - %album%</target>
+      </trans-unit>        
     </body>
   </file>
 </xliff>
