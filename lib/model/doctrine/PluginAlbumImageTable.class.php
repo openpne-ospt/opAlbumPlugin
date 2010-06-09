@@ -15,7 +15,7 @@ class PluginAlbumImageTable extends Doctrine_Table
 
       $q = $this->createQuery()
           ->where('album_id = ?', $args[0]->id)
-          ->orderBy('created_at DESC');
+          ->orderBy('created_at ASC');
 
       return $this->getPager($q, $args[1], $args[2]);
     }
