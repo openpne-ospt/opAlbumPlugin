@@ -37,7 +37,48 @@ class albumActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumViewable());
 
     $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1), 10);
+  }
+  
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->isAlbumAuthor());
+
+    $this->form = new AlbumForm($this->album);
+  }
+  
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->isAlbumAuthor());
+
+    $this->form = new AlbumForm($this->album);
+    unset($this->form['file_id']);
+    $this->form->bind($request->getParameter($this->form->getName()));
+    if ($this->form->isValid())
+    {
+      $this->form->save();
+
+      $this->redirect('@album_show?id='.$this->album->id);
+    }
     
-    // $this->form = new AlbumCommentForm();
+    $this->setTemplate('edit');
+  }
+  
+  public function executeDeleteConfirm(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->isAlbumAuthor());
+
+    $this->form = new sfForm();
+  }
+  
+  public function executeDelete(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->isAlbumAuthor());
+    $request->checkCSRFProtection();
+
+    $this->album->delete();
+
+    $this->getUser()->setFlash('notice', 'The album was deleted successfully.');
+
+    $this->redirect('album_list_mine');
   }
 }

@@ -27,7 +27,10 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     $this->validatorSchema['public_flag'] = new sfValidatorChoice(array(
       'choices' => array_keys(Doctrine::getTable('album')->getPublicFlags()),
     ));
+  }
 
+  public function setPhoto()
+  {    
     $options = array(
         'file_src'     => '',
         'is_image'     => true,
@@ -47,7 +50,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     $this->setWidget('file_id', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
     $this->setValidator('file_id', new opValidatorImageFile(array('required' => false)));
   }
-
+  
   public function updateObject($values = null)
   {
     parent::updateObject($values);

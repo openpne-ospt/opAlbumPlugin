@@ -3,7 +3,9 @@
 </div>
 <?php foreach ($pager->getResults() as $album): ?>
 <?php echo link_to($album->Member->name, 'obj_member_profile', $album->Member) ?>
+<span style="padding-left: 1px">
 <?php echo $album->body; ?>
+</span>
 <div style="padding: 4px 0pt;">
 <div><?php echo link_to(image_tag_sf_image($album->getCoverImage(), array('width' => '75')), 'album_show', $album) ?></div>
 <?php echo link_to($album->title, 'album_show', $album) ?>

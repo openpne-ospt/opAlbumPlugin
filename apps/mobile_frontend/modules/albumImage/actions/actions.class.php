@@ -37,7 +37,7 @@ class albumImageActions extends opAlbumPluginActions
 
     $this->form = new AlbumImageForm($this->albumImage);
     $this->form->setAlbumChoices();
-    $this->form->bind($request->getParameter($this->form->getName()), $request->getParameter($this->form->getName()));
+    $this->form->bind($request->getParameter($this->form->getName()));
     
     if ($this->form->isValid())
     {

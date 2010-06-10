@@ -27,12 +27,22 @@
 <div>
 <?php op_include_pager_navigation($pager, '@album_show?page=%d&id='.$album->id , array('is_total' => false)); ?>
 </div>
-<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
-<?php echo $album->body ?>
-</div>
+
 <?php else: ?>
 <?php echo __('There are no images') ?>
 <?php endif; ?>
+
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
+<?php echo $album->body ?>
+<?php if ($member->id == $sf_user->getMemberId()): ?>
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
+<small>
+<?php echo link_to(__('Edit'), 'album_edit', $album) ?><br>
+<?php echo link_to(__('Delete'), 'album_delete_confirm', $album) ?>
+</small>
+</div>
+<?php endif; ?>
+</div>
 </div>
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
 <small>

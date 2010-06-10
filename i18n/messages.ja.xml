@@ -290,6 +290,18 @@
         <source>Are you sure you want to delete this photo?</source>
         <target>本当にこの写真を削除しますか？</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Are you sure you want to delete this album?</source>
+        <target>本当にこのアルバムを削除しますか？</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Edit Album</source>
+        <target>アルバム編集</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete Album</source>
+        <target>アルバム削除</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

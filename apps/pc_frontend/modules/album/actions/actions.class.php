@@ -60,6 +60,7 @@ class albumActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumForm($this->album);
+    $this->form->setPhoto();
   }
 
   public function executeUpdate(sfWebRequest $request)
@@ -67,6 +68,7 @@ class albumActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumForm($this->album);
+    $this->form->setPhoto();
     $this->processForm($request, $this->form);
     $this->setTemplate('edit');
   }
