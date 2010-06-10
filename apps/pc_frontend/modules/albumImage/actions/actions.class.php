@@ -53,6 +53,7 @@ class albumImageActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumImageForm($this->albumImage);
+    $this->form->setPhoto();
     $this->form->setAlbumChoices();
     
     $this->deleteForm = new sfForm();

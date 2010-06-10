@@ -23,15 +23,17 @@
 </small>
 </div>
 
+<?php if ('' !== $albumImage->description): ?>
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
 <?php echo $albumImage->description ?>
 </div>
+<?php endif; ?>
 
 <?php if ($member->id == $sf_user->getMemberId()): ?>
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
 <small>
 <?php echo link_to(__('Edit'), 'album_image_edit', $albumImage) ?><br>
-<?php echo link_to(__('Delete'), 'album_image_delete', $albumImage) ?>
+<?php echo link_to(__('Delete'), 'album_image_delete_confirm', $albumImage) ?>
 </small>
 </div>
 <?php endif; ?>

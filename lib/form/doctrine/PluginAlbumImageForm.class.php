@@ -23,18 +23,8 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
 
     sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
 
-    $options = array(
-      'file_src'    => '',
-      'is_image'    => true,
-      'with_delete' => false,
-      'template'    => get_partial('default/formEditImage', array('image' => $this->getObject())),
-    );
-    $this->setWidget('photo', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
-
     $this->setWidget('description', new sfWidgetFormInput(array(), array('size' => 40)));
     $this->getWidgetSchema()->moveField('description', sfWidgetFormSchema::LAST);
-
-    $this->setValidator('photo', new opValidatorImageFile(array('required' => false)));
   }
 
   public function updateObject($values = null)
@@ -69,5 +59,18 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
     $choices = Doctrine::getTable('Album')->getMemberAlbumTitleArray($this->getObject()->getMemberId());
     $this->setWidget('album_id', new sfWidgetFormChoice(array('choices'  => $choices, 'expanded' => false, 'multiple' => false))); 
     $this->setValidator('album_id', new sfValidatorChoice(array('choices' => array_keys($choices))));
+  }
+  
+  public function setPhoto()
+  {
+    $options = array(
+      'file_src'    => '',
+      'is_image'    => true,
+      'with_delete' => false,
+      'template'    => get_partial('default/formEditImage', array('image' => $this->getObject())),
+    );
+    $this->setWidget('photo', new sfWidgetFormInputFileEditable($options, array('size' => 40)));    
+    
+    $this->setValidator('photo', new opValidatorImageFile(array('required' => false)));
   }
 }

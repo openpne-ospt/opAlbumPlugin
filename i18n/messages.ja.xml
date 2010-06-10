@@ -281,7 +281,15 @@
       <trans-unit id="">
         <source>My Album - %album%</source>
         <target>自分のアルバム - %album%</target>
-      </trans-unit>        
+      </trans-unit>      
+      <trans-unit id="">
+        <source>Cancel%1%</source>
+        <target>キャンセル</target>
+      </trans-unit>           
+      <trans-unit id="">
+        <source>Are you sure you want to delete this photo?</source>
+        <target>本当にこの写真を削除しますか？</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

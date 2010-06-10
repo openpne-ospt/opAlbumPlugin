@@ -20,7 +20,13 @@ class opAlbumPluginMobileRouteCollection extends opAlbumPluginFrontendRouteColle
   {
     $this->routes = parent::generateRoutes();
     $this->routes += array(
-      // album    
+      // albumImage
+      'album_image_delete_confirm' => new sfDoctrineRoute(
+        '/album/photo/deleteConfirm/:id',
+        array('module' => 'albumImage', 'action' => 'deleteConfirm'),
+        array('id' => '\d+'),
+        array('model' => 'AlbumImage', 'type' => 'object')
+      ),   
     );
 
     return $this->routes;
