@@ -251,16 +251,8 @@
         <target>いいね！を取り消す</target>
       </trans-unit>
       <trans-unit id="">
-        <source>%user1% likes it</source>
-        <target>%user1%さんが「いいね！」といっています</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>%user1% and %user2% like it</source>
-        <target>%user1%さんと%user2%さんが「いいね！」といっています</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>%user1%, %user2% and %user3% like it</source>
-        <target>%user1%さんと%user2%さん、%user3%さんが「いいね！」といっています</target>
+        <source>%users% like it</source>
+        <target>%users%が「いいね！」といっています</target>
       </trans-unit>
       <trans-unit id="">
         <source>Friend Albums</source>
