@@ -2,7 +2,7 @@
 
 <div style="margin: 2px 0 4px 0px">
 <center>
-<?php echo image_tag_sf_image($albumImage->getFile(), array('width' => '180')) ?>
+<?php echo image_tag_sf_image($albumImage->getFile(), array('size' => '180x180')) ?>
 </center>
 </div>
 

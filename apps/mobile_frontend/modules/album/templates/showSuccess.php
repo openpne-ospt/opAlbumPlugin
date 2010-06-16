@@ -16,7 +16,7 @@
 <?php for ($j = $i; $j < $i+2; $j++): ?>
 <?php if (!empty($images[$j])): ?>
 <td>
-<?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('width' => '75')), 'album_image_show', $images[$j]) ?>
+<?php echo link_to(image_tag_sf_image($images[$j]->getFile(), array('size' => '120x120', 'width' => '80')), 'album_image_show', $images[$j]) ?>
 </td>
 <?php endif; ?>
 <?php endfor; ?>
@@ -53,6 +53,8 @@
 <?php endif; ?>
 <?php echo link_to(__('Friend Albums'), 'album_list_friend') ?><br>
 <?php echo link_to(__('Most Recent'), 'album_list') ?><br>
-<?php echo __('Upload Photos') ?>
+<?php if ($album->isAuthor($sf_user->getMemberId()) && 'example.com' !== sfConfig::get('op_mail_domain')): ?>
+<?php echo op_mail_to('mail_album_image_upload', array('id' => $album->id), __('Upload')) ?><br>
+<?php endif; ?>
 </small>
 </div>

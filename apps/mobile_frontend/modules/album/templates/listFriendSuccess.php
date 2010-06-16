@@ -13,6 +13,5 @@
 <small>
 <?php echo link_to(__('My Albums'), 'album_list_mine') ?><br>
 <?php echo link_to(__('Most Recent'), 'album_list') ?><br>
-<?php //echo __('Upload Photos') ?>
 </small>
 </div>

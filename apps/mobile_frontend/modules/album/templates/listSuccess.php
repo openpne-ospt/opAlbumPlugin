@@ -13,6 +13,5 @@
 <small>
 <?php echo link_to(__('My Albums'), 'album_list_mine') ?><br>
 <?php echo link_to(__('Friend Albums'), 'album_list_friend') ?><br>
-<?php //echo __('Upload Photos') ?>
 </small>
 </div>

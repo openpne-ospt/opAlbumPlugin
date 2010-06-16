@@ -1,0 +1,5 @@
+mail_album_image_upload:
+  url: i.:id
+  class: opMailRoute
+  param: { module: albumImage, action: upload }
+  required: { id: \d+ }

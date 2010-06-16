@@ -20,6 +20,5 @@
 <?php endif; ?>
 <?php echo link_to(__('Friend Albums'), 'album_list_friend') ?><br>
 <?php echo link_to(__('Most Recent'), 'album_list') ?><br>
-<?php echo __('Upload Photos') ?>
 </small>
 </div>
