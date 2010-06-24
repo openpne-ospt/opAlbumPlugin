@@ -20,6 +20,9 @@ class albumImageActions extends opAlbumPluginActions
   public function executeShow(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumViewable());
+    
+    $this->form = new AlbumImageCommentForm();
+    $this->commentPage = $request->getParameter('commentPage', 1);
   }
   
   public function executeEdit(sfWebRequest $request)

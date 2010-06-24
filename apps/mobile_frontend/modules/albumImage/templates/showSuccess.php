@@ -4,7 +4,6 @@
 <?php op_mobile_page_title(__('%member%\'s Album - %album%', array('%member%' => $member->name, '%album%' => $album->title)))?>
 <?php endif; ?>
 
-<div style="padding: 2px;">
 <div>
 <center>
 <?php echo image_tag_sf_image($albumImage->getFile(), array('size' => '180x180')) ?>
@@ -29,6 +28,11 @@
 </div>
 <?php endif; ?>
 
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
+<?php include_component('albumImageComment','list',array('albumImage' => $albumImage, 'commentPage' => $commentPage)) ?>
+<?php include_partial('albumComment/create', array('form' => $form, 'url' => url_for('@album_image_comment_create?id='.$albumImage->id), 'boxName' => 'formAlbumImageComment')) ?>
+</div>
+
 <?php if ($member->id == $sf_user->getMemberId()): ?>
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
 <small>
@@ -37,7 +41,6 @@
 </small>
 </div>
 <?php endif; ?>
-</div>
 
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
 <small>

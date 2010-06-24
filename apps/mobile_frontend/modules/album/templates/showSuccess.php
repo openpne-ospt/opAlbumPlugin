@@ -33,10 +33,13 @@
 
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <?php echo $album->body ?>
+</div>
 
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <?php include_component('albumComment', 'list', array('album' => $album, 'commentPage' => $commentPage)) ?>
 <?php include_partial('albumComment/create', array('form' => $form, 'url' => url_for('@album_comment_create?id='.$album->id), 'boxName' => 'formAlbumComment')) ?>
+</div>
+
 <?php if ($member->id == $sf_user->getMemberId()): ?>
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <small>
@@ -45,8 +48,7 @@
 </small>
 </div>
 <?php endif; ?>
-</div>
-</div>
+
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <small>
 <?php if ($member->id == $sf_user->getMemberId()): ?>
