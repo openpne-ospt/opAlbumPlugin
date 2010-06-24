@@ -20,7 +20,7 @@ class albumActions extends opAlbumPluginActions
 {
   public function executeList(sfWebRequest $request)
   {
-    $this->pager = Doctrine::getTable('Album')->getAlbumPager($request->getParameter('page'), 20);
+    $this->pager = Doctrine::getTable('Album')->getAlbumPager($request->getParameter('page'), 10);
   }
 
   public function executeListMember(sfWebRequest $request)
@@ -30,16 +30,17 @@ class albumActions extends opAlbumPluginActions
 
   public function executeListFriend(sfWebRequest $request)
   {
-    $this->pager = Doctrine::getTable('Album')->getFriendAlbumPager($this->getUser()->getMemberId(), $request->getParameter('page'), 20);
+    $this->pager = Doctrine::getTable('Album')->getFriendAlbumPager($this->getUser()->getMemberId(), $request->getParameter('page'), 10);
   }
 
   public function executeShow(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumViewable());
 
-    $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1), 20);
+    $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1), 10);
     
     $this->form = new AlbumCommentForm();
+    $this->commentPage = $request->getParameter('pageComment', 1);
   }
 
   public function executeNew(sfWebRequest $request)

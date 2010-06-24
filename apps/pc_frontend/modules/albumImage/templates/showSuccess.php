@@ -35,8 +35,8 @@
 </div>
 </div></div>
 
-<?php include_component('albumImageComment','list',array('albumImage' => $albumImage)) ?>
+<?php include_component('albumImageComment','list',array('albumImage' => $albumImage, 'commentPage' => $commentPage)) ?>
 
-<?php include_partial('albumComment/create', array('form' => $form, 'url' => '@album_image_comment_create?id='.$albumImage->id, 'boxName' => 'formAlbumImageComment')) ?>
+<?php include_partial('albumComment/create', array('form' => $form, 'url' => url_for('@album_image_comment_create?id='.$albumImage->id), 'boxName' => 'formAlbumImageComment')) ?>
 
 <?php op_include_line('backLink', link_to(__('Back to the album'), 'album_show', $album)) ?>

@@ -19,7 +19,7 @@ class albumCommentComponents extends opAlbumPluginAlbumCommentComponents
 {
   public function executeList(sfWebRequest $request)
   {
-    $this->size = sfConfig::get('app_max_comments_on_album', 20);
+    $this->size = sfConfig::get('app_max_comments_on_album', 10);
 
     parent::executeList($request);
   }

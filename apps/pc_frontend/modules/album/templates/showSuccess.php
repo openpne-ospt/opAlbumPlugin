@@ -97,6 +97,6 @@
 </div>
 </div></div>
 
-<?php include_component('albumComment','list',array('album' => $album)) ?>
+<?php include_component('albumComment','list',array('album' => $album, 'commentPage' => $commentPage)) ?>
 
-<?php include_partial('albumComment/create',array('form' => $form, 'url' => '@album_comment_create?id='.$album->id, 'boxName' => 'formAlbumComment')) ?>
+<?php include_partial('albumComment/create',array('form' => $form, 'url' => url_for('@album_comment_create?id='.$album->id), 'boxName' => 'formAlbumComment')) ?>

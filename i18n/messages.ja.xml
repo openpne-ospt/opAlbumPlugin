@@ -298,6 +298,10 @@
         <source>Upload</source>
         <target>アップロード</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Delete Comment</source>
+        <target>コメント削除</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -3,10 +3,9 @@
 <?php else: ?>
 <?php op_mobile_page_title(__('%member%\'s Album - %album%', array('%member%' => $member->name, '%album%' => $album->title)))?>
 <?php endif; ?>
-<div style="padding-top: 2px;">
 <?php if ($pager->getNbResults()): ?>
 <?php $images = $pager->getResults() ?>
-<div style="padding-bottom: 4px; margin-bottom: 4px; border-bottom: 1px solid #b3ceef;">
+<div style="padding-bottom: 4px; margin-bottom: 4px; border-bottom: 1px solid #0d6ddf;">
 <center><?php op_include_pager_total($pager); ?></center>
 </div>
 <div>
@@ -32,10 +31,14 @@
 <?php echo __('There are no images') ?>
 <?php endif; ?>
 
-<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <?php echo $album->body ?>
+
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
+<?php include_component('albumComment', 'list', array('album' => $album, 'commentPage' => $commentPage)) ?>
+<?php include_partial('albumComment/create', array('form' => $form, 'url' => url_for('@album_comment_create?id='.$album->id), 'boxName' => 'formAlbumComment')) ?>
 <?php if ($member->id == $sf_user->getMemberId()): ?>
-<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <small>
 <?php echo link_to(__('Edit'), 'album_edit', $album) ?><br>
 <?php echo link_to(__('Delete'), 'album_delete_confirm', $album) ?>
@@ -44,7 +47,7 @@
 <?php endif; ?>
 </div>
 </div>
-<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
+<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <small>
 <?php if ($member->id == $sf_user->getMemberId()): ?>
 <?php echo link_to(__('My Albums'), 'album_list_mine'); ?><br>
