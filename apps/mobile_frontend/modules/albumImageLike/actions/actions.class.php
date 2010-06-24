@@ -9,12 +9,12 @@
  */
 
 /**
- * diaryComment components.
+ * albumImageLike actions.
  *
  * @package    OpenPNE
  * @subpackage albumImageLike
- * @author     Nguyen Ngoc Tu <tunn@tejimaya.com>
+ * @author     Nguyen Ngoc Tu (tunn@tejimaya.com)
  */
-class albumImageLikeComponents extends opAlbumPluginAlbumImageLikeComponents
+class albumImageLikeActions extends opAlbumPluginAlbumImageLikeActions
 {
 }

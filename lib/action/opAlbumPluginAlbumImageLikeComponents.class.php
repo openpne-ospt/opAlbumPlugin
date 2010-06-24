@@ -15,6 +15,10 @@
  * @subpackage albumImageLike
  * @author     Nguyen Ngoc Tu <tunn@tejimaya.com>
  */
-class albumImageLikeComponents extends opAlbumPluginAlbumImageLikeComponents
+class opAlbumPluginAlbumImageLikeComponents extends sfComponents
 {
+  public function executeList(sfWebRequest $request)
+  {
+    $this->members = $this->albumImage->getMembersLikeAlbumImage();
+  }
 }
