@@ -33,6 +33,14 @@
 
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
 <?php echo $album->body ?>
+<br>
+<?php if ($albumLike = $album->isLiked($sf_user->getMemberId())): ?>
+<?php echo link_to(__('Unlike'), 'album_like_delete', $albumLike) ?>
+<?php else: ?>
+<?php echo link_to(__('Like'), 'album_like_create', $album) ?>
+<?php endif; ?>
+<br>
+<?php include_component('albumLike','list',array('album' => $album)) ?>
 </div>
 
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">

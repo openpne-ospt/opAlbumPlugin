@@ -15,40 +15,6 @@
  * @subpackage albumLike
  * @author     Nguyen Ngoc Tu (tunn@tejimaya.com)
  */
-class albumLikeActions extends opAlbumPluginActions
+class albumLikeActions extends opAlbumPluginAlbumLikeActions
 {
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($this->isAlbumViewable());
-    
-    if (!$this->album->isLiked($this->getUser()->getMemberId()))
-    {
-      $like = new AlbumLike();
-      $like->Album = $this->album;
-      $like->member_id = $this->getUser()->getMemberId();
-    
-      $like->save();
-    }
-    
-    $this->redirectToAlbumShow();
-  }
-  
-  public function executeDelete(sfWebRequest $request)
-  {
-    $this->forward404Unless($this->albumLike && $this->isAlbumLikeDeletable());
-    
-    $this->albumLike->delete();
-    
-    $this->redirectToAlbumShow();
-  }
-  
-  protected function redirectToAlbumShow()
-  {
-    $this->redirect('@album_show?id='.$this->album->id);
-  }
-  
-  protected function isAlbumLikeDeletable()
-  {
-    return $this->albumLike->isDeletable($this->getUser()->getMemberId());
-  }
 }
