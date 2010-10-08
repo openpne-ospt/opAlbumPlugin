@@ -26,4 +26,12 @@ Navigation:
         caption: "Album"
       ja_JP:
         caption: "アルバム"
-
+  mobile_home_side_navigation_album_list:
+    type: "mobile_home_side"
+    uri: "@album_list"
+    sort_order: 16
+    Translation:
+      en:
+        caption: "Recently Posted Albums"
+      ja_JP:
+        caption: "最新アルバム"
