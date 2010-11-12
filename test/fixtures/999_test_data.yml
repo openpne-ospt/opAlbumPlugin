@@ -7,6 +7,10 @@ Member:
     id: 1055
     name: "<&\"'>Member.name ESCAPING HTML TEST DATA"
     is_active: 1
+  member_html_2:
+    id: 1056
+    name: "<&\"'>Member.name ESCAPING HTML TEST DATA"
+    is_active: 1
 
 MemberConfig:
   member_address_1:
@@ -21,6 +25,28 @@ MemberConfig:
     name: "password"
     value: "<?php echo md5('password') ?>"
     Member: member_1
+  member_html_address_1:
+    name: "pc_address"
+    value: "html@example.com"
+    Member: member_html_1
+  member_html_mobile_address_1:
+    name: "mobile_address"
+    value: "html@example.com"
+    Member: member_html_1
+  member_html_password_1:
+    name: "password"
+    value: "<?php echo md5('password') ?>"
+    Member: member_html_1
+
+MemberRelationship:
+  member_html_1_member_html_2:
+    Member: member_html_1
+    MemberRelatedByMemberIdFrom: member_html_2
+    is_friend: 1
+  member_html_2_member_html_1:
+    Member: member_html_2
+    MemberRelatedByMemberIdFrom: member_html_1
+    is_friend: 1
 
 File:
   dummy_file_1:
@@ -34,6 +60,12 @@ Album:
   album_html_1:
     id: 1055
     Member: member_html_1
+    File: dummy_file_1
+    title: "<&\"'>Album.title ESCAPING HTML TEST DATA"
+    body: "<&\"'>Album.body ESCAPING HTML TEST DATA"
+  album_html_2:
+    id: 1056
+    Member: member_html_2
     File: dummy_file_1
     title: "<&\"'>Album.title ESCAPING HTML TEST DATA"
     body: "<&\"'>Album.body ESCAPING HTML TEST DATA"
