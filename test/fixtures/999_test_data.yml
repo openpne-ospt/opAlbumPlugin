@@ -1,0 +1,48 @@
+Member:
+  member_1:
+    id: 1
+    name: "OpenPNE君"
+    is_active: 1
+  member_html_1:
+    id: 1055
+    name: "<&\"'>Member.name ESCAPING HTML TEST DATA"
+    is_active: 1
+
+MemberConfig:
+  member_address_1:
+    name: "pc_address"
+    value: "sns@example.com"
+    Member: member_1
+  member_mobile_address_1:
+    name: "mobile_address"
+    value: "sns@example.com"
+    Member: member_1
+  member_password_1:
+    name: "password"
+    value: "<?php echo md5('password') ?>"
+    Member: member_1
+
+File:
+  dummy_file_1:
+    name: "dummy_file"
+    type: "image/png"
+    original_filename: "dummy.png"
+    FileBin:
+      bin: ~
+
+Album:
+  album_html_1:
+    id: 1055
+    Member: member_html_1
+    File: dummy_file_1
+    title: "<&\"'>Album.title ESCAPING HTML TEST DATA"
+    body: "<&\"'>Album.body ESCAPING HTML TEST DATA"
+
+AlbumImage:
+  album_image_html_1:
+    id: 1055
+    Album: album_html_1
+    Member: member_html_1
+    File: dummy_file_1
+    description: "<&\"'>AlbumImage.description ESCAPING HTML TEST DATA"
+    filesize: 1
