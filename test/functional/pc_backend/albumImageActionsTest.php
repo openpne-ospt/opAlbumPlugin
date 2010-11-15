@@ -1,9 +1,9 @@
 <?php
 
+$_app = 'pc_backend';
 include(dirname(__FILE__).'/../../bootstrap/functional.php');
 include(dirname(__FILE__).'/../../bootstrap/database.php');
 
-$_app = 'pc_backend';
 $browser = new opTestFunctional(new opBrowser(), new lime_test(null, new lime_output_color()));
 $browser
   ->info('Login')
