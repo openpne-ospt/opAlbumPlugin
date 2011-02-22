@@ -43,6 +43,12 @@ class opAlbumPluginActions extends sfActions
     {
       $this->member = $this->getUser()->getMember();
     }
+
+    if ($this->member->getId() != $this->getUser()->getMemberId())
+    {
+      $relation = Doctrine::getTable('MemberRelationship')->retrieveByFromAndTo($this->member->getId(), $this->getUser()->getMemberId());
+      $this->forward404If($relation && $relation->getIsAccessBlock());
+    }
   }
 
   public function postExecute()
