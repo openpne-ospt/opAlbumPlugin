@@ -103,7 +103,7 @@
         <target>写真5</target>
       </trans-unit>
       <trans-unit id="">
-        <source>There are no albums</source>
+        <source>There are no albums.</source>
         <target>アルバムがありません</target>
       </trans-unit>
       <trans-unit id="">
