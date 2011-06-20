@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <th><?php echo __('Created at') ?></th>
-<td colspan="2"><?php echo op_format_date($album->getCreatedAt(), 'XDateTimeJaBr') ?></td>
+<td colspan="2"><?php echo op_format_date($album->getCreatedAt(), 'XDateTimeJa') ?></td>
 </tr>
 <?php if ($album->isAuthor($sf_user->getMemberId())): ?>
 <tr>
