@@ -25,6 +25,11 @@ abstract class PluginAlbumImage extends BaseAlbumImage
   {
     // album_image.member_id is must be same member
     $this->setMember($this->getAlbum()->getMember());
+
+    if (null === $this->filesize && null !== $this->file_id)
+    {
+      $this->filesize = strlen($this->File->FileBin->bin);
+    }
   }
 
   protected function setFileNamePrefix()
