@@ -32,7 +32,7 @@
 </tr>
 <tr>
 <th><?php echo __('Created at') ?></th>
-<td colspan="2"><?php echo $album->getCreatedAt() ?></td>
+<td colspan="2"><?php echo op_format_date($album->getCreatedAt(), 'XDateTimeJa') ?></td>
 </tr>
 </table>
 <?php endforeach; ?>
