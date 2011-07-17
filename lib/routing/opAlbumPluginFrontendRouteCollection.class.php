@@ -121,76 +121,7 @@ class opAlbumPluginFrontendRouteCollection extends opAlbumPluginBaseRouteCollect
         array('module' => 'albumImage', 'action' => 'delete'),
         array('id' => '\d+', 'sf_method' => array('post')),
         array('model' => 'AlbumImage', 'type' => 'object')
-      ),
-      'album_comment_create' => new sfDoctrineRoute(
-        '/album/:id/comment/create',
-        array('module' => 'albumComment', 'action' => 'create'),
-        array('id' => '\d+', 'sf_method' => array('post')),
-        array('model' => 'Album', 'type' => 'object')
-      ),
-      
-      'album_comment_delete_confirm' => new sfDoctrineRoute(
-        '/album/comment/deleteConfirm/:id',
-        array('module' => 'albumComment', 'action' => 'deleteConfirm'),
-        array('id' => '\d+'),
-        array('model' => 'AlbumComment', 'type' => 'object')
-      ),
-      
-      'album_comment_delete' => new sfDoctrineRoute(
-        '/album/comment/delete/:id',
-        array('module' => 'albumComment', 'action' => 'delete'),
-        array('id' => '\d+', 'sf_method' => array('post')),
-        array('model' => 'AlbumComment', 'type' => 'object')
-      ),
-     
-     'album_image_comment_create' => new sfDoctrineRoute(
-        '/album/photo/:id/comment/create',
-        array('module' => 'albumImageComment', 'action' => 'create'),
-        array('id' => '\d+', 'sf_method' => array('post')),
-        array('model' => 'AlbumImage', 'type' => 'object')
-      ),
-      
-      'album_image_comment_delete' => new sfDoctrineRoute(
-        '/album/photo/comment/delete/:id',
-        array('module' => 'albumImageComment', 'action' => 'delete'),
-        array('id' => '\d+', 'sf_method' => array('post')),
-        array('model' => 'AlbumImageComment', 'type' => 'object')
-      ),
-
-     'album_image_comment_delete_confirm' => new sfDoctrineRoute(
-        '/album/photo/comment/deleteConfirm/:id',
-        array('module' => 'albumImageComment', 'action' => 'deleteConfirm'),
-        array('id' => '\d+'),
-        array('model' => 'AlbumImageComment', 'type' => 'object')
-      ),
-     
-     'album_like_create' => new sfDoctrineRoute(
-        '/album/:id/like/create',
-        array('module' => 'albumLike', 'action' => 'create'),
-        array('id' => '\d+'),
-        array('model' => 'Album', 'type' => 'object')
-      ),
-      
-     'album_like_delete' => new sfDoctrineRoute(
-        '/album/like/delete/:id',
-        array('module' => 'albumLike', 'action' => 'delete'),
-        array('id' => '\d+'),
-        array('model' => 'AlbumLike', 'type' => 'object')
-      ),
-      
-     'album_image_like_create' => new sfDoctrineRoute(
-        '/album/photo/:id/like/create',
-        array('module' => 'albumImageLike', 'action' => 'create'),
-        array('id' => '\d+'),
-        array('model' => 'AlbumImage', 'type' => 'object')
-      ),
-      
-     'album_image_like_delete' => new sfDoctrineRoute(
-        '/album/photo/like/delete/:id',
-        array('module' => 'albumImageLike', 'action' => 'delete'),
-        array('id' => '\d+'),
-        array('model' => 'AlbumImageLike', 'type' => 'object')
-      ),     
-    );   
+      )
+    );
   }
 }

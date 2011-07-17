@@ -44,9 +44,6 @@ class albumImageActions extends opAlbumPluginActions
   public function executeShow(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumViewable());
-    
-    $this->form = new AlbumImageCommentForm();
-    $this->commentPage = $request->getParameter('commentPage', 1);
   }
 
   public function executeEdit(sfWebRequest $request)
@@ -56,7 +53,7 @@ class albumImageActions extends opAlbumPluginActions
     $this->form = new AlbumImageForm($this->albumImage);
     $this->form->setPhoto();
     $this->form->setAlbumChoices();
-    
+
     $this->deleteForm = new sfForm();
   }
 
@@ -67,7 +64,7 @@ class albumImageActions extends opAlbumPluginActions
     $this->form = new AlbumImageForm($this->albumImage);
     $this->form->setAlbumChoices();
     $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()), $request->getParameter($this->form->getName()));
-    
+
     if ($this->form->isValid())
     {
       $this->form->save();

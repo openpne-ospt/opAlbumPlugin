@@ -25,20 +25,7 @@
 <div style="padding: 1px 0px 4px 0px; border-top: 1px solid #b3ceef;">
 <?php if ('' !== $albumImage->description): ?>
 <?php echo $albumImage->description ?>
-<br>
 <?php endif; ?>
-<?php if ($albumImageLike = $albumImage->isLiked($sf_user->getMemberId())): ?>
-<?php echo link_to(__('Unlike'), 'album_image_like_delete', $albumImageLike) ?>
-<?php else: ?>
-<?php echo link_to(__('Like'), 'album_image_like_create', $albumImage) ?>
-<?php endif; ?>
-<br>
-<?php include_component('albumImageLike','list',array('albumImage' => $albumImage)) ?>
-</div>
-
-<div style="padding: 1px 0px 4px 0px; border-top: 1px solid #0d6ddf;">
-<?php include_component('albumImageComment','list',array('albumImage' => $albumImage, 'commentPage' => $commentPage)) ?>
-<?php include_partial('albumComment/create', array('form' => $form, 'url' => url_for('@album_image_comment_create?id='.$albumImage->id), 'boxName' => 'formAlbumImageComment')) ?>
 </div>
 
 <?php if ($member->id == $sf_user->getMemberId()): ?>

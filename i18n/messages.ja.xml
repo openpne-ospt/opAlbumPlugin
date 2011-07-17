@@ -235,26 +235,6 @@
         <target>写真は正常に削除されました。</target>
       </trans-unit>
       <trans-unit id="">
-        <source>Comments</source>
-        <target>コメント</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>Post a comment</source>
-        <target>コメントを書く</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>Like</source>
-        <target>いいね！</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>Unlike</source>
-        <target>いいね！を取り消す</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>%users% like it</source>
-        <target>%users%が「いいね！」といっています</target>
-      </trans-unit>
-      <trans-unit id="">
         <source>Friend Albums</source>
         <target>フレンドのアルバム</target>
       </trans-unit>
@@ -273,11 +253,11 @@
       <trans-unit id="">
         <source>My Album - %album%</source>
         <target>自分のアルバム - %album%</target>
-      </trans-unit>      
+      </trans-unit>
       <trans-unit id="">
         <source>Cancel%1%</source>
         <target>キャンセル</target>
-      </trans-unit>           
+      </trans-unit>
       <trans-unit id="">
         <source>Are you sure you want to delete this photo?</source>
         <target>本当にこの写真を削除しますか？</target>
@@ -297,10 +277,6 @@
       <trans-unit id="">
         <source>Upload</source>
         <target>アップロード</target>
-      </trans-unit>
-      <trans-unit id="">
-        <source>Delete Comment</source>
-        <target>コメント削除</target>
       </trans-unit>
     </body>
   </file>

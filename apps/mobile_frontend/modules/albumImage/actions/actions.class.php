@@ -20,11 +20,8 @@ class albumImageActions extends opAlbumPluginActions
   public function executeShow(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumViewable());
-    
-    $this->form = new AlbumImageCommentForm();
-    $this->commentPage = $request->getParameter('commentPage', 1);
   }
-  
+
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());
@@ -33,7 +30,7 @@ class albumImageActions extends opAlbumPluginActions
     $this->form->setAlbumChoices();
     $this->form->setWidget('description', new sfWidgetFormInput(array(), array('size' => 30)));
   }
-  
+
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());
@@ -41,7 +38,7 @@ class albumImageActions extends opAlbumPluginActions
     $this->form = new AlbumImageForm($this->albumImage);
     $this->form->setAlbumChoices();
     $this->form->bind($request->getParameter($this->form->getName()));
-    
+
     if ($this->form->isValid())
     {
       $this->form->save();
@@ -51,14 +48,14 @@ class albumImageActions extends opAlbumPluginActions
 
     $this->setTemplate('edit');
   }
-  
+
   public function executeDeleteConfirm(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());
-    
+
     $this->form = new sfForm();
   }
-  
+
   public function executeDelete(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());

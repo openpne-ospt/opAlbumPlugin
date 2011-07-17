@@ -45,26 +45,4 @@
 
 .body table {
   clear: right;
-}  
-
-ol.comments li.comment {
-  border-bottom: 1px solid #888888;
-  min-height: 80px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-ol.comments li.comment .memberImage {
-  padding: 2px;
-  position: absolute;
-}
-
-ol.comments li.comment .body {
-  margin-left: 80px;
-  padding: 5px;
-}
-
-ol.comments li.comment .info {
-  color: #888888;
-  margin-top: 5px;
 }

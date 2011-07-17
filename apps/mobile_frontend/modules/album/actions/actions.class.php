@@ -21,34 +21,32 @@ class albumActions extends opAlbumPluginActions
   {
     $this->pager = Doctrine::getTable('Album')->getMemberAlbumPager($this->member->getId(), $request->getParameter('page'), 5, $this->getUser()->getMemberId());
   }
-  
+
   public function executeListFriend(sfWebRequest $request)
   {
     $this->pager = Doctrine::getTable('Album')->getFriendAlbumPager($this->getUser()->getMemberId(), $request->getParameter('page'), 5);
   }
-  
+
   public function executeList(sfWebRequest $request)
   {
     $this->pager = Doctrine::getTable('Album')->getAlbumPager($request->getParameter('page'), 5);
   }
-  
+
   public function executeShow(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumViewable());
 
     $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1), 6);
-    
-    $this->form = new AlbumCommentForm();
-    $this->commentPage = $request->getParameter('commentPage', 1);
+
   }
-  
+
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumForm($this->album);
   }
-  
+
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());
@@ -62,17 +60,17 @@ class albumActions extends opAlbumPluginActions
 
       $this->redirect('@album_show?id='.$this->album->id);
     }
-    
+
     $this->setTemplate('edit');
   }
-  
+
   public function executeDeleteConfirm(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new sfForm();
   }
-  
+
   public function executeDelete(sfWebRequest $request)
   {
     $this->forward404Unless($this->isAlbumAuthor());

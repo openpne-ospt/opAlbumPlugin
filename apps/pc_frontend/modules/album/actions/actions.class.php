@@ -38,9 +38,6 @@ class albumActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumViewable());
 
     $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($this->album, $request->getParameter('page', 1), 10);
-    
-    $this->form = new AlbumCommentForm();
-    $this->commentPage = $request->getParameter('pageComment', 1);
   }
 
   public function executeNew(sfWebRequest $request)

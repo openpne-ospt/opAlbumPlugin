@@ -1,6 +1,6 @@
 options:
   charset: utf8
- 
+
 Album:
   actAs: [Timestampable]
   columns:
@@ -17,7 +17,7 @@ Album:
     File:
       foreignAlias: Albums
       onDelete: cascade
- 
+
 AlbumImage:
   actAs: [Timestampable]
   columns:
@@ -37,73 +37,3 @@ AlbumImage:
     Member:
       foreignAlias: AlbumImages
       onDelete: cascade
-
-AlbumComment:
-  actAs: [Timestampable]
-  columns:
-    id: { type: integer(4), primary: true, autoincrement: true }
-    album_id: { type: integer(4), notnull: true }
-    member_id: { type: integer(4), notnull: true }
-    body: { type: string, notnull: true }
-  relations:
-    Album:
-      foreignAlias: AlbumComments
-      onDelete: cascade
-    Member:
-      foreignAlias: AlbumComments
-      onDelete: cascade
-  indexes:
-    album_id:
-      fields: [album_id]
-      
-AlbumImageComment:
-  actAs: [Timestampable]
-  columns:
-    id: { type: integer(4), primary: true, autoincrement: true }
-    album_image_id: { type: integer(4), notnull: true }
-    member_id: { type: integer(4), notnull: true }
-    body: { type: string, notnull: true }
-  relations:
-    AlbumImage:
-      foreignAlias: AlbumImageComments
-      onDelete: cascade
-    Member:
-      foreignAlias: AlbumImageComments
-      onDelete: cascade
-  indexes:
-    album_image_id:
-      fields: [album_image_id]      
-
-AlbumLike:
-  actAs: [Timestampable]
-  columns:
-    id: { type: integer(4), primary: true, autoincrement: true }
-    album_id: { type: integer(4), notnull: true }
-    member_id: { type: integer(4), notnull: true }
-  relations:
-    Album:
-      foreignAlias: AlbumLikes
-      onDelete: cascade
-    Member:
-      foreignAlias: AlbumLikes
-      onDelete: cascade
-  indexes:
-    album_id:
-      fields: [album_id, member_id]    
-      
-AlbumImageLike:
-  actAs: [Timestampable]
-  columns:
-    id: { type: integer(4), primary: true, autoincrement: true }
-    album_image_id: { type: integer(4), notnull: true }
-    member_id: { type: integer(4), notnull: true }
-  relations:
-    AlbumImage:
-      foreignAlias: AlbumImageLikes
-      onDelete: cascade
-    Member:
-      foreignAlias: AlbumImageLikes
-      onDelete: cascade
-  indexes:
-    album_image_id:
-      fields: [album_image_id, member_id]    

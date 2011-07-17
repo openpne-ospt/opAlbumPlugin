@@ -56,25 +56,7 @@ abstract class PluginAlbumImage extends BaseAlbumImage
   {
     return ($this->getMemberId() === $memberId);
   }
-  
-  public function isLiked($memberId)
-  {
-    return Doctrine::getTable('AlbumImageLike')->getAlbumImageLike($this->id, $memberId);
-  }
-  
-  public function getMembersLikeAlbumImage()
-  {
-    $likes = Doctrine::getTable('AlbumImageLike')->findByAlbumImageId($this->id);
-    
-    $members = array();
-    foreach ($likes as $like)
-    {
-      $members[] = $like->Member;
-    }
 
-    return $members;
-  }
-  
   public function getPrevious($myMemberId)
   {
     if (is_null($this->previous))

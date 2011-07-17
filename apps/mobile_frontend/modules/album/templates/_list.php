@@ -2,7 +2,7 @@
 <center><?php op_include_pager_total($pager); ?></center>
 </div>
 <?php foreach ($pager->getResults() as $album): ?>
-<?php echo link_to($album->Member->name, 'obj_member_profile', $album->Member) ?>
+<?php echo link_to($album->Member->name, '@member_profile?id='.$album->Member->id) ?>
 <span style="padding-left: 1px">
 <?php echo $album->body; ?>
 </span>
