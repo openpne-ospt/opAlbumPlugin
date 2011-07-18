@@ -6,7 +6,7 @@
 <?php op_include_pager_navigation($pager, '@album_list_friend?page=%d&id='.$member->id , array('is_total' => false)); ?>
 </div>
 <?php else: ?>
-<?php echo __('There are no albums') ?>
+<?php echo __('There are no albums.') ?>
 <?php endif; ?>
 </div>
 <div style="padding: 1px 0px 4px 0px; border-bottom: 1px solid #b3ceef;">
