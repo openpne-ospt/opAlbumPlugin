@@ -32,5 +32,5 @@
 <div class="pagerRelative"><p class="number"><?php echo op_include_pager_navigation($pager, 'album/listMember?page=%d&id='.$member->getId()); ?></p></div>
 </div></div>
 <?php else: ?>
-<?php op_include_box('albumList', __('There are no albums'), array('title' => $title)) ?>
+<?php op_include_box('albumList', __('There are no albums.'), array('title' => $title)) ?>
 <?php endif; ?>

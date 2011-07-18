@@ -219,7 +219,7 @@
         <target>アルバムID</target>
       </trans-unit>
       <trans-unit id="">
-        <source>There are no images</source>
+        <source>There are no images.</source>
         <target>写真がありません</target>
       </trans-unit>
       <trans-unit id="">
