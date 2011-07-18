@@ -24,6 +24,7 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
     sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
 
     $this->setWidget('description', new sfWidgetFormInput(array(), array('size' => 40)));
+    $this->setValidator('description', new opValidatorString(array('trim' => true, 'max_length' => 140, 'required' => false)));
     $this->getWidgetSchema()->moveField('description', sfWidgetFormSchema::LAST);
   }
 
@@ -53,14 +54,14 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
 
     return $object;
   }
-  
+
   public function setAlbumChoices()
   {
     $choices = Doctrine::getTable('Album')->getMemberAlbumTitleArray($this->getObject()->getMemberId());
     $this->setWidget('album_id', new sfWidgetFormChoice(array('choices'  => $choices, 'expanded' => false, 'multiple' => false))); 
     $this->setValidator('album_id', new sfValidatorChoice(array('choices' => array_keys($choices))));
   }
-  
+
   public function setPhoto()
   {
     $options = array(

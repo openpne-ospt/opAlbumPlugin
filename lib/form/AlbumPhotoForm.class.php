@@ -91,11 +91,13 @@ class AlbumPhotoForm extends sfForm
 
   public function validatePhoto($validator, $value, $arguments)
   {
-    $_validator = new opValidatorImageFile();
+    $validatorFile   = new opValidatorImageFile();
+    $validatorString = new opValidatorString(array('trim' => true, 'max_length' => 140, 'required' => false));
 
     try
     {
-      $value['file'] = $_validator->clean($value['file']);
+      $value['file']        = $validatorFile->clean($value['file']);
+      $value['description'] = $validatorString->clean($value['description']);
     }
     catch (sfValidatorError $e)
     {
