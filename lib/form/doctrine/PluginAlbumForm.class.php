@@ -17,6 +17,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     unset($this['member_id']);
     unset($this['created_at']);
     unset($this['updated_at']);
+    unset($this['file_id']);
 
     $this->widgetSchema['title'] = new sfWidgetFormInput();
 
@@ -30,7 +31,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
   }
 
   public function setPhoto()
-  {    
+  {
     $options = array(
         'file_src'     => '',
         'is_image'     => true,
@@ -53,7 +54,7 @@ abstract class PluginAlbumForm extends BaseAlbumForm
     $this->setWidget('file_id', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
     $this->setValidator('file_id', new opValidatorImageFile(array('required' => false)));
   }
-  
+
   public function updateObject($values = null)
   {
     parent::updateObject($values);

@@ -43,12 +43,14 @@ class albumActions extends opAlbumPluginActions
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new AlbumForm();
+    $this->form->setPhoto();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->form = new AlbumForm();
     $this->form->getObject()->setMemberId($this->getUser()->getMemberId());
+    $this->form->setPhoto();
     $this->processForm($request, $this->form);
     $this->setTemplate('new');
   }
