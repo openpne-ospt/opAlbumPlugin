@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -28,7 +28,7 @@ http://github.com/mogi/opAlbumPlugin</description>
   <active>yes</active>
  </contributor>
  <date>2011-07-23</date>
- <time>23:19:00</time>
+ <time>23:48:14</time>
  <version>
   <release>0.9.5</release>
   <api>0.9.5</api>
@@ -39,11 +39,11 @@ http://github.com/mogi/opAlbumPlugin</description>
  </stability>
  <license>apache</license>
  <notes>New feature:
-   * Supported mobile (feature phone).
+* Supported mobile (feature phone).
 
-   Bug Fix:
-   * Fixed the issue that user can upload non-image item.
-   * Fixed some messages.
+Bug Fix:
+* Fixed the issue that user can upload non-image item.
+* Fixed some messages.
 </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -116,8 +116,6 @@ http://github.com/mogi/opAlbumPlugin</description>
    <file baseinstalldir="/" md5sum="a36f42f082727ca53a2d95762f9e61c5" name="lib/action/opAlbumPluginActions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="02655e72795e4b44cd6620faf10d010c" name="lib/action/opAlbumPluginAlbumImageActions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c81b113a30b3d7f69ce86725ed1c6b7b" name="lib/action/opAlbumPluginMailActions.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="8bf9b0c3d906e9ddb8a7d473d015fe35" name="lib/filter/doctrine/PluginAlbumImageLikeFormFilter.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="fc23bf52d40caa611ccca8689c56bf2d" name="lib/filter/doctrine/PluginAlbumLikeFormFilter.class.php" role="data" />
    <file baseinstalldir="/" md5sum="425d3b8aaf452a723e06350b2cefe8c8" name="lib/form/AlbumPhotoForm.class.php" role="data" />
    <file baseinstalldir="/" md5sum="7519dccf983022f53a8c0398107ef4dc" name="lib/form/doctrine/PluginAlbumForm.class.php" role="data" />
    <file baseinstalldir="/" md5sum="6cb6e938df39e88ac6982142ebc967e2" name="lib/form/doctrine/PluginAlbumImageForm.class.php" role="data" />
@@ -155,11 +153,6 @@ http://github.com/mogi/opAlbumPlugin</description>
    <pearinstaller>
     <min>1.4.0</min>
    </pearinstaller>
-   <package>
-    <name>symfony</name>
-    <channel>pear.symfony-project.com</channel>
-    <min>1.2.0</min>
-   </package>
   </required>
  </dependencies>
  <phprelease />
@@ -175,7 +168,9 @@ http://github.com/mogi/opAlbumPlugin</description>
    </stability>
    <date>2010-01-29</date>
    <license>apache</license>
-   <notes>bugfix for Picture albums</notes>
+   <notes>
+bugfix for Picture albums
+   </notes>
   </release>
   <release>
    <version>
@@ -188,7 +183,9 @@ http://github.com/mogi/opAlbumPlugin</description>
    </stability>
    <date>2010-02-09</date>
    <license>apache</license>
-   <notes>add album management function and album image management function</notes>
+   <notes>
+add album management function and album image management function
+   </notes>
   </release>
   <release>
    <version>
@@ -202,11 +199,11 @@ http://github.com/mogi/opAlbumPlugin</description>
    <date>2011-07-23</date>
    <license>apache</license>
    <notes>New feature:
-   * Supported mobile (feature phone).
+* Supported mobile (feature phone).
 
-   Bug Fix:
-   * Fixed the issue that user can upload non-image item.
-   * Fixed some messages.
+Bug Fix:
+* Fixed the issue that user can upload non-image item.
+* Fixed some messages.
 </notes>
   </release>
  </changelog>
