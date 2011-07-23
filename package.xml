@@ -27,24 +27,20 @@ http://github.com/mogi/opAlbumPlugin</description>
   <email />
   <active>yes</active>
  </contributor>
- <date>2011-07-23</date>
- <time>23:48:14</time>
+ <date>2011-07-24</date>
+ <time>00:35:36</time>
  <version>
-  <release>0.9.5</release>
-  <api>0.9.5</api>
+  <release>0.9.5.1</release>
+  <api>0.9.5.1</api>
  </version>
  <stability>
   <release>beta</release>
   <api>beta</api>
  </stability>
  <license>apache</license>
- <notes>New feature:
-* Supported mobile (feature phone).
-
-Bug Fix:
-* Fixed the issue that user can upload non-image item.
-* Fixed some messages.
-</notes>
+ <notes>Previous version&apos;s package is broken.
+Fixed package.
+ </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="2993f9b009452976d2d6be4d42eff208" name="apps/mobile_frontend/config/routing.yml" role="data" />
@@ -198,12 +194,28 @@ add album management function and album image management function
    </stability>
    <date>2011-07-23</date>
    <license>apache</license>
-   <notes>New feature:
+   <notes>
+New feature:
 * Supported mobile (feature phone).
 
 Bug Fix:
 * Fixed the issue that user can upload non-image item.
 * Fixed some messages.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.5.1</release>
+    <api>0.9.5.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2011-07-24</date>
+   <license>apache</license>
+   <notes>Previous version&apos;s package is broken.
+Fixed package.
 </notes>
   </release>
  </changelog>
