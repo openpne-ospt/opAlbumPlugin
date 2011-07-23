@@ -32,9 +32,9 @@ class albumImageActions extends opAlbumPluginMailActions
     {
       return sfView::NONE;
     }
-    
+
     $files = $this->getImageFiles($mailMessage, 5);
-       
+
     foreach ($files as $file)
     {
       $albumImage = new AlbumImage();

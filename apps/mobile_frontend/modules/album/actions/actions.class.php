@@ -52,7 +52,6 @@ class albumActions extends opAlbumPluginActions
     $this->forward404Unless($this->isAlbumAuthor());
 
     $this->form = new AlbumForm($this->album);
-    unset($this->form['file_id']);
     $this->form->bind($request->getParameter($this->form->getName()));
     if ($this->form->isValid())
     {

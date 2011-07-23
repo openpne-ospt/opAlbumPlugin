@@ -26,7 +26,7 @@ class PluginAlbumImageTable extends Doctrine_Table
       $q = $this->getOrderdQuery();
 
       return $this->getPager($q, $args[0], $args[1]);
-    } 
+    }
   }
 
   public function getAlbumImagePagerForAlbum($albumId, $page = 1, $size = 20)
