@@ -84,7 +84,14 @@ class PluginAlbumImageTable extends Doctrine_Table
   {
     foreach ($keywords as $keyword)
     {
-      $q->andWhere('description LIKE ?', array('%'.$keyword.'%'));
+      if (method_exists($q, 'andWhereLike'))
+      {
+        $q->andWhereLike('description', $keyword);
+      }
+      else
+      {
+        $q->andWhere('description LIKE ?', '%'.$keyword.'%');
+      }
     }
   }
 }
