@@ -26,7 +26,7 @@ class opAlbumPluginMobileRouteCollection extends opAlbumPluginFrontendRouteColle
         array('module' => 'albumImage', 'action' => 'deleteConfirm'),
         array('id' => '\d+'),
         array('model' => 'AlbumImage', 'type' => 'object')
-      ),   
+      ),
     );
 
     return $this->routes;
