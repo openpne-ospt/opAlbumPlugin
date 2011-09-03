@@ -1,10 +1,8 @@
-<?php op_mobile_page_title(__('Edit Album'))?>
+<?php op_mobile_page_title(__('Edit Album'), $album->title)?>
 
-<div style="margin: 2px 0 4px 0px">
 <center>
 <?php echo image_tag_sf_image($album->getFile(), array('size' => '180x180')) ?>
 </center>
-</div>
 
 <?php
 unset($form['file_id']);
@@ -14,10 +12,9 @@ $form->getWidget('body')->setAttribute('cols', 23);
 
 $options = array(
   'button' => __('Edit'),
-  'isMultipart' => true,
+  'align'  => 'center',
+  'url'    => url_for('album_update', $album),
 );
-
-$options['url'] = url_for('album_update', $album);
 
 op_include_form('albumForm', $form, $options);
 ?>
