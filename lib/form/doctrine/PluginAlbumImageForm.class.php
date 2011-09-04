@@ -70,8 +70,8 @@ abstract class PluginAlbumImageForm extends BaseAlbumImageForm
       'with_delete' => false,
       'template'    => get_partial('default/formEditImage', array('image' => $this->getObject())),
     );
-    $this->setWidget('photo', new sfWidgetFormInputFileEditable($options, array('size' => 40)));    
-    
+    $this->setWidget('photo', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
+
     $this->setValidator('photo', new opValidatorImageFile(array('required' => false)));
   }
 }
