@@ -7,9 +7,8 @@ class PluginAlbumImageTable extends Doctrine_Table
   {
     $args = func_get_args();
 
-    if (is_object(func_get_arg(0)))
+    if (count($args) && is_object($args[0]))
     {
-      if ($args[0] == null){ $args[0] = $album;}
       if ($args[1] == false){ $args[1] = 1;}
       if ($args[2] == null){ $args[2] = 10;}
 
@@ -75,6 +74,7 @@ class PluginAlbumImageTable extends Doctrine_Table
     $pager = new sfDoctrinePager('AlbumImage', $size);
     $pager->setQuery($q);
     $pager->setPage($page);
+    $pager->init();
 
     return $pager;
   }

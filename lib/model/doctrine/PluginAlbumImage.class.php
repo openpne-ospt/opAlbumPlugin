@@ -2,7 +2,7 @@
 
 /**
  * PluginAlbumImage
- * 
+ *
  * @package    opAlbumPlugin
  * @subpackage model
  * @author     Hiroki Mogi <mogi@tejimaya.net>
@@ -10,7 +10,9 @@
  */
 abstract class PluginAlbumImage extends BaseAlbumImage
 {
-  protected $previous, $next;
+  protected
+    $previous = array(),
+    $next = array();
 
   public function save(Doctrine_Connection $conn = null)
   {
@@ -40,40 +42,39 @@ abstract class PluginAlbumImage extends BaseAlbumImage
     $file->setName($prefix.$file->getName());
   }
 
-  public function updateFileId()
-  {
-    $this->clearRelated();
-    $FileId = (bool)$this->getfile_id();
-
-    if ($FileId != $this->getFile_id())
-    {
-      $this->setFile_id($FileId);
-      $this->save();
-    }
-  }
-
   public function isAuthor($memberId)
   {
-    return ($this->getMemberId() === $memberId);
+    return ($this->getMemberId() == $memberId);
   }
 
-  public function getPrevious($myMemberId)
+  public function getPrevious($myMemberId = null)
   {
-    if (is_null($this->previous))
+    if (null == $myMemberId)
     {
-      $this->previous = $this->getTable()->getPreviousAlbumImage($this, $myMemberId);
+      $myMemberId = sfContext::getInstance()->getUser()->getMemberId();
     }
-    return $this->previous;
+
+
+    if (null == $this->previous[$myMemberId])
+    {
+      $this->previous[$myMemberId] = $this->getTable()->getPreviousAlbumImage($this, $myMemberId);
+    }
+
+    return $this->previous[$myMemberId];
   }
 
   public function getNext($myMemberId = null)
   {
-    if (is_null($this->next))
+    if (null == $myMemberId)
     {
-      $this->next = $this->getTable()->getNextAlbumImage($this, $myMemberId);
+      $myMemberId = sfContext::getInstance()->getUser()->getMemberId();
     }
 
-    return $this->next;
-  }
+    if (null == $this->next[$myMemberId])
+    {
+      $this->next[$myMemberId] = $this->getTable()->getNextAlbumImage($this, $myMemberId);
+    }
 
+    return $this->next[$myMemberId];
+  }
 }

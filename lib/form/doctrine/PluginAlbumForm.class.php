@@ -92,11 +92,4 @@ abstract class PluginAlbumForm extends BaseAlbumForm
 
     return $this->getObject();
   }
-
-  protected function doSave($con = null)
-  {
-    parent::doSave($con);
-
-    $this->getObject()->updateFileId();
-  }
 }

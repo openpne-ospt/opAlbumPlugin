@@ -1,6 +1,5 @@
 <?php
-/**
- */
+
 class PluginAlbumTable extends Doctrine_Table
 {
   const PUBLIC_FLAG_OPEN    = 4;
@@ -41,7 +40,7 @@ class PluginAlbumTable extends Doctrine_Table
 
     return $this->getPager($q, $page, $size);
   }
-  
+
   /**
    * Search keywords for albums in the title and body
    */
@@ -53,7 +52,6 @@ class PluginAlbumTable extends Doctrine_Table
 
     return $this->getPager($q, $page, $size);
   }
-
 
   public function getMemberAlbumList($memberId, $limit = 5, $myMemberId = null)
   {
@@ -94,6 +92,7 @@ class PluginAlbumTable extends Doctrine_Table
     $pager = new sfDoctrinePager('Album', $size);
     $pager->setQuery($q);
     $pager->setPage($page);
+    $pager->init();
 
     return $pager;
   }
@@ -103,8 +102,13 @@ class PluginAlbumTable extends Doctrine_Table
     return $this->createQuery()->orderBy('created_at DESC');
   }
 
-  protected function addMemberQuery(Doctrine_Query $q, $memberId, $myMemberId)
+  protected function addMemberQuery(Doctrine_Query $q, $memberId, $myMemberId = null)
   {
+    if (null === $myMemberId)
+    {
+      $myMemberId = sfContext::getInstance()->getUser()->getMemberId();
+    }
+
     $q->andWhere('member_id = ?', $memberId);
     $this->addPublicFlagQuery($q, self::getPublicFlagByMemberId($memberId, $myMemberId));
   }
@@ -130,7 +134,7 @@ class PluginAlbumTable extends Doctrine_Table
       return;
     }
 
-    $flags = self::getViewablePublicFlags($flag);
+    $flags = $this->getViewablePublicFlags($flag);
     if (1 === count($flags))
     {
       $q->andWhere('public_flag = ?', array_shift($flags));
@@ -217,20 +221,20 @@ class PluginAlbumTable extends Doctrine_Table
       $q->andWhere('title LIKE ? OR body LIKE ?', array('%'.$keyword.'%', '%'.$keyword.'%'));
     }
   }
-  
+
   public function getMemberAlbumTitleArray($memberId)
   {
     $q = $this->createQuery()
-    ->andWhere('member_id = ?', $memberId)
-    ->orderBy('title ASC')
-    ->execute();
-    
+      ->andWhere('member_id = ?', $memberId)
+      ->orderBy('title ASC')
+      ->execute();
+
     $albumTitles = array();
     foreach ($q as $album)
     {
       $albumTitles[$album->id] = $album->title;
     }
-    
+
     return $albumTitles;
   }
 }

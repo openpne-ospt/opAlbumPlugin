@@ -37,7 +37,6 @@ class albumImageActions extends sfActions
   public function executeList(sfWebRequest $request)
   {
     $this->pager = Doctrine::getTable('AlbumImage')->getAlbumImagePager($request['page'], 20);
-    $this->pager->init();
   }
 
   public function executeSearch(sfWebRequest $request)
@@ -58,7 +57,6 @@ class albumImageActions extends sfActions
       $this->forward('albumImage', 'list');
     }
 
-    $this->pager->init();
     $this->setTemplate('list');
   }
 

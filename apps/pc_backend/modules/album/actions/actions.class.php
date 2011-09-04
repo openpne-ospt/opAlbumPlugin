@@ -37,7 +37,6 @@ class albumActions extends sfActions
   public function executeList(sfWebRequest $request)
   {
     $this->pager = Doctrine::getTable('Album')->getAlbumPager($request['page'], 20, AlbumTable::PUBLIC_FLAG_PRIVATE);
-    $this->pager->init();
   }
 
   public function executeSearch(sfWebRequest $request)
@@ -56,7 +55,6 @@ class albumActions extends sfActions
     $this->forwardUnless($keywords, 'album', 'list');
 
     $this->pager = Doctrine::getTable('Album')->getAlbumSearchPager($keywords, $request['page'], 20, AlbumTable::PUBLIC_FLAG_PRIVATE);
-    $this->pager->init();
 
     $this->setTemplate('list');
   }
