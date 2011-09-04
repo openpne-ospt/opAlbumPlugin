@@ -22,11 +22,9 @@ if (!isset($app))
 chdir(dirname(__FILE__).'/../../../..');
 
 require_once 'config/ProjectConfiguration.class.php';
-$configuration = ProjectConfiguration::getApplicationConfiguration($app, 'test', false);
+$configuration = ProjectConfiguration::getApplicationConfiguration($app, 'test', isset($debug) ? $debug : true);
+include dirname(__FILE__).'/database.php';
 sfContext::createInstance($configuration);
 
 // remove all cache
 sfToolkit::clearDirectory(sfConfig::get('sf_app_cache_dir'));
-
-$conn = Doctrine_Manager::getInstance()->getCurrentConnection();
-$conn->clear();

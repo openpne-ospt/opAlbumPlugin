@@ -25,14 +25,13 @@ new sfDatabaseManager($configuration);
 
 try
 {
-  if ($testRevision > (int)Doctrine::getTable('SnsConfig')->get('opOpenSocialPlugin_test_revision'))
+  if ($testRevision > (int)Doctrine::getTable('SnsConfig')->get('opAlbumPlugin_test_revision'))
   {
     throw new Exception();
   }
 }
 catch (Exception $e)
 {
-  // for OpenPNE 3.2.x >=
   $task = new sfDoctrineBuildTask($configuration->getEventDispatcher(), new sfFormatter());
   $task->setConfiguration($configuration);
   $task->run(array(), array(
@@ -42,5 +41,6 @@ catch (Exception $e)
   ));
 
   $snsConfig = Doctrine::getTable('SnsConfig');
-  $snsConfig->set('opOpenSocialPlugin_test_revision', $testRevision);
+  $snsConfig->set('opAlbumPlugin_test_revision', $testRevision);
+  $snsConfig->set('is_check_mobile_ip', 0);
 }

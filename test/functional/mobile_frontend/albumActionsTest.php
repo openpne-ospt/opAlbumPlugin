@@ -1,17 +1,16 @@
 <?php
 
+$app = 'mobile_frontend';
 include dirname(__FILE__).'/../../bootstrap/functional.php';
 
-$browser = new sfBrowser();
-$user = new opTestFunctional($browser, new lime_test(16, new lime_output_color()));
+$browser = new opBrowser();
+$user = new opTestFunctional($browser, new lime_test(9, new lime_output_color()));
+$user->setMobile();
+
 $user->login('html@example.com', 'password');
 
 // CSRF
 $user
-  ->info('/album/create - CSRF')
-  ->post('/album/create')
-  ->checkCSRF()
-
   ->info('/album/update/1055 - CSRF')
   ->post('/album/update/1055')
   ->checkCSRF()
@@ -21,13 +20,6 @@ $user
   ->checkCSRF()
 
 // XSS
-  ->info('/member/home - XSS')
-  ->get('/member/home')
-  ->with('html_escape')->begin()
-    ->isAllEscapedData('Member', 'name')
-    ->isAllEscapedData('Album', 'title')
-  ->end()
-
   ->info('/album - XSS')
   ->get('/album')
   ->with('html_escape')->begin()
@@ -48,20 +40,4 @@ $user
   ->with('html_escape')->begin()
     ->isAllEscapedData('Album', 'title')
     ->countEscapedData(1, 'Album', 'body', array('width' => 36))
-  ->end()
-
-  ->info('/album/1055 - XSS')
-  ->get('/album/1055')
-  ->with('html_escape')->begin()
-    ->isAllEscapedData('Album', 'title')
-    ->countEscapedData(1, 'Album', 'body', array('width' => 36))
-  ->end()
-
-  ->login('sns@example.com', 'password')
-
-  ->info('/member/1055 - XSS')
-  ->get('/member/1055')
-  ->with('html_escape')->begin()
-    ->isAllEscapedData('Member', 'name')
-    ->isAllEscapedData('Album', 'title')
   ->end();
