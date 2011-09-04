@@ -28,30 +28,17 @@ http://github.com/mogi/opAlbumPlugin</description>
   <active>yes</active>
  </contributor>
  <date>2011-09-04</date>
- <time>20:13:44</time>
+ <time>20:34:18</time>
  <version>
-  <release>1.0.0</release>
-  <api>1.0.0</api>
+  <release>1.0.0.1</release>
+  <api>1.0.0.1</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
  <license>apache</license>
- <notes>This is first stable release!
-
-Enhancement:
-
-added unit tests for the model.
-added functional tests for mobile.
-
-Fixed following bugs:
-
-#1091: アルバムに登録した画像の表示順の不具合
-#2335: 部分一致検索を行う箇所でワイルドカード検索ができてしまう
-#2348: 管理画面:アルバムリスト でアルバム表紙画像が登録されていないアルバムの表紙画像がリンク切れ状態になる
-#2290: モバイルのデザイン標準化
- </notes>
+ <notes>Fixed broken package.</notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="bae086ab81507aaae5b8208227c80b48" name="apps/mobile_frontend/config/routing.yml" role="data" />
@@ -254,7 +241,8 @@ Fixed package.
    </stability>
    <date>2011-09-04</date>
    <license>apache</license>
-   <notes>This is first stable release!
+   <notes>
+This is first stable release!
 
 Enhancement:
 
@@ -268,6 +256,19 @@ Fixed following bugs:
 #2348: 管理画面:アルバムリスト でアルバム表紙画像が登録されていないアルバムの表紙画像がリンク切れ状態になる
 #2290: モバイルのデザイン標準化
    </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0.1</release>
+    <api>1.0.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-09-04</date>
+   <license>apache</license>
+   <notes>Fixed broken package.</notes>
   </release>
  </changelog>
 </package>
