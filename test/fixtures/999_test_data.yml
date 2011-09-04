@@ -1,7 +1,15 @@
 Member:
   member_1:
     id: 1
-    name: "OpenPNE君"
+    name: "OpenPNE_1"
+    is_active: 1
+  member_2:
+    id: 2
+    name: "OpenPNE_2"
+    is_active: 1
+  member_3:
+    id: 3
+    name: "OpenPNE_3"
     is_active: 1
   member_html_1:
     id: 1055
@@ -39,6 +47,14 @@ MemberConfig:
     Member: member_html_1
 
 MemberRelationship:
+  member_1_member_2:
+    Member: member_1
+    MemberRelatedByMemberIdFrom: member_2
+    is_friend: 1
+  member_2_member_1:
+    Member: member_2
+    MemberRelatedByMemberIdFrom: member_1
+    is_friend: 1
   member_html_1_member_html_2:
     Member: member_html_1
     MemberRelatedByMemberIdFrom: member_html_2
@@ -57,6 +73,33 @@ File:
       bin: ~
 
 Album:
+  album_1:
+    id: 1
+    Member: member_1
+    File: dummy_file_1
+    title: "Member1's-album1"
+    body: "This's member1's album"
+    public_flag: 1 #SNS
+  album_2:
+    id: 2
+    Member: member_1
+    title: "Member1's-album2"
+    body: "This's member1's album"
+    public_flag: 2 #FRIEND
+  album_3:
+    id: 3
+    Member: member_1
+    File: dummy_file_1
+    title: "Member1's-album3"
+    body: "This's member1's album"
+    public_flag: 3 #PRIVATE
+  album_4:
+    id: 4
+    Member: member_2
+    File: dummy_file_1
+    title: "Member2's-album1"
+    body: "This's member2's album"
+    public_flag: 1 #SNS
   album_html_1:
     id: 1055
     Member: member_html_1
@@ -71,6 +114,27 @@ Album:
     body: "<&\"'>Album.body ESCAPING HTML TEST DATA"
 
 AlbumImage:
+  album_image_1:
+    id: 1
+    Album: album_1
+    Member: member_1
+    File: dummy_file_1
+    description: "foo"
+    filesize: 1
+  album_image_2:
+    id: 2
+    Album: album_1
+    Member: member_1
+    File: dummy_file_1
+    description: "foo"
+    filesize: 1
+  album_image_3:
+    id: 3
+    Album: album_2
+    Member: member_1
+    File: dummy_file_1
+    description: "foo"
+    filesize: 1
   album_image_html_1:
     id: 1055
     Album: album_html_1

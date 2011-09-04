@@ -8,28 +8,39 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-if (empty($_app))
+// guess current application
+if (!isset($app))
 {
-  $_app = 'pc_backend';
-}
-$_env = 'test';
+  $traces = debug_backtrace();
+  $caller = $traces[0];
 
-$configuration = ProjectConfiguration::getApplicationConfiguration($_app, $_env, true);
+  $dirPieces = explode(DIRECTORY_SEPARATOR, dirname($caller['file']));
+  $app = array_pop($dirPieces);
+}
+
+$testRevision = 1;
+
+$configuration = ProjectConfiguration::getApplicationConfiguration($app, 'test', true);
 new sfDatabaseManager($configuration);
 
-$task = new sfDoctrineBuildTask($configuration->getEventDispatcher(), new sfFormatter());
-$task->setConfiguration($configuration);
-$task->run(array(), array(
-  'no-confirmation' => true,
-  'db'              => true,
-  'and-load'        => true,
-  'application'     => $_app,
-  'env'             => $_env,
-));
+try
+{
+  if ($testRevision > (int)Doctrine::getTable('SnsConfig')->get('opOpenSocialPlugin_test_revision'))
+  {
+    throw new Exception();
+  }
+}
+catch (Exception $e)
+{
+  // for OpenPNE 3.2.x >=
+  $task = new sfDoctrineBuildTask($configuration->getEventDispatcher(), new sfFormatter());
+  $task->setConfiguration($configuration);
+  $task->run(array(), array(
+    'no-confirmation' => true,
+    'db'              => true,
+    'and-load'        => dirname(__FILE__).'/../fixtures',
+  ));
 
-$task = new sfDoctrineDataLoadTask($configuration->getEventDispatcher(), new sfFormatter());
-$task->setConfiguration($configuration);
-$task->run(dirname(__FILE__).'/../fixtures');
-
-$conn = Doctrine_Manager::getInstance()->getCurrentConnection();
-$conn->clear();
+  $snsConfig = Doctrine::getTable('SnsConfig');
+  $snsConfig->set('opOpenSocialPlugin_test_revision', $testRevision);
+}
